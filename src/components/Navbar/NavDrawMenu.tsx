@@ -1,7 +1,6 @@
 import { FC, ReactElement } from "react";
 import { NavLink } from "react-router-dom";
 import { INavData, navData } from "../../mocks/navData";
-import { OnclickEvent } from "../../models/types";
 
 interface IProps {
   handleOnNavCLick: () => void;
