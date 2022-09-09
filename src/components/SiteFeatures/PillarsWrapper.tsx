@@ -10,6 +10,9 @@ export const PillarsWrapper: FC<IProps> = (props: IProps) => {
 
   return (
     <div
+      data-aos="zoom-in-left"
+      data-aos-easing="linear"
+      data-aos-duration="1500"
       className={classNames("ImgText_Section", {
         "ImgText_Section--Reverse": isReverse,
       })}
