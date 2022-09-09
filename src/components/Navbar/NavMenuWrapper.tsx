@@ -1,16 +1,22 @@
-import { useRef } from "react";
+import { FC, ReactElement } from "react";
 import { MenuIcon } from "../../assets/icons/Menu.icon";
-import useHover from "../../custom-hooks/useHover";
 import { INavData, navData } from "../../mocks/navData";
+import { OnclickEvent } from "../../models/types";
 import { NavMenuItem } from "./NavMenuItem";
 
-export const NavMenuWrapper = () => {
-  const hoverRef = useRef(null);
-  const isShown = useHover(hoverRef);
+interface IProps {
+  handleOnNavCLick: (e: OnclickEvent) => void;
+}
+
+export const NavMenuWrapper: FC<IProps> = (props: IProps): ReactElement => {
+  const { handleOnNavCLick } = props;
 
   return (
     <div className="Header__FlexItem Header__FlexItem--fill">
-      <button className="Header__Icon Icon-Wrapper--clickable hidden-desk">
+      <button
+        className="Header__Icon Icon-Wrapper--clickable hidden-desk"
+        onClick={handleOnNavCLick}
+      >
         <MenuIcon />
       </button>
       <div className="Header__MainNav hidden-pocket hidden-lap">

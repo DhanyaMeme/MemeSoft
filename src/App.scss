@@ -374,8 +374,7 @@ body {
 
 .Link--secondary:hover,
 .Link--secondary.is-active {
-  // color: #6a6a6a;
-  color: var(--main-color-2);
+  color: #6a6a6a;
 }
 
 .Link--underlineNative {
@@ -1201,6 +1200,59 @@ h6 {
     .HorizontalList__Item {
       margin-right: 21px;
       margin-left: 21px;
+    }
+  }
+}
+
+/**
+ * ----------------------------------------------------------------------------
+ * LinkList
+ * ----------------------------------------------------------------------------
+ */
+
+.Linklist {
+  list-style: none;
+  padding: 0;
+}
+
+.Linklist__Item {
+  position: relative;
+  display: block;
+  margin-bottom: 12px;
+  width: 100%;
+  line-height: 1.5;
+  text-align: left;
+  transition: all 0.2s ease-in-out;
+
+  &:last-child {
+    margin-bottom: 0 !important;
+  }
+
+  &::before {
+    position: absolute;
+    content: "";
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    top: calc(50% - 3px);
+    left: 0;
+    border-radius: 100%;
+    background: #5c5c5c;
+    opacity: 0;
+    transition: opacity 0.1s ease-in-out;
+  }
+
+  & > .Link {
+    display: block;
+    width: 100%;
+    text-align: inherit;
+  }
+
+  &.is-selected {
+    padding-left: 18px;
+    &::before {
+      opacity: 1;
+      transition-delay: 0.1s;
     }
   }
 }

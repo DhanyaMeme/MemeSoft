@@ -8,8 +8,6 @@ const LogoWrapper = () => {
           <img
             className="Header__LogoImage"
             src={"images/logo.svg"}
-            // width="100"
-            // style={{ height: "60px" }}
             alt="MemeSoft"
           />
         </NavLink>

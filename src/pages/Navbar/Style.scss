@@ -86,7 +86,7 @@
 
     &.is-active {
       .Heading {
-        color: #212326;;
+        color: #212326;
       }
 
       .Header__LinkSpacer:after {
@@ -97,7 +97,7 @@
 
   @media screen and (max-width: 640px) {
     .Header__LogoImage {
-      height: 40px !important;
+      height: 30px !important;
     }
   }
 
@@ -108,6 +108,20 @@
 
     .Header__LogoImage {
       max-width: 100%;
+    }
+  }
+}
+
+.SidebarMenu {
+  height: 100%;
+
+  .Drawer__Main {
+    padding-top: 26px;
+  }
+
+  @media screen and (min-width: 1008px) {
+    .Drawer__Footer::before {
+      height: 70px;
     }
   }
 }
