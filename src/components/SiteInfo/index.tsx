@@ -22,7 +22,13 @@ export const SiteInfo = () => {
                 key={index}
                 className="Grid__Cell 1/2--phone 1/2--tablet-and-up 1/4--lap-and-up"
               >
-                <div className="CollectionItem__Wrapper">
+                <div
+                  className="CollectionItem__Wrapper"
+                  data-aos="flip-left"
+                  data-aos-easing="linear"
+                  data-aos-duration="2000"
+                  data-aos-once="true"
+                >
                   <div className="CollectionItem__ImageWrapper">
                     <ImageWrapper
                       src="https://cdn.shopify.com/shopifycloud/brochure/assets/merchants/blue-tokai/home-example-small-4144844351e226a9896cffee4bebdaeecb17897116c33a753bfd086b8b621e74.jpg"
@@ -45,7 +51,12 @@ export const SiteInfo = () => {
                 key={index}
                 className="Grid__Cell 1/2--phone 1/2--tablet-and-up 1/4--lap-and-up"
               >
-                <div className="CollectionItem__Wrapper">
+                <div
+                  className="CollectionItem__Wrapper"
+                  data-aos="flip-left"
+                  data-aos-duration="3000"
+                  data-aos-once="true"
+                >
                   <UserIcon />
                   <h3 className="Heading">Hire a Shopify expert</h3>
                   <p>
