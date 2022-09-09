@@ -6,10 +6,10 @@ export const Banner = () => {
       <div className="Grid">
         <div className="Grid__Cell 1/2--desk">
           <div className="homepage-hero-content">
-            <h1 className="heading--jumbo Text--highlight">
+            <h1 className="Heading Text--highlight">
               The easiest way to sell online in India
             </h1>
-            <p className="heading--subhead  Text--subdued u-h2">
+            <p className="Text--subdued u-h3">
               Try one of the most powerful platforms on the market for free.
               <br /> No technical knowledge needed.
             </p>
