@@ -2,6 +2,7 @@ import { FC, ReactElement } from "react";
 import { MenuIcon } from "../../assets/icons/Menu.icon";
 import { INavData, navData } from "../../mocks/navData";
 import { OnclickEvent } from "../../models/types";
+import { TextButton } from "../../ui-kits/TextButton/TextButton.component";
 import { NavMenuItem } from "./NavMenuItem";
 
 interface IProps {
@@ -24,6 +25,9 @@ export const NavMenuWrapper: FC<IProps> = (props: IProps): ReactElement => {
           {navData.map((item: INavData) => (
             <NavMenuItem item={item} key={item.title} />
           ))}
+          <li className="HorizontalList__Item">
+            <TextButton isSmall>JOIN</TextButton>
+          </li>
         </ul>
       </div>
     </div>

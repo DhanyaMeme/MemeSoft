@@ -8,7 +8,7 @@ export const Home = () => {
     <>
       <Banner
         url={"images/homeBanner.png"}
-        title="The easiest way to sell online in India"
+        title="The easiest way to sell online in Global"
         subTitle={[
           "Try one of the most powerful platforms on the market for free.",
           "No technical knowledge needed.",

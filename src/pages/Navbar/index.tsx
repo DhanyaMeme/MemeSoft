@@ -7,6 +7,7 @@ import { NavMenuWrapper } from "../../components/Navbar/NavMenuWrapper";
 import useScrollPosition from "../../custom-hooks/useScrollPosition";
 import { OnclickEvent } from "../../models/types";
 import { Drawer } from "../../ui-kits/Drawer/Drawer.compenent";
+import { TextButton } from "../../ui-kits/TextButton/TextButton.component";
 import "./Style.scss";
 
 export const NavBar = forwardRef<HTMLDivElement>((_, ref) => {

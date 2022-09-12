@@ -19,6 +19,7 @@ const ButtonStretched = css`
 const ButtonSmall = css`
   font-size: 12px;
   padding: 10px 20px;
+  font-weight: 500;
 `;
 
 export const ButtonSeparatorDot = css`
@@ -91,26 +92,42 @@ const Button = styled.button<IButtonStyleProps>`
 
 const PrimaryButton = styled(Button)`
   color: white;
-  border-color: #000000;
+  border-color: #55c57a;
 
   &::before {
-    background-color: #000000;
+    background-color: #55c57a;
   }
 
   @media (-moz-touch-enabled: 0), (hover: hover) {
     &:not([disabled]):hover {
-      color: #000000;
+      color: #55c57a;
+      background-color: transparent;
+    }
+  }
+`;
+
+const OverlayButton = styled(Button)`
+  color: #55c57a;
+  border-color: #ffffff;
+
+  &::before {
+    background-color: #ffffff;
+  }
+
+  @media (-moz-touch-enabled: 0), (hover: hover) {
+    &:not([disabled]):hover {
+      color: #ffffff;
       background-color: transparent;
     }
   }
 `;
 
 const SecondaryButton = styled(Button)`
-  color: #939393;
-  border: 1px solid rgba(147, 147, 147, 0.2);
+  color: #55c57a;
+  border: 1px solid #55c57a;
 
   &::before {
-    background-color: #000000;
+    background-color: #55c57a;
     transform-origin: right center;
     transform: scale(0, 1);
   }
@@ -118,52 +135,8 @@ const SecondaryButton = styled(Button)`
   @media (-moz-touch-enabled: 0), (hover: hover) {
     &:not([disabled]):hover {
       color: white;
-      border-color: #000000;
+      border-color: #55c57a;
     }
-    &:not([disabled]):hover::before {
-      transform-origin: left center;
-      transform: scale(1, 1);
-    }
-  }
-`;
-
-const OverlayButton = styled(Button)`
-  color: white;
-  border-color: white;
-
-  &::before {
-    background-color: #ffffff;
-    transform-origin: right center;
-    transform: scale(0, 1);
-  }
-
-  @media (-moz-touch-enabled: 0), (hover: hover) {
-    &:not([disabled]):hover {
-      color: #000000;
-    }
-    &:not([disabled]):hover::before {
-      transform-origin: left center;
-      transform: scale(1, 1);
-    }
-  }
-`;
-
-const OverlayInvertedButton = styled(Button)`
-  color: #000000;
-  border-color: #ffffff;
-  background-color: #ffffff;
-
-  &::before {
-    background-color: #ffffff;
-    transform-origin: right center;
-    transform: scale(0, 1);
-  }
-
-  @media (-moz-touch-enabled: 0), (hover: hover) {
-    &:not([disabled]):hover {
-      background-color: transparent;
-    }
-
     &:not([disabled]):hover::before {
       transform-origin: left center;
       transform: scale(1, 1);
@@ -224,5 +197,4 @@ export {
   LoadingSpinner,
   ButtonGroup,
   OverlayButton,
-  OverlayInvertedButton,
 };

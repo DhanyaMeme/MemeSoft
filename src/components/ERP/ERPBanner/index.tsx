@@ -1,4 +1,7 @@
-import { TextButton } from "../../../ui-kits/TextButton/TextButton.component";
+import {
+  BUTTON_TYPE_CLASSES,
+  TextButton,
+} from "../../../ui-kits/TextButton/TextButton.component";
 import { ButtonGroup } from "../../../ui-kits/TextButton/TextButton.styles";
 import "./Style.scss";
 
@@ -15,8 +18,12 @@ export const ERPBanner = () => {
           usuarios felices.
         </p>
         <ButtonGroup className="ERP__Hero--btns">
-          <TextButton isSmall>Register</TextButton>
-          <TextButton isSmall>Login</TextButton>
+          <TextButton isSmall buttonType={BUTTON_TYPE_CLASSES.overlay}>
+            Register
+          </TextButton>
+          <TextButton isSmall buttonType={BUTTON_TYPE_CLASSES.overlay}>
+            Login
+          </TextButton>
         </ButtonGroup>
       </div>
     </div>

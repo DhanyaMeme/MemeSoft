@@ -69,7 +69,7 @@ export const homeFeatureData: IFeatureProps = {
         "Powerfull Inventory Management",
         "Performance & Analytical Reports",
       ],
-      url: "images/home/Pillar1.png",
+      url: "https://cdn.shopify.com/shopifycloud/brochure/assets/home/market-small-084eab2d72b510555838c446501d27dd7380585450efcaaa97453289b2b69c79.jpg",
     },
   ],
 };
