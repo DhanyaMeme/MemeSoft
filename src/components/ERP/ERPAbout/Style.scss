@@ -1,3 +1,16 @@
-.ERP_About{
-    
+.ERPAbout {
+  .ERPAbout__Composition--image {
+    border-radius: 2px;
+    transition: all 0.2s;
+    margin-bottom: 1rem;
+
+    &:hover {
+      transform: scale(1.05) translateY(-0.5rem);
+    }
+  }
+  @media screen and (max-width: 1007px) {
+    .ERPInfo__Composition {
+      margin-top: 3rem !important;
+    }
+  }
 }
