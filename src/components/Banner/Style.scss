@@ -19,8 +19,10 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    padding-left: 5%;
-    padding-right: 5%;
+    padding: 10% 5%;
+    p {
+      margin-bottom: 0;
+    }
   }
 
   .homepage-hero-image {

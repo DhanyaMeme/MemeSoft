@@ -1,6 +1,7 @@
 import { Navigate } from "react-router";
-import BaseLayout from "../layout/BaseLayout";
+import { ERP } from "../pages/ERP";
 import { Home } from "../pages/Home";
+import BaseLayout from "../layout/BaseLayout";
 
 const PagesInfo = {
   path: "/",
@@ -24,7 +25,7 @@ const PagesInfo = {
     },
     {
       path: "erp",
-      element: <Home />,
+      element: <ERP />,
     },
     {
       path: "pos",

@@ -1,18 +1,28 @@
+import { FC } from "react";
 import "./Style.scss";
 
-export const Banner = () => {
+interface IProps {
+  url: string;
+  title: string;
+  subTitle: string[];
+}
+
+export const Banner: FC<IProps> = (props: IProps) => {
+  const { url, title, subTitle } = props;
+
   return (
     <section className="section homepage-hero">
       <div className="Grid">
         <div className="Grid__Cell 1/2--desk">
           <div className="homepage-hero-content">
-            <h1 className="Heading Text--highlight">
-              The easiest way to sell online in India
-            </h1>
-            <p className="Text--subdued u-h3">
-              Try one of the most powerful platforms on the market for free.
-              <br /> No technical knowledge needed.
-            </p>
+            <div>
+              <h1 className="Heading Text--highlight">{title}</h1>
+              {subTitle.map((item: string, index: number) => (
+                <p className="Text--subdued u-h3" key={index}>
+                  {item}
+                </p>
+              ))}
+            </div>
           </div>
         </div>
       </div>
@@ -20,7 +30,7 @@ export const Banner = () => {
         <img
           className="image"
           sizes="100vw"
-          src="https://cdn.shopify.com/shopifycloud/brochure/assets/home/hero/in-hero-product-small-0c64c4c1013fc8ac477cb5ff62bf5b56b2903aec697e6b708b90d3b65a09baf8.jpg"
+          src={url}
           alt="India product imagery with mobile view"
         />
       </div>

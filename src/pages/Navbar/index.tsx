@@ -22,8 +22,8 @@ export const NavBar = forwardRef<HTMLDivElement>((_, ref) => {
 
   return (
     <section
-      className={classNames("HeaderSection", {
-        sticky: pathname === "/home",
+      className={classNames("HeaderSection sticky", {
+        // sticky: pathname === "/home",
       })}
       ref={ref}
     >
