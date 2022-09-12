@@ -1,6 +1,7 @@
 import { Banner } from "../../components/Banner";
 import { SiteFeatures } from "../../components/SiteFeatures";
 import { SiteInfo } from "../../components/SiteInfo";
+import { homeFeatureData, homeInfoData } from "./data";
 
 export const Home = () => {
   return (
@@ -13,8 +14,8 @@ export const Home = () => {
           "No technical knowledge needed.",
         ]}
       />
-      <SiteInfo />
-      <SiteFeatures />
+      <SiteInfo data={homeInfoData} />
+      <SiteFeatures data={homeFeatureData} />
     </>
   );
 };

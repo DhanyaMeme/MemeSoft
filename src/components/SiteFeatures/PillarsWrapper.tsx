@@ -1,12 +1,14 @@
-import classNames from "classnames";
 import { FC } from "react";
+import classNames from "classnames";
+import { IPillar } from "../../models/interfaces";
 
 interface IProps {
+  pillarData: IPillar;
   isReverse?: boolean;
 }
 
 export const PillarsWrapper: FC<IProps> = (props: IProps) => {
-  const { isReverse } = props;
+  const { isReverse, pillarData } = props;
 
   return (
     <div
@@ -22,19 +24,18 @@ export const PillarsWrapper: FC<IProps> = (props: IProps) => {
         <div className="image">
           <img
             className="lazyload"
-            src="https://cdn.shopify.com/shopifycloud/brochure/assets/home/market-small-084eab2d72b510555838c446501d27dd7380585450efcaaa97453289b2b69c79.jpg"
+            src={pillarData.url}
+            alt={pillarData.name}
           />
         </div>
       </div>
       <div className="Text_Sec">
-        <h2 className="Heading">Breaking the myth</h2>
-        <p className="Text--subdued">
-          Wool gets a bad rep for being itchy, heavy and uncomfortable – but the
-          Merino Wool that goes into our shoes is soft as silk and fine as a
-          feather. This ultra-fine wool is ridiculously soft, so our shoes feel
-          more like a second skin. You might even forget you’re wearing shoes at
-          all.
-        </p>
+        <h2 className="Heading">{pillarData.name}</h2>
+        <ul className="Text--subdued">
+          {pillarData.features.map((item, i) => (
+            <li key={i}>{item}</li>
+          ))}
+        </ul>
       </div>
     </div>
   );

@@ -1,5 +1,7 @@
 .SiteInfo {
-  background-image: linear-gradient(to right bottom, #7ed56f, #28b485);
+  // background-image: linear-gradient(to right bottom, #7ed56f, #28b485);
+  background-image: linear-gradient(to right bottom, #0bab64, #3bb78f);
+
   color: transparent;
   color: #fff !important;
 
@@ -54,37 +56,10 @@
       object-position: center center;
     }
 
-    .CollectionItem__Content {
-      padding-top: 10px;
-      transform: none;
-      text-align: center;
-      transition: transform 0.5s ease;
-
-      .UnderLined__Text {
-        display: inline-block;
-        position: relative;
-
-        &::after {
-          content: "";
-          position: absolute;
-          bottom: 0;
-          left: 0;
-          width: 100%;
-          border-bottom: 2px solid;
-          border-bottom-color: currentColor;
-          transform: scaleX(0);
-          transform-origin: 0 50%;
-          transition: transform 0.5s ease;
-        }
-      }
-    }
-
     @media (-moz-touch-enabled: 0), (hover: hover) {
       .CollectionItem__Wrapper:hover {
-        .CollectionItem__Content {
-          .UnderLined__Text::after {
-            transform: scaleX(1);
-          }
+        .CollectionItem__ImageWrapper {
+          transform: scale(1.3);
         }
       }
     }

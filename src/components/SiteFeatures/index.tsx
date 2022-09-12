@@ -1,22 +1,28 @@
+import { FC } from "react";
+import { PillarsWrapper } from "./PillarsWrapper";
 import { PageWidth } from "../../ui-kits/PageWidth";
+import { IFeatureProps, IPillar } from "../../models/interfaces";
 import { SectionHeader } from "../../ui-kits/Sections/SectionHeader/SectionHeader";
 import { SectionWrapper } from "../../ui-kits/Sections/SectionWrapper/SectionWrapper";
-import { PillarsWrapper } from "./PillarsWrapper";
 import "./Style.scss";
 
-export const SiteFeatures = () => {
+interface IProps {
+  data: IFeatureProps;
+}
+
+export const SiteFeatures: FC<IProps> = (props: IProps) => {
+  const { title, subTitle, pillars } = props.data;
   return (
     <SectionWrapper isbordered>
       <PageWidth isNarrow>
-        <SectionHeader
-          heading="With you wherever you’re going"
-          subHeading="One platform with all the ecommerce and point of sale features you need to start, run, and grow your business."
-        />
-        <>
-          <PillarsWrapper />
-          <PillarsWrapper isReverse={true} />
-          <PillarsWrapper />
-        </>
+        <SectionHeader heading={title} subHeading={subTitle} />
+        {pillars.map((item: IPillar, index: number) => (
+          <PillarsWrapper
+            isReverse={index % 2 !== 0}
+            pillarData={item}
+            key={index}
+          />
+        ))}
       </PageWidth>
     </SectionWrapper>
   );
