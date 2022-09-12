@@ -27,21 +27,26 @@ export const navData: INavData[] = [
   },
   {
     id: 5,
-    title: "Pos Solution",
-    path: "pos-solution",
+    title: "Pos",
+    path: "pos",
   },
   {
     id: 6,
+    title: "Solution",
+    path: "solution",
+  },
+  {
+    id: 7,
     title: "Security",
     path: "security",
   },
   {
-    id: 7,
+    id: 8,
     title: "Pricing",
     path: "pricing",
   },
   {
-    id: 8,
+    id: 9,
     title: "Contact",
     path: "contact",
   },

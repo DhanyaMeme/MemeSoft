@@ -110,6 +110,16 @@
       max-width: 100%;
     }
   }
+
+  &.sticky {
+    margin-bottom: calc(-1 * var(--header-height));
+    &:not(:hover) {
+      .Header--transparent {
+        box-shadow: none;
+        background: transparent;
+      }
+    }
+  }
 }
 
 .SidebarMenu {

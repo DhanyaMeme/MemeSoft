@@ -27,7 +27,11 @@ const PagesInfo = {
       element: <Home />,
     },
     {
-      path: "pos-solution",
+      path: "pos",
+      element: <Home />,
+    },
+    {
+      path: "solution",
       element: <Home />,
     },
     {
