@@ -1,5 +1,3 @@
-import React from "react";
-import LazyLoad from "../../../ui-kits/LazyComponent";
 import { PageWidth } from "../../../ui-kits/PageWidth";
 import { SectionHeader } from "../../../ui-kits/Sections/SectionHeader/SectionHeader";
 import { SectionWrapper } from "../../../ui-kits/Sections/SectionWrapper/SectionWrapper";
@@ -21,7 +19,6 @@ export const ERPAbout = () => {
               </div>
             }
           />
-          <h2></h2>
           <div className="Grid">
             <div
               className="Grid__Cell   1/2--lap-and-up"
