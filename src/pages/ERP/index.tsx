@@ -1,9 +1,11 @@
-import { TextBanner } from "../../components/TextBanner";
+import { ERPAbout } from "../../components/ERP/ERPAbout";
+import { ERPBanner } from "../../components/ERP/ERPBanner";
 
 export const ERP = () => {
   return (
     <>
-      <TextBanner />
+      <ERPBanner />
+      <ERPAbout/>
     </>
   );
 };

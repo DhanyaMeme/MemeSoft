@@ -1,10 +1,10 @@
-import { TextButton } from "../../ui-kits/TextButton/TextButton.component";
-import { ButtonGroup } from "../../ui-kits/TextButton/TextButton.styles";
+import { TextButton } from "../../../ui-kits/TextButton/TextButton.component";
+import { ButtonGroup } from "../../../ui-kits/TextButton/TextButton.styles";
 import "./Style.scss";
 
-export const TextBanner = () => {
+export const ERPBanner = () => {
   return (
-    <div className="ERP__Hero">
+    <div className="ERP__Hero" data-aos="zoom-in-up">
       <div className="ERP__Hero--Content Heading">
         <h2>Empleados increíbles merecen</h2>
         <h1>un software increíble</h1>
