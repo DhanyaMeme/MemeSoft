@@ -2,6 +2,7 @@ import { Navigate } from "react-router";
 import { ERP } from "../pages/ERP";
 import { Home } from "../pages/Home";
 import BaseLayout from "../layout/BaseLayout";
+import { Pricing } from "../pages/Pricing";
 
 const PagesInfo = {
   path: "/",
@@ -41,7 +42,7 @@ const PagesInfo = {
     },
     {
       path: "pricing",
-      element: <Home />,
+      element: <Pricing />,
     },
     {
       path: "contact",

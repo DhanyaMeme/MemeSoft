@@ -1,0 +1,24 @@
+.PricingCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 4px 45px #d2d5d9;
+  background-color: #ffffff;
+  border-radius: 4px;
+  margin-bottom: 32px;
+  padding: 2.5em 3.125em;
+  height: 250px;
+
+  &__PlanRecommended {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-transform: uppercase;
+    padding: 0.3125em 1.25em;
+    border-radius: 1.5625em;
+    background-color: #55c57a;
+    color: #ffffff !important;
+  }
+}
