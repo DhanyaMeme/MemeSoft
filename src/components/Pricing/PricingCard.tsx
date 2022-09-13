@@ -11,7 +11,12 @@ export const PricingCard: FC<IProps> = ({ pricingData }: IProps) => {
   const { planName, planPricing, planDescription, isRecommended } = pricingData;
 
   return (
-    <div className="PricingCard">
+    <div
+      className="PricingCard"
+      data-aos="zoom-in"
+      data-aos-once="true"
+      data-aos-duration="1500"
+    >
       <IF condition={isRecommended}>
         <span className="Heading PricingCard__PlanRecommended u-h6">
           Recommended
