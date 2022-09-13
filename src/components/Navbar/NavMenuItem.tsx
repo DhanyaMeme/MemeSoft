@@ -1,8 +1,10 @@
+import { FC, ReactElement, useRef } from "react";
 import classnames from "classnames";
-import React, { FC, ReactElement, useRef } from "react";
 import { NavLink } from "react-router-dom";
 import useHover from "../../custom-hooks/useHover";
 import { INavData } from "../../mocks/navData";
+import { IF } from "../../ui-kits/IF";
+import { isEmpty } from "../../utils/script";
 
 interface IProps {
   item: INavData;
@@ -20,9 +22,28 @@ export const NavMenuItem: FC<IProps> = (props: IProps): ReactElement => {
       })}
       ref={hoverRef}
     >
-      <NavLink to={`/${item.path}`} className="Heading Header__LinkSpacer">
+      <NavLink
+        to={`/${item.path}`}
+        className={classnames("Heading", {
+          Header__LinkSpacer: !item.dropDown,
+        })}
+      >
         {item.title.toUpperCase()}
       </NavLink>
+
+      <IF condition={!isEmpty(item.dropDown)}>
+        <div className="DropdownMenu u-h7 Heading" aria-hidden={!isShown}>
+          <ul className="Linklist">
+            {item.dropDown?.map((submenu: string, index: number) => (
+              <li className="Linklist__Item" key={submenu + index}>
+                <button className="Link Text--subdued  Link--primary">
+                  {submenu}
+                </button>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </IF>
     </li>
   );
 };

@@ -2,6 +2,7 @@ export interface INavData {
   id: number;
   title: string;
   path: string;
+  dropDown?: string[];
 }
 
 export const navData: INavData[] = [
@@ -27,7 +28,7 @@ export const navData: INavData[] = [
   },
   {
     id: 5,
-    title: "Pos",
+    title: "POS",
     path: "pos",
   },
   {
@@ -44,6 +45,7 @@ export const navData: INavData[] = [
     id: 8,
     title: "Pricing",
     path: "pricing",
+    dropDown: ["Ecommerce", "ERP", "Mobile Apps", "POS"],
   },
   {
     id: 9,

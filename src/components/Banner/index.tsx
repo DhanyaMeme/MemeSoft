@@ -11,7 +11,7 @@ export const Banner: FC<IProps> = (props: IProps) => {
   const { url, title, subTitle } = props;
 
   return (
-    <section className="section homepage-hero">
+    <section className="section homepage-hero" data-aos="zoom-in-up">
       <div className="Grid">
         <div className="Grid__Cell 1/2--desk">
           <div className="homepage-hero-content">

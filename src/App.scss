@@ -1209,6 +1209,58 @@ h6 {
 
 /**
  * ----------------------------------------------------------------------------
+ * Dropdown menu
+ * ----------------------------------------------------------------------------
+ */
+.DropdownMenu {
+  position: absolute;
+  visibility: hidden;
+  opacity: 0;
+  top: 100%;
+  padding: 25px 0;
+  min-width: 200px;
+  max-width: 270px;
+  width: max-content;
+  text-align: left;
+  background: white;
+  border: 1px solid #e7e7e7;
+  border-top: none;
+  transition: all 0.3s ease-in-out;
+
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    background: #55c57a;
+    width: 100%;
+    height: 2px;
+    transform: scale(0, 1);
+    transform-origin: left center;
+    transition: transform 0.3s;
+  }
+
+  &[aria-hidden="false"] {
+    opacity: 1;
+    visibility: visible;
+
+    &::before {
+      transform: scale(1, 1);
+    }
+  }
+
+  .Link {
+    padding-left: 25px;
+    padding-right: 40px;
+  }
+
+  .Linklist__Item:hover > .Link--secondary {
+    color: #939393;
+  }
+}
+
+/**
+ * ----------------------------------------------------------------------------
  * LinkList
  * ----------------------------------------------------------------------------
  */
