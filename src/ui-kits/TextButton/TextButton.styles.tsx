@@ -19,7 +19,6 @@ const ButtonStretched = css`
 const ButtonSmall = css`
   font-size: 12px;
   padding: 10px 20px;
-  font-weight: 500;
 `;
 
 export const ButtonSeparatorDot = css`
@@ -40,6 +39,7 @@ const Button = styled.button<IButtonStyleProps>`
   border: 1px solid transparent;
   border-radius: 0;
   font-size: 14px;
+  font-weight: 500;
   text-align: center;
   letter-spacing: 0.2em;
   font-style: normal;

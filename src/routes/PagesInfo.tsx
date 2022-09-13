@@ -3,6 +3,7 @@ import { ERP } from "../pages/ERP";
 import { Home } from "../pages/Home";
 import BaseLayout from "../layout/BaseLayout";
 import { Pricing } from "../pages/Pricing";
+import { Contact } from "../pages/Contact";
 
 const PagesInfo = {
   path: "/",
@@ -46,7 +47,7 @@ const PagesInfo = {
     },
     {
       path: "contact",
-      element: <Home />,
+      element: <Contact />,
     },
   ],
 };
