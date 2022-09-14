@@ -7,6 +7,7 @@ import { FormTextInput } from "./FormInputs/FormTextInput";
 import { FormCheckInput } from "./FormInputs/FormCheckbox";
 import { FormPasswordInput } from "./FormInputs/FormPasswordInput";
 import "./Style.scss";
+import { FormSelectInput } from "./FormInputs/FormSelectInput";
 
 export {
   Form,
@@ -17,4 +18,5 @@ export {
   FormTextInput,
   FormCheckInput,
   FormPasswordInput,
+  FormSelectInput,
 };

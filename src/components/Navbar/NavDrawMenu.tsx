@@ -12,7 +12,11 @@ export const NavDrawMenu: FC<IProps> = (props: IProps): ReactElement => {
   return (
     <ul className="Linklist">
       {navData.map((item: INavData) => (
-        <li className="Linklist__Item u-h6" onClick={handleOnNavCLick}>
+        <li
+          className="Linklist__Item u-h6"
+          onClick={handleOnNavCLick}
+          key={item.id}
+        >
           <NavLink
             to={`/${item.path}`}
             className="Heading Link Link--secondary"
