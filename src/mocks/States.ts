@@ -54559,7 +54559,6 @@ export const States: IStates[] = [
     country_code: "YE",
     country_name: "Yemen",
     state_code: "AD",
-
     latitude: "12.82574810",
     longitude: "44.79438040",
   },
@@ -54999,8 +54998,11 @@ export const States: IStates[] = [
     country_code: "ZW",
     country_name: "Zimbabwe",
     state_code: "MI",
-
     latitude: "-19.05520090",
     longitude: "29.60354950",
   },
 ];
+
+export const getStates = (currencyCode: string) => {
+  return States.filter((item: IStates) => item.country_code === currencyCode).map((item) => item.name);
+};

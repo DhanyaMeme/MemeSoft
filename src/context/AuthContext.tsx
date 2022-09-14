@@ -1,13 +1,11 @@
 import { createContext, ReactNode, useContext, useState } from "react";
 import { AxiosRequestConfig } from "axios";
 import { useNavigate } from "react-router-dom";
-import { fetchData } from "../services/axios";
-
 import { isString } from "../utils/text";
+import { fetchData } from "../services/axios";
+import { InputFocusEvent } from "../models/types";
 import { useLocalStorage } from "../custom-hooks/useLocalStorage";
 import { IFormState, InputBaseProps, Messages } from "../models/interfaces";
-import { InputFocusEvent } from "../models/types";
-
 
 type AuthProviderProps = {
   children: ReactNode;
