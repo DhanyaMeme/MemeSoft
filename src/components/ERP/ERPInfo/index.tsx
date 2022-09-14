@@ -14,7 +14,10 @@ export const ERPInfo = () => {
               data-aos-duration="1500"
               data-aos-once="true"
             >
-              <img src="https://odoocdn.com/openerp_website/static/src/img/2016/crm/ipad-landscape-mockup.png" />
+              <img
+                src="https://odoocdn.com/openerp_website/static/src/img/2016/crm/ipad-landscape-mockup.png"
+                alt="erp"
+              />
             </div>
             <div
               className="Grid__Cell 1/2--lap-and-up"
@@ -44,7 +47,10 @@ export const ERPInfo = () => {
                 </p>
                 <div className="ERPInfo__Testimonial">
                   <div className="thumb">
-                    <img src="https://odoocdn.com/openerp_website/static/src/img/2016/testimonials/marc_peeters_sodexo.png" />
+                    <img
+                      src="https://odoocdn.com/openerp_website/static/src/img/2016/testimonials/marc_peeters_sodexo.png"
+                      alt="erp"
+                    />
                   </div>
                   <blockquote>
                     <p>
