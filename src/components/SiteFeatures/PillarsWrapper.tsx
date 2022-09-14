@@ -31,11 +31,7 @@ export const PillarsWrapper: FC<IProps> = (props: IProps) => {
       </div>
       <div className="Text_Sec">
         <h2 className="Heading">{pillarData.name}</h2>
-        <ul className="Text--subdued">
-          {pillarData.features.map((item, i) => (
-            <li key={i}>{item}</li>
-          ))}
-        </ul>
+        <p className="Text--subdued">{pillarData.features}</p>
       </div>
     </div>
   );

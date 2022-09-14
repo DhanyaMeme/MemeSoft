@@ -1,6 +1,6 @@
 import { IFeatureProps, IInfoProps } from "../../models/interfaces";
 
-export const homeInfoData: IInfoProps = {
+export const ecommerceInfoData: IInfoProps = {
   banner: {
     title: "Bring your business online",
     subTitle:
@@ -36,7 +36,7 @@ export const homeInfoData: IInfoProps = {
   ],
 };
 
-export const homeFeatureData: IFeatureProps = {
+export const ecommerceFeatureData: IFeatureProps = {
   title: "Unlock Your Retail Super Selling Power",
   subTitle:
     "One platform with all the ecommerce and point of sale features you need to start, run, and grow your business.",
@@ -45,18 +45,18 @@ export const homeFeatureData: IFeatureProps = {
       name: "Breaking the myth",
       url: "images/home/Pillar1.png",
       features:
-        "Our customer base is globally distributed. Our focus is to offer the best value for money in the world fashion clothing and accessories.",
+        "Ecommerce is the most popular form of online shopping. It is a type of retail that makes products available to customers through the internet. Ecommerce has been around for more than two decades now and it has grown in popularity because of how convenient it is for people to shop online.",
     },
     {
       name: "Breaking the myth",
       features:
-        "The company is led by a leading entrepreneur with vast experience to provide a competitive, value-driven retail strategy with high quality fashion and accessories.",
+        "The ecommerce industry is growing rapidly, and with the advent of AI assistants, we may see some changes in the near future.The first change would be that AI will be able to predict which products are likely to sell out or experience high demand. This would allow stores to quickly order more inventory before their competitors can do so. Secondly, AI assistants can help businesses identify customer trends and purchase patterns so that they can better serve their customers' needs in the future.",
       url: "images/home/Pillar2.png",
     },
     {
       name: "Breaking the myth",
       features:
-        "We are committed to continuously innovate, capture new market opportunities and establish new business models to ensure our position as one of the world's leading fashion and accessory brands.",
+        "Design and build your own high-quality websites. Whether you’re promoting your business, showcasing your work, opening your store or starting a blog—you can do it all with the US.Start from scratch or choose from over 500 designer-made templates that you can fully  customize using the drag and drop website builder. Make your site come to life with video backgrounds, scroll effects and animation. With the Wix Editor, you can create your own professional website exactly the way you want it.",
       url: "https://cdn.shopify.com/shopifycloud/brochure/assets/home/market-small-084eab2d72b510555838c446501d27dd7380585450efcaaa97453289b2b69c79.jpg",
     },
   ],

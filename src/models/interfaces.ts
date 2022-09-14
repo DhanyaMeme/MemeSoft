@@ -39,7 +39,7 @@ export interface IFeature {
 export interface IPillar {
   name: string;
   url: string;
-  features: string[];
+  features: string;
   // icons: string;
 }
 
