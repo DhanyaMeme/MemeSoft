@@ -25,11 +25,12 @@ import {
   InputFocusEvent,
   OnSubmitEvent,
 } from "../../../models/types";
-import { useAuth } from "../../../context/AuthContext";
+
 import { isEmpty } from "../../../utils/script";
+import { useAuth } from "../../../context/AuthContext";
 import { getDialCode } from "../../../mocks/Dialcodes";
-import { authService } from "../../../services/axiosServices";
 import { safeSetTimeout } from "../../../utils/generics";
+import { authService } from "../../../services/axiosServices";
 
 export const RegisterForm = () => {
   const { handleFormValidate, handleOnFocusEvent, updateData, navigateToHome } =

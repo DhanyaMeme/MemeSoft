@@ -5,6 +5,8 @@ import { Pricing } from "../pages/Pricing";
 import { Contact } from "../pages/Contact";
 import BaseLayout from "../layout/BaseLayout";
 import { Ecommerce } from "../pages/Ecommerce";
+import { Login } from "../pages/Auth/Login";
+import { Register } from "../pages/Auth/Register";
 
 const PagesInfo = {
   path: "/",
@@ -45,6 +47,14 @@ const PagesInfo = {
     {
       path: "pricing/:id",
       element: <Pricing />,
+    },
+    {
+      path: "login",
+      element: <Login />,
+    },
+    {
+      path: "register",
+      element: <Register />,
     },
     {
       path: "contact",
