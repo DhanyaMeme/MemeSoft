@@ -24,7 +24,9 @@ export const Pricing = () => {
 
   useEffect(() => {
     dispatch(setPricing(pathId));
-    dispatch(fetchSubcription(pathId));
+    if (!pricingList || !pricingList.length) {
+      dispatch(fetchSubcription(pathId));
+    }
   }, [dispatch, id]);
 
   return (
