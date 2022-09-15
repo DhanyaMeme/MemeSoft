@@ -10,7 +10,7 @@ import { NavMenuWrapper } from "../../components/Navbar/NavMenuWrapper";
 import "./Style.scss";
 
 export const NavBar = forwardRef<HTMLDivElement>((_, ref) => {
-  const path = usePath();
+  const { path } = usePath();
   const { scrollPosition } = useScrollPosition();
   const [isNavhidden, setNavHidden] = useState(true);
 

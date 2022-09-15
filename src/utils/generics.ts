@@ -46,3 +46,14 @@ export function findArrayItems<T, K extends keyof T>(
     });
   });
 }
+
+export function filterFalsyObject<T extends object, K extends keyof T>(obj: T) {
+  const objectKeys = Object.keys(obj) as Array<K>;
+  const newObj = {} as any;
+  objectKeys.forEach((key: K) => {
+    if (obj[key]) {
+      newObj[key] = obj[key];
+    }
+  });
+  return newObj;
+}

@@ -1,14 +1,14 @@
 import { FC } from "react";
-import { IPricing } from "../../pages/Pricing/data";
+import { IPricingData } from "../../redux/slices/nav/nav.type";
 import { IF } from "../../ui-kits/IF";
 import "./Style.scss";
 
 interface IProps {
-  pricingData: IPricing;
+  pricingData: IPricingData;
 }
 
 export const PricingCard: FC<IProps> = ({ pricingData }: IProps) => {
-  const { planName, planPricing, planDescription, isRecommended } = pricingData;
+  const { planename, fee, plancode, country } = pricingData;
 
   return (
     <div
@@ -17,15 +17,17 @@ export const PricingCard: FC<IProps> = ({ pricingData }: IProps) => {
       data-aos-once="true"
       data-aos-duration="1500"
     >
-      <IF condition={isRecommended}>
+      <IF condition={planename === "Premium"}>
         <span className="Heading PricingCard__PlanRecommended u-h6">
           Recommended
         </span>
       </IF>
-      <h2 className="Heading">{planName}</h2>
-      <p className="Text--subdued">{planDescription}</p>
+      <h2 className="Heading">{planename}</h2>
+      <p className="Text--subdued">
+        {country} - {plancode}
+      </p>
       <div className="u-h2 Heading">
-        Rs. <strong>{planPricing}</strong> /mo
+        Rs. <strong>{fee}</strong> /mo
       </div>
     </div>
   );

@@ -10,10 +10,17 @@ type ChildrenType = {
   children: React.ReactNode;
 };
 
+type AsyncData<T> = {
+  loading: boolean;
+  error: string | null;
+  data: T | null;
+};
+
 export type {
   OnclickEvent,
   OnSubmitEvent,
   ChildrenType,
   InputChangeEvent,
   InputFocusEvent,
+  AsyncData,
 };

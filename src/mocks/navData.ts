@@ -49,7 +49,7 @@ export const navData: INavData[] = [
   {
     id: 8,
     title: "Pricing",
-    path: "pricing",
+    path: "pricing/erp",
     dropDown: [
       {
         title: "POS",

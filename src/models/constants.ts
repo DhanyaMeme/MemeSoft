@@ -4,3 +4,9 @@ export const initialFormState = {
   submitSuccess: false,
   isButtonLoading: false,
 };
+
+export const initialAsyncData = {
+  loading: false,
+  error: null,
+  data: null,
+};
