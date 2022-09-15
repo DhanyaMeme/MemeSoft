@@ -66,7 +66,7 @@ export const RegisterInputs: registerInputProps[] = [
     label: "Phone Number",
     type: InputType.number,
     validation: [
-      { rule: validationRules.phone },
+      { rule: validationRules.phone ,args: false},
       { rule: validationRules.required },
     ],
   },
@@ -74,9 +74,8 @@ export const RegisterInputs: registerInputProps[] = [
     name: "mobile",
     label: "Alternate Number",
     type: InputType.number,
-    validation: [{ rule: validationRules.phone }],
+    validation: [{ rule: validationRules.phone, args: true }],
   },
-
   {
     name: "companyname",
     label: "Company Name",
@@ -110,15 +109,15 @@ export const RegisterInputs: registerInputProps[] = [
   {
     name: "state",
     label: "State",
-    type: InputType.select,
+    type: InputType.text,
     validation: [{ rule: validationRules.required }],
   },
-  {
-    name: "currency",
-    label: "Currency",
-    type: InputType.select,
-    validation: [{ rule: validationRules.required }],
-  },
+  // {
+  //   name: "currency",
+  //   label: "Currency",
+  //   type: InputType.select,
+  //   validation: [{ rule: validationRules.required }],
+  // },
   {
     name: "city",
     label: "City",
@@ -135,13 +134,12 @@ export const RegisterInputs: registerInputProps[] = [
     name: "street2",
     label: "Address2",
     type: InputType.text,
-    validation: [{ rule: validationRules.required }],
   },
   {
     name: "zip",
     label: "Pincode",
-    type: InputType.text,
-    validation: [{ rule: validationRules.required }],
+    type: InputType.number,
+    validation: [{ rule: validationRules.required },{ rule: validationRules.length, args: 6 },],
   },
   {
     name: "website",

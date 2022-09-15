@@ -2016,8 +2016,7 @@ export const getCountries = () => {
   return countries.map((item: ICountry) => item.countryName);
 };
 
-export const getCountryData = (countryName: string) => {
-
+export const getCurrencyCode = (countryName: string) => {
   if (!countryName) return;
-  return findArrayItems(countries, { countryName });
+  return findArrayItems(countries, { countryName })!.currencyCode;
 };

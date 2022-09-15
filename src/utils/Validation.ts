@@ -5,9 +5,7 @@ export interface IValidation {
 
 export const validationRules = {
   required: (val: any, fieldName: string) =>
-    val === null || val === undefined || val === ""
-      ? `${fieldName} is required.`
-      : "",
+    !val? `${fieldName} is required.`: "",
   name: (name: string, fieldName: string) => {
     const nameRegex = /^[a-zA-Z]/;
     return !nameRegex.test(String(name).toLowerCase())
@@ -20,11 +18,14 @@ export const validationRules = {
       ? "Email must be in a valid format"
       : "";
   },
-  phone: (phone: string) => {
+  phone: (phone: string, fieldName: string, optional: boolean) => {
     const mobileRegex = /^\d{10}$/;
-    return !mobileRegex.test(phone) ? "Invalid Phone Number" : "";
+    if (!phone && optional) {
+      return "";
+    }
+    return  !mobileRegex.test(phone) ? `Invalid ${fieldName}` : "";
   },
-  password: (password: string, fieldName: string) => {
+  password: (password: string) => {
     const passwordRegex =
       /^.*(?=.{8,})(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%&]).*$/;
     return !passwordRegex.test(String(password))

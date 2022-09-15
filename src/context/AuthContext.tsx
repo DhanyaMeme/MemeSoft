@@ -51,7 +51,6 @@ interface IAuthContext {
   ) => Promise<unknown>;
   navigateToHome: (uesr?: AuthUser) => void;
   handleLoginPage: (page: LoginPage, email?: AuthUser) => void;
-  handleRegisterPage: (user: AuthUser) => void;
   logout: () => void;
 }
 
@@ -130,9 +129,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
       console.log("error", error);
       setFormState({
         ...formValues,
-        helperText: isString(error?.response?.data)
-          ? error?.response?.data
-          : messages.error,
+        helperText: isString(error?.message) ? error?.message : messages.error,
         submitSuccess: false,
         isButtonLoading: false,
       });
@@ -155,11 +152,6 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     setLoginPage(page);
   };
 
-  const handleRegisterPage = (user: AuthUser) => {
-    setVerificationEmail(user);
-    setRegisterPage(RegisterPage.ConfirmOtp);
-  };
-
   const logout = () => {
     setUser(null);
   };
@@ -174,7 +166,6 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
         logout,
         updateData,
         handleLoginPage,
-        handleRegisterPage,
         handleFormValidate,
         handleOnFocusEvent,
         navigateToHome,

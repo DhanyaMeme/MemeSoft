@@ -9,7 +9,7 @@ import {
   FormTextInput,
 } from "../../../ui-kits/Form";
 import { IF } from "../../../ui-kits/IF";
-import { getCountries, getCountryData } from "../../../mocks/Countries";
+import { getCountries, getCurrencyCode } from "../../../mocks/Countries";
 import {
   initialRegisterState,
   IRegisterFormState,
@@ -18,7 +18,7 @@ import {
 } from "./RegisterFor.types";
 import { Form__Elemen__Types } from "../../../ui-kits/Form/FormElements/FormElement";
 import useObjectState from "../../../custom-hooks/useObjectState";
-import { IFormState } from "../../../models/interfaces";
+import { IFormState, Messages } from "../../../models/interfaces";
 import { initialFormState } from "../../../models/constants";
 import {
   InputChangeEvent,
@@ -27,10 +27,13 @@ import {
 } from "../../../models/types";
 import { useAuth } from "../../../context/AuthContext";
 import { isEmpty } from "../../../utils/script";
-import { getStates } from "../../../mocks/States";
+import { getDialCode } from "../../../mocks/Dialcodes";
+import { authService } from "../../../services/axiosServices";
+import { safeSetTimeout } from "../../../utils/generics";
 
 export const RegisterForm = () => {
-  const { handleFormValidate, handleOnFocusEvent } = useAuth();
+  const { handleFormValidate, handleOnFocusEvent, updateData, navigateToHome } =
+    useAuth();
 
   const {
     obj: registerState,
@@ -44,30 +47,55 @@ export const RegisterForm = () => {
     setObj: setFormState,
   } = useObjectState(initialFormState as IFormState<IRegisterFormState>);
 
-  const selectedCountry = getCountryData(registerState.country);
-
-  const getOptions = (name: string) =>
-    ({
-      country: getCountries(),
-      state: getStates(selectedCountry?.countryCode || ""),
-    }[name]);
-
   const handleSelectChange = (name: string, option: string) => {
     updateRegisterState(name as any, option);
   };
 
-  const handleOnsubmit = (e: OnSubmitEvent) => {
+  const message: Messages = {
+    success: "Successfully Registered",
+    error: "Something went wrong, Try Again",
+  };
+
+  const handleOnsubmit = async (e: OnSubmitEvent) => {
     e.preventDefault();
+
     const isValid = handleFormValidate(
       RegisterInputs,
       registerState,
       updateFormState
     );
     if (isValid) {
+      const selectedDialCode = getDialCode(registerState.country) || "";
+      const selectedCurrencyCode = getCurrencyCode(
+        registerState.country
+      ) as string;
+
+      const data: IRegisterFormState = {
+        ...registerState,
+        currency: selectedCurrencyCode,
+        phone: `${selectedDialCode + registerState.phone} `,
+        mobile: registerState.mobile
+          ? `${selectedDialCode + registerState.mobile}`
+          : registerState.mobile,
+      };
+
+      const registerParams = {
+        ...authService.Register,
+        params: data,
+      };
+
+      const response = await updateData(
+        registerParams,
+        formState,
+        message,
+        setFormState
+      );
+
+      if (response) {
+        safeSetTimeout(navigateToHome, 1000, registerState.email);
+      }
     }
   };
-
-  console.log({ registerState, selectedCountry });
 
   return (
     <Form onSubmit={handleOnsubmit}>
@@ -114,9 +142,9 @@ export const RegisterForm = () => {
                   <FormSelectInput
                     label={item.label}
                     name={item.name}
-                    options={getOptions(item.name) ?? []}
+                    options={getCountries()}
                     onSelect={handleSelectChange}
-                    disabled={!getOptions(item.name)?.length}
+                    disabled={!getCountries().length}
                   />
                 </IF>
               </FormElement>
