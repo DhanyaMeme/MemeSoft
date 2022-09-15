@@ -15,7 +15,7 @@ import {
   IRegisterFormState,
   registerInputProps,
   RegisterInputs,
-} from "./RegisterFor.types";
+} from "./types";
 import { Form__Elemen__Types } from "../../../ui-kits/Form/FormElements/FormElement";
 import useObjectState from "../../../custom-hooks/useObjectState";
 import { IFormState, Messages } from "../../../models/interfaces";

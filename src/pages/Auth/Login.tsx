@@ -5,7 +5,7 @@ import { PageContentFitScreen } from "../../ui-kits/Wrappers/PageContent.styles"
 export const Login = () => {
   return (
     <Container>
-      <PageContentFitScreen isNarrow>
+      <PageContentFitScreen isExtraNarrow>
         <LoginForm />
       </PageContentFitScreen>
     </Container>

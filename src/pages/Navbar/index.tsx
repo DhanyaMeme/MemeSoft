@@ -19,7 +19,7 @@ export const NavBar = forwardRef<HTMLDivElement>((_, ref) => {
     setNavHidden((prev) => !prev);
   };
 
-  const nonStickyPath = ["pricing", "contact"];
+  const nonStickyPath = ["pricing", "contact", "register", "login"];
 
   return (
     <section

@@ -15,7 +15,9 @@ export const SectionHeader: FC<IProps> = (props: IProps) => {
   return (
     <div className="SectionHeader">
       <IF condition={!isEmpty(heading)}>
-        <h1 className="SectionHeader__Heading Heading">{heading}</h1>
+        <h1 className="SectionHeader__Heading Text--highlight Heading">
+          {heading}
+        </h1>
       </IF>
       <IF condition={!isEmpty(subHeading)}>
         <div className="SectionHeader__SubHeading Heading u-h4">

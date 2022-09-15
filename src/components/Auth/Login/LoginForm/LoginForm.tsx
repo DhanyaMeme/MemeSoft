@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import {
   Form,
   FormElement,
@@ -48,9 +49,9 @@ export const LoginForm = () => {
       <FormHint isCenter>
         <span className="Text--subdued">Don't have an account ? </span>
         &nbsp;
-        <a href="/auth/register" className="Link Link--secondary">
+        <NavLink to={"/register"} className="Link Link--secondary">
           Create one
-        </a>
+        </NavLink>
       </FormHint>
     </Form>
   );
