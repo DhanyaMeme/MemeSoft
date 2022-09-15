@@ -28,7 +28,6 @@ export enum RegisterPage {
 interface IAuthContext {
   user: AuthUser;
   loginPage: LoginPage;
-  registerPage: RegisterPage;
   verificationEmail: AuthUser;
   handleFormValidate: <T extends object>(
     InputsArray: Array<InputBaseProps<T>>,
@@ -66,9 +65,6 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   const [user, setUser] = useLocalStorage<AuthUser>("user", null);
 
   const [loginPage, setLoginPage] = useState<LoginPage>(LoginPage.Login);
-  const [registerPage, setRegisterPage] = useState<RegisterPage>(
-    RegisterPage.Register
-  );
 
   const handleFormValidate = <T extends object>(
     InputsArray: Array<InputBaseProps<T>>,
@@ -161,7 +157,6 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
       value={{
         user,
         loginPage,
-        registerPage,
         verificationEmail,
         logout,
         updateData,

@@ -1,8 +1,13 @@
+export interface ISubMenu {
+  title: string;
+  path: string;
+}
+
 export interface INavData {
   id: number;
   title: string;
   path: string;
-  dropDown?: string[];
+  dropDown?: ISubMenu[];
 }
 
 export const navData: INavData[] = [
@@ -45,7 +50,24 @@ export const navData: INavData[] = [
     id: 8,
     title: "Pricing",
     path: "pricing",
-    dropDown: ["Ecommerce", "ERP", "Mobile Apps", "POS"],
+    dropDown: [
+      {
+        title: "POS",
+        path: "pricing/pos",
+      },
+      {
+        title: "ERP",
+        path: "pricing/erp",
+      },
+      {
+        title: "Ecommerce",
+        path: "pricing/ecommerce",
+      },
+      {
+        title: "POS",
+        path: "pricing/pos",
+      },
+    ],
   },
   {
     id: 9,

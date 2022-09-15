@@ -113,9 +113,12 @@
 
   &.sticky {
     margin-bottom: calc(-1 * var(--header-height));
-    .Header--transparent {
-      box-shadow: none;
-      background: transparent;
+
+    &:not(:hover) {
+      .Header--transparent {
+        box-shadow: none;
+        background: transparent;
+      }
     }
   }
 }

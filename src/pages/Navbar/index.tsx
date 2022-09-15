@@ -1,15 +1,17 @@
 import classNames from "classnames";
 import { forwardRef, useState } from "react";
-import { useLocation } from "react-router-dom";
+import usePath from "../../custom-hooks/usePath";
 import { OnclickEvent } from "../../models/types";
 import LogoWrapper from "../../components/Navbar/LogoWrapper";
-import { NavDrawMenu } from "../../components/Navbar/NavDrawMenu";
-import { NavMenuWrapper } from "../../components/Navbar/NavMenuWrapper";
-import useScrollPosition from "../../custom-hooks/useScrollPosition";
 import { Drawer } from "../../ui-kits/Drawer/Drawer.compenent";
+import { NavDrawMenu } from "../../components/Navbar/NavDrawMenu";
+import useScrollPosition from "../../custom-hooks/useScrollPosition";
+import { NavMenuWrapper } from "../../components/Navbar/NavMenuWrapper";
 import "./Style.scss";
 
 export const NavBar = forwardRef<HTMLDivElement>((_, ref) => {
+  const path = usePath();
+  const { scrollPosition } = useScrollPosition();
   const [isNavhidden, setNavHidden] = useState(true);
 
   const handleOnNavCLick = (e?: OnclickEvent): void => {
@@ -17,15 +19,12 @@ export const NavBar = forwardRef<HTMLDivElement>((_, ref) => {
     setNavHidden((prev) => !prev);
   };
 
-  const nonStickyPath = ["/pricing", "/contact"];
-
-  const { pathname } = useLocation();
-  const { scrollPosition } = useScrollPosition();
+  const nonStickyPath = ["pricing", "contact"];
 
   return (
     <section
       className={classNames("HeaderSection", {
-        sticky: !nonStickyPath.includes(pathname),
+        sticky: !nonStickyPath.includes(path),
       })}
       ref={ref}
     >

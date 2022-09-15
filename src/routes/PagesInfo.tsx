@@ -43,7 +43,7 @@ const PagesInfo = {
       element: <Home />,
     },
     {
-      path: "pricing",
+      path: "pricing/:id",
       element: <Pricing />,
     },
     {

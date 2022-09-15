@@ -5,4 +5,8 @@ export const authService = {
     method: "POST",
     url: authEndpoints.REGISTER,
   },
+  Pricing: {
+    method: "GET",
+    url: authEndpoints.PRICING,
+  },
 };
