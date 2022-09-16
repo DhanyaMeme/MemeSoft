@@ -1,6 +1,7 @@
 import { PageWidth } from "../../../ui-kits/PageWidth";
 import { SectionHeader } from "../../../ui-kits/Sections/SectionHeader/SectionHeader";
 import { SectionWrapper } from "../../../ui-kits/Sections/SectionWrapper/SectionWrapper";
+import { erpDefData, erpHelpsData } from "../data";
 import "./Style.scss";
 
 export const ERPAbout = () => {
@@ -15,7 +16,7 @@ export const ERPAbout = () => {
                 data-aos="zoom-in"
                 data-aos-once="true"
               >
-                Una aplicación para cada necesidad
+                What is Enterprise Resource Planning?
               </div>
             }
           />
@@ -26,18 +27,27 @@ export const ERPAbout = () => {
               data-aos-duration="1500"
               data-aos-once="true"
             >
-              <h1 className="Text--highlight">El fin de las</h1>
-              <p className="Text--subdued">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Aperiam, ipsum sapiente aspernatur libero repellat quis
-                consequatur ducimus quam nisi exercitationem omnis earum qui.
-              </p>
-              <h1 className="Text--highlight">El fin de las</h1>
-              <p className="Text--subdued">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Aperiam, ipsum sapiente aspernatur libero repellat quis
-                consequatur ducimus quam nisi exercitationem omnis earum qui.
-              </p>
+              <h3 className="Heading Text--highlight">
+                Integrate and synchronize business processes
+              </h3>
+              <ul className="Text--subdued Linklist">
+                {erpDefData.map((item: string, i: number) => (
+                  <li className="Linklist__Item" key={i}>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <br />
+              <h3 className="Heading Text--highlight">
+                Enterprise Resource Planning helps you:
+              </h3>
+              <ul className="Text--subdued Linklist">
+                {erpHelpsData.map((item: string, i: number) => (
+                  <li className="Linklist__Item" key={i}>
+                    {item}
+                  </li>
+                ))}
+              </ul>
             </div>
             <div
               className="Grid__Cell   1/2--lap-and-up"
@@ -47,10 +57,13 @@ export const ERPAbout = () => {
             >
               <div className="Grid ERPAbout__Composition">
                 {Array.from(Array(6).keys()).map((x: number) => (
-                  <div className="Grid__Cell 1/2--phone 1/3--tablet-and-up 1/3--lap-and-up">
+                  <div
+                    className="Grid__Cell 1/2--phone 1/2--tablet-and-up"
+                    key={x}
+                  >
                     <img
-                      src="https://cdn.shopify.com/shopifycloud/brochure/assets/home/hero/in-hero-product-small-0c64c4c1013fc8ac477cb5ff62bf5b56b2903aec697e6b708b90d3b65a09baf8.jpg"
-                      alt="sksk"
+                      src={`images/erp/collection/about${x + 1}.png`}
+                      alt="ERPAbout"
                       className="ERPAbout__Composition--image"
                     />
                   </div>

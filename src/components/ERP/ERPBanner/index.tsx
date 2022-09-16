@@ -9,13 +9,14 @@ export const ERPBanner = () => {
   return (
     <div className="ERP__Hero" data-aos="zoom-in-up">
       <div className="ERP__Hero--Content Heading">
-        <h2>Empleados increíbles merecen</h2>
+        <h2>Enterprise Resource Planning</h2>
         <h1>un software increíble</h1>
         <p>
-          La única plataforma que necesitarás para manejar tu negocio:
+          An ERP system can automate, simplify and evaluate most accounting
+          processes.
           <br />
-          aplicaciones integradas, sencillas, y adoradas por millones de
-          usuarios felices.
+          What can take employees days to analyze and compute can be achieved
+          within minutes using an ERP solution.
         </p>
         <ButtonGroup className="ERP__Hero--btns">
           <TextButton isSmall buttonType={BUTTON_TYPE_CLASSES.overlay}>

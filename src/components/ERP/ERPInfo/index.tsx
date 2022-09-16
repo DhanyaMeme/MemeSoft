@@ -14,10 +14,7 @@ export const ERPInfo = () => {
               data-aos-duration="1500"
               data-aos-once="true"
             >
-              <img
-                src="https://odoocdn.com/openerp_website/static/src/img/2016/crm/ipad-landscape-mockup.png"
-                alt="erp"
-              />
+              <img src="images/erp/erp_sm.png" alt="erp" />
             </div>
             <div
               className="Grid__Cell 1/2--lap-and-up"
@@ -26,24 +23,30 @@ export const ERPInfo = () => {
               data-aos-once="true"
             >
               <div className="ERPInfo__Content">
-                <h2 className="Heading">integraciones problemáticas</h2>
+                <h2 className="Heading">
+                  Share real-time insights through a centralized data repository
+                </h2>
                 <p>
-                  Si tienes soluciones de software individuales que funcionan,
-                  pero no se comunican entre sí, probablemente estás ingresando
-                  cosas más de una vez y te estás perdiendo una descripción
-                  general completa de lo que está sucediendo.
+                  When people talk and write about ERP, the centralization of
+                  data and real-time information is one of the most prominently
+                  mentioned benefits. Because an ERP system contains data from
+                  across a business in one location, users can easily access
+                  insights from other areas of a company to inform analyses.
+                  This “desiloing” of information leads to more accurate
+                  insights and can lead to improved workflows.
                 </p>
                 <p>
-                  Si tienes soluciones de software individuales que funcionan,
-                  pero no se comunican entre sí, probablemente estás ingresando
-                  cosas más de una vez y te estás perdiendo una descripción
-                  general completa de lo que está sucediendo.
-                </p>
-                <p>
-                  Si tienes soluciones de software individuales que funcionan,
-                  pero no se comunican entre sí, probablemente estás ingresando
-                  cosas más de una vez y te estás perdiendo una descripción
-                  general completa de lo que está sucediendo.
+                  For example, if the financial team has data insights on how
+                  many projects run over budget as segmented by department, this
+                  information could be easily accessed by the departments
+                  themselves without the need for the financial team to compile
+                  a special report. This increases productivity and information
+                  accessibility. In fact, some new data points might even be
+                  revealed that weren’t easily available when the information
+                  was contained on different computers and siloed by department.
+                  Alleviating the burden on other teams to compile statistical
+                  documents related to certain business aspects is a key benefit
+                  of ERP.
                 </p>
                 <div className="ERPInfo__Testimonial">
                   <div className="thumb">
