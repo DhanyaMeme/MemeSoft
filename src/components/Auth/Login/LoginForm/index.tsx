@@ -23,7 +23,7 @@ import {
   initialLoginFormState,
   LoginFormInput,
   LoginFormInputs,
-} from "./LoginFormInputs";
+} from "./types";
 
 export const LoginForm = () => {
   const {

@@ -17,48 +17,53 @@ import {
 import { Form__Elemen__Types } from "../../../../ui-kits/Form/FormElements/FormElement";
 import { IF } from "../../../../ui-kits/IF";
 import { isEmpty } from "../../../../utils/script";
+import { ResendOTP } from "../ResendOTP";
 import {
-  ForgotPasswordInput,
-  ForgotPasswordInputs,
-  IForgotPasswordState,
-  initialForgotPasswordState,
+  ILoginOTPState,
+  initialLoginOTPState,
+  LoginOTPInput,
+  LoginOTPInputs,
 } from "./types";
 
-export const EmailVerifyForm = () => {
+export const OtpVerifyForm = () => {
   const {
-    obj: forgotPasswordState,
-    get: getforgotPasswordState,
-    update: updateforgotPasswordState,
-  } = useObjectState(initialForgotPasswordState);
+    obj: loginOTPState,
+    get: getLoginOTPState,
+    update: updateLoginOTPState,
+  } = useObjectState(initialLoginOTPState);
 
   const {
     obj: formState,
     update: updateFormState,
     setObj: setFormState,
-  } = useObjectState(initialFormState as IFormState<IForgotPasswordState>);
+  } = useObjectState(initialFormState as IFormState<ILoginOTPState>);
 
   const {
     handleFormValidate,
     handleOnFocusEvent,
     updateData,
     handleLoginPage,
+    verificationEmail,
   } = useAuth();
 
   const message: Messages = {
-    success: "OTP sent to your registered email.",
-    error: "User Not Available",
+    success: "OTP validated successfully!",
+    error: "Incorrect OTP, Try Again!",
   };
 
-  // const forgotPasswordParams = {
-  //   ...authService.ForgorPassword,
-  //   params: forgotPasswordState,
+  // const registerParams = {
+  //   ...authService.ConfirmOtp,
+  //   params: {
+  //     ...loginOTPState,
+  //     email: verificationEmail,
+  //   },
   // };
 
   const handleOnsubmit = async (e: OnSubmitEvent) => {
     e.preventDefault();
     const isValid = handleFormValidate(
-      ForgotPasswordInputs,
-      forgotPasswordState,
+      LoginOTPInputs,
+      loginOTPState,
       updateFormState
     );
     if (isValid) {
@@ -68,7 +73,8 @@ export const EmailVerifyForm = () => {
   return (
     <Form onSubmit={handleOnsubmit}>
       <FormElement elementType={Form__Elemen__Types.FormHeader}>
-        <h1 className="Heading  Text--highlight">Forgot Password?</h1>
+        <h1 className="Heading u-h1 Text--highlight">OTP Verification</h1>
+        <p>Please enter an OTP sent to your Email.</p>
       </FormElement>
       <IF
         condition={!isEmpty(formState.helperText) || !isEmpty(formState.errors)}
@@ -82,26 +88,25 @@ export const EmailVerifyForm = () => {
             (formState.errors && Object.values(formState.errors)[0])}
         </FormAlert>
       </IF>
-      {ForgotPasswordInputs.map(
-        ({ validation, ...item }: ForgotPasswordInput) => {
-          return (
-            <FormElement key={item.name}>
-              <FormTextInput
-                {...item}
-                value={getforgotPasswordState(item.name)}
-                onFocus={(e: InputFocusEvent) =>
-                  handleOnFocusEvent(e, initialFormState, setFormState)
-                }
-                onChange={(e: InputChangeEvent) => {
-                  updateforgotPasswordState(item.name, e.target.value);
-                }}
-              />
-            </FormElement>
-          );
-        }
-      )}
+      {LoginOTPInputs.map(({ validation, ...item }: LoginOTPInput) => {
+        return (
+          <FormElement key={item.name}>
+            <FormTextInput
+              {...item}
+              value={getLoginOTPState(item.name)}
+              onFocus={(e: InputFocusEvent) =>
+                handleOnFocusEvent(e, initialFormState, setFormState)
+              }
+              onChange={(e: InputChangeEvent) => {
+                updateLoginOTPState(item.name, e.target.value);
+              }}
+            />
+          </FormElement>
+        );
+      })}
+      <ResendOTP formState={formState} setFormState={setFormState} />
       <FormSubmit isFull isLoading={formState.isButtonLoading}>
-        RECOVER
+        Submit
       </FormSubmit>
     </Form>
   );
