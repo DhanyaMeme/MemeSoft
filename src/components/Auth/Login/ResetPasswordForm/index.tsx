@@ -1,5 +1,5 @@
 import React from "react";
-import { useAuth } from "../../../../context/AuthContext";
+import { LoginPage, useAuth } from "../../../../context/AuthContext";
 import useObjectState from "../../../../custom-hooks/useObjectState";
 import { initialFormState } from "../../../../models/constants";
 import { IFormState, Messages } from "../../../../models/interfaces";
@@ -8,6 +8,7 @@ import {
   InputFocusEvent,
   OnSubmitEvent,
 } from "../../../../models/types";
+import { authService } from "../../../../services/axiosServices";
 import {
   Form,
   FormAlert,
@@ -17,7 +18,9 @@ import {
 } from "../../../../ui-kits/Form";
 import { Form__Elemen__Types } from "../../../../ui-kits/Form/FormElements/FormElement";
 import { IF } from "../../../../ui-kits/IF";
+import { safeSetTimeout } from "../../../../utils/generics";
 import { isEmpty } from "../../../../utils/script";
+import { FormError } from "../../FormError";
 import {
   initialResetPasswordState,
   IResetPasswordState,
@@ -51,13 +54,13 @@ export const ResetPasswordForm = () => {
     error: "Error While updating password, Try again!",
   };
 
-  //   const registerParams = {
-  //     ...authService.ResetPassword,
-  //     params: {
-  //       email: verificationEmail,
-  //       password: registerState.password,
-  //     },
-  //   };
+  const resetPasswordParams = {
+    ...authService.ResetPassword,
+    params: {
+      email: verificationEmail,
+      password: registerState.password,
+    },
+  };
 
   const handleOnsubmit = async (e: OnSubmitEvent) => {
     e.preventDefault();
@@ -72,6 +75,15 @@ export const ResetPasswordForm = () => {
       updateFormState("helperText", "Passwords do NOT match!");
     }
     if (isValid) {
+      const data = await updateData(
+        resetPasswordParams,
+        formState,
+        message,
+        setFormState
+      );
+      if (data) {
+        safeSetTimeout(handleLoginPage, 1000, LoginPage.Login, null);
+      }
     }
   };
 
@@ -80,23 +92,7 @@ export const ResetPasswordForm = () => {
       <FormElement elementType={Form__Elemen__Types.FormHeader}>
         <h1 className="Heading Text--highlight">Reset password</h1>
       </FormElement>
-
-      <FormElement>
-        <IF
-          condition={
-            !isEmpty(formState.helperText) || !isEmpty(formState.errors)
-          }
-        >
-          <FormAlert
-            isError={!formState.submitSuccess}
-            isSuccess={formState.submitSuccess}
-            classname="u-h6"
-          >
-            {formState.helperText ||
-              (formState.errors && Object.values(formState.errors)[0])}
-          </FormAlert>
-        </IF>
-      </FormElement>
+      <FormError formState={formState} />
       {ResetPasswordInputs.map(
         ({ validation, ...item }: ResetPasswordInput) => {
           return (

@@ -31,6 +31,7 @@ import { useAuth } from "../../../context/AuthContext";
 import { getDialCode } from "../../../mocks/Dialcodes";
 import { safeSetTimeout } from "../../../utils/generics";
 import { authService } from "../../../services/axiosServices";
+import { FormError } from "../FormError";
 
 export const RegisterForm = () => {
   const { handleFormValidate, handleOnFocusEvent, updateData, navigateToHome } =
@@ -104,19 +105,7 @@ export const RegisterForm = () => {
         <h2 className="Heading Text--highlight">Register</h2>
         <p>Please fill in the information below:</p>
       </FormElement>
-      <IF
-        condition={!isEmpty(formState.helperText) || !isEmpty(formState.errors)}
-      >
-        <FormAlert
-          isError={!formState.submitSuccess}
-          isSuccess={formState.submitSuccess}
-          classname="u-h6"
-        >
-          {formState.helperText ||
-            (formState.errors && Object.values(formState.errors)[0])}
-        </FormAlert>
-      </IF>
-
+      <FormError formState={formState} />
       <div className="Grid">
         {RegisterInputs.map(({ validation, ...item }: registerInputProps) => {
           const Tag: any =

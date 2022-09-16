@@ -9,7 +9,7 @@ export const authService = {
     method: "POST",
     url: authEndpoints.LOGIN,
   },
-  ForgorPassword: {
+  EmailVerify: {
     method: "POST",
     url: authEndpoints.EMAIL_VERIFY,
   },

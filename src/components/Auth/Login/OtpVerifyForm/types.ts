@@ -15,7 +15,10 @@ export const LoginOTPInputs: LoginOTPInput[] = [
   {
     name: "otp",
     label: "OTP",
-    type: InputType.text,
-    validation: [{ rule: validationRules.required }],
+    type: InputType.number,
+    validation: [
+      { rule: validationRules.length, args: 4 },
+      { rule: validationRules.required },
+    ],
   },
 ];

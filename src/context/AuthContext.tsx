@@ -113,7 +113,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     setFormState({ ...formValues, isButtonLoading: true });
     try {
       const response = await fetchData(params);
-      console.log("data", response);
+      console.log("response", response);
       setFormState({
         ...formValues,
         helperText: messages.success,

@@ -1,4 +1,4 @@
-import { useAuth } from "../../../../context/AuthContext";
+import { LoginPage, useAuth } from "../../../../context/AuthContext";
 import useObjectState from "../../../../custom-hooks/useObjectState";
 import { initialFormState } from "../../../../models/constants";
 import { IFormState, Messages } from "../../../../models/interfaces";
@@ -7,6 +7,7 @@ import {
   InputFocusEvent,
   OnSubmitEvent,
 } from "../../../../models/types";
+import { authService } from "../../../../services/axiosServices";
 import {
   Form,
   FormAlert,
@@ -16,7 +17,9 @@ import {
 } from "../../../../ui-kits/Form";
 import { Form__Elemen__Types } from "../../../../ui-kits/Form/FormElements/FormElement";
 import { IF } from "../../../../ui-kits/IF";
+import { safeSetTimeout } from "../../../../utils/generics";
 import { isEmpty } from "../../../../utils/script";
+import { FormError } from "../../FormError";
 import { ResendOTP } from "../ResendOTP";
 import {
   ILoginOTPState,
@@ -51,13 +54,13 @@ export const OtpVerifyForm = () => {
     error: "Incorrect OTP, Try Again!",
   };
 
-  // const registerParams = {
-  //   ...authService.ConfirmOtp,
-  //   params: {
-  //     ...loginOTPState,
-  //     email: verificationEmail,
-  //   },
-  // };
+  const otpParams = {
+    ...authService.ConfirmOtp,
+    params: {
+      ...loginOTPState,
+      email: verificationEmail,
+    },
+  };
 
   const handleOnsubmit = async (e: OnSubmitEvent) => {
     e.preventDefault();
@@ -67,6 +70,15 @@ export const OtpVerifyForm = () => {
       updateFormState
     );
     if (isValid) {
+      const data = await updateData(
+        otpParams,
+        formState,
+        message,
+        setFormState
+      );
+      if (data) {
+        safeSetTimeout(handleLoginPage, 1000, LoginPage.ResetPassword);
+      }
     }
   };
 
@@ -76,18 +88,7 @@ export const OtpVerifyForm = () => {
         <h1 className="Heading u-h1 Text--highlight">OTP Verification</h1>
         <p>Please enter an OTP sent to your Email.</p>
       </FormElement>
-      <IF
-        condition={!isEmpty(formState.helperText) || !isEmpty(formState.errors)}
-      >
-        <FormAlert
-          isError={!formState.submitSuccess}
-          isSuccess={formState.submitSuccess}
-          classname="u-h6"
-        >
-          {formState.helperText ||
-            (formState.errors && Object.values(formState.errors)[0])}
-        </FormAlert>
-      </IF>
+      <FormError formState={formState} />
       {LoginOTPInputs.map(({ validation, ...item }: LoginOTPInput) => {
         return (
           <FormElement key={item.name}>

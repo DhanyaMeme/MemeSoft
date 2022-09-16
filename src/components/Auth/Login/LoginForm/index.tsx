@@ -20,7 +20,9 @@ import {
 } from "../../../../ui-kits/Form";
 import { Form__Elemen__Types } from "../../../../ui-kits/Form/FormElements/FormElement";
 import { IF } from "../../../../ui-kits/IF";
+import { safeSetTimeout } from "../../../../utils/generics";
 import { isEmpty } from "../../../../utils/script";
+import { FormError } from "../../FormError";
 import {
   ILoginFormState,
   initialLoginFormState,
@@ -54,10 +56,10 @@ export const LoginForm = () => {
     error: "Error while login User!",
   };
 
-  // const loginParams = {
-  //   ...authService.Login,
-  //   params: loginState,
-  // };
+  const loginParams = {
+    ...authService.Login,
+    params: loginState,
+  };
 
   const handleOnsubmit = async (e: OnSubmitEvent) => {
     e.preventDefault();
@@ -67,6 +69,15 @@ export const LoginForm = () => {
       updateFormState
     );
     if (isValid) {
+      const data = await updateData(
+        loginParams,
+        formState,
+        message,
+        setFormState
+      );
+      if (data) {
+        safeSetTimeout(navigateToHome, 1000, loginState.email);
+      }
     }
   };
 
@@ -75,18 +86,7 @@ export const LoginForm = () => {
       <FormElement elementType={Form__Elemen__Types.FormHeader}>
         <h1 className="Heading Text--highlight">LOGIN</h1>
       </FormElement>
-      <IF
-        condition={!isEmpty(formState.helperText) || !isEmpty(formState.errors)}
-      >
-        <FormAlert
-          isError={!formState.submitSuccess}
-          isSuccess={formState.submitSuccess}
-          classname="u-h6"
-        >
-          {formState.helperText ||
-            (formState.errors && Object.values(formState.errors)[0])}
-        </FormAlert>
-      </IF>
+      <FormError formState={formState} />
       {LoginFormInputs.map(({ validation, ...item }: LoginFormInput) => {
         const Tag: any =
           item.label === "Password" ? FormPasswordInput : FormTextInput;
@@ -111,7 +111,9 @@ export const LoginForm = () => {
       >
         Lost your password?
       </div>
-      <FormSubmit isFull>LOGIN</FormSubmit>
+      <FormSubmit isFull isLoading={formState.isButtonLoading}>
+        Login
+      </FormSubmit>
       <div className="OR__Seperator">OR</div>
       <FormHint isCenter>
         <span className="Text--subdued">Don't have an account ? </span>

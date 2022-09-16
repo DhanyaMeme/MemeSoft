@@ -1,5 +1,6 @@
 import { useAuth } from "../../../../context/AuthContext";
 import { IFormState, Messages } from "../../../../models/interfaces";
+import { authService } from "../../../../services/axiosServices";
 
 interface IProps<T> {
   formState: IFormState<T>;
@@ -12,10 +13,10 @@ export const ResendOTP = <T extends Object>(props: IProps<T>) => {
   const { updateData, verificationEmail } = useAuth();
 
   const resendOTPParams = {
-    // ...authService.ForgorPassword,
-    // params: {
-    //   email: verificationEmail,
-    // },
+    ...authService.EmailVerify,
+    params: {
+      email: verificationEmail,
+    },
   };
 
   const registerResendOTPmessage: Messages = {

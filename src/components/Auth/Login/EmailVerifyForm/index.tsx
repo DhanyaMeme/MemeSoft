@@ -1,4 +1,4 @@
-import { useAuth } from "../../../../context/AuthContext";
+import { LoginPage, useAuth } from "../../../../context/AuthContext";
 import useObjectState from "../../../../custom-hooks/useObjectState";
 import { initialFormState } from "../../../../models/constants";
 import { IFormState, Messages } from "../../../../models/interfaces";
@@ -7,6 +7,7 @@ import {
   InputFocusEvent,
   OnSubmitEvent,
 } from "../../../../models/types";
+import { authService } from "../../../../services/axiosServices";
 import {
   Form,
   FormAlert,
@@ -16,7 +17,9 @@ import {
 } from "../../../../ui-kits/Form";
 import { Form__Elemen__Types } from "../../../../ui-kits/Form/FormElements/FormElement";
 import { IF } from "../../../../ui-kits/IF";
+import { safeSetTimeout } from "../../../../utils/generics";
 import { isEmpty } from "../../../../utils/script";
+import { FormError } from "../../FormError";
 import {
   ForgotPasswordInput,
   ForgotPasswordInputs,
@@ -49,10 +52,10 @@ export const EmailVerifyForm = () => {
     error: "User Not Available",
   };
 
-  // const forgotPasswordParams = {
-  //   ...authService.ForgorPassword,
-  //   params: forgotPasswordState,
-  // };
+  const forgotPasswordParams = {
+    ...authService.EmailVerify,
+    params: forgotPasswordState,
+  };
 
   const handleOnsubmit = async (e: OnSubmitEvent) => {
     e.preventDefault();
@@ -62,6 +65,20 @@ export const EmailVerifyForm = () => {
       updateFormState
     );
     if (isValid) {
+      const data = await updateData(
+        forgotPasswordParams,
+        formState,
+        message,
+        setFormState
+      );
+      if (data) {
+        safeSetTimeout(
+          handleLoginPage,
+          1000,
+          LoginPage.ConfirmOtp,
+          forgotPasswordState.email
+        );
+      }
     }
   };
 
@@ -70,18 +87,7 @@ export const EmailVerifyForm = () => {
       <FormElement elementType={Form__Elemen__Types.FormHeader}>
         <h1 className="Heading  Text--highlight">Forgot Password?</h1>
       </FormElement>
-      <IF
-        condition={!isEmpty(formState.helperText) || !isEmpty(formState.errors)}
-      >
-        <FormAlert
-          isError={!formState.submitSuccess}
-          isSuccess={formState.submitSuccess}
-          classname="u-h6"
-        >
-          {formState.helperText ||
-            (formState.errors && Object.values(formState.errors)[0])}
-        </FormAlert>
-      </IF>
+      <FormError formState={formState} />
       {ForgotPasswordInputs.map(
         ({ validation, ...item }: ForgotPasswordInput) => {
           return (
