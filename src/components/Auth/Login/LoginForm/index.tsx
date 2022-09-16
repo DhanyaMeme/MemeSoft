@@ -11,6 +11,7 @@ import {
 import { authService } from "../../../../services/axiosServices";
 import {
   Form,
+  FormAlert,
   FormElement,
   FormHint,
   FormPasswordInput,
@@ -18,6 +19,8 @@ import {
   FormTextInput,
 } from "../../../../ui-kits/Form";
 import { Form__Elemen__Types } from "../../../../ui-kits/Form/FormElements/FormElement";
+import { IF } from "../../../../ui-kits/IF";
+import { isEmpty } from "../../../../utils/script";
 import {
   ILoginFormState,
   initialLoginFormState,
@@ -68,10 +71,22 @@ export const LoginForm = () => {
   };
 
   return (
-    <Form>
+    <Form onSubmit={handleOnsubmit}>
       <FormElement elementType={Form__Elemen__Types.FormHeader}>
         <h1 className="Heading Text--highlight">LOGIN</h1>
       </FormElement>
+      <IF
+        condition={!isEmpty(formState.helperText) || !isEmpty(formState.errors)}
+      >
+        <FormAlert
+          isError={!formState.submitSuccess}
+          isSuccess={formState.submitSuccess}
+          classname="u-h6"
+        >
+          {formState.helperText ||
+            (formState.errors && Object.values(formState.errors)[0])}
+        </FormAlert>
+      </IF>
       {LoginFormInputs.map(({ validation, ...item }: LoginFormInput) => {
         const Tag: any =
           item.label === "Password" ? FormPasswordInput : FormTextInput;
