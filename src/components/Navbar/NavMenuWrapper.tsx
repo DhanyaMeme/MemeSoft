@@ -12,8 +12,6 @@ interface IProps {
 export const NavMenuWrapper: FC<IProps> = (props: IProps): ReactElement => {
   const { handleOnNavCLick } = props;
 
-  console.log;
-
   return (
     <div className="Header__FlexItem Header__FlexItem--fill">
       <button

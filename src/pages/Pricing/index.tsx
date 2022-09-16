@@ -27,7 +27,7 @@ export const Pricing = () => {
     if (!pricingList || !pricingList.length) {
       dispatch(fetchSubcription(pathId));
     }
-  }, [dispatch, id]);
+  }, [dispatch, pathId, pricingList]);
 
   return (
     <SectionWrapper isbordered>

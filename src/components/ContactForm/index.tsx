@@ -1,4 +1,3 @@
-import React from "react";
 import { useAuth } from "../../context/AuthContext";
 import useObjectState from "../../custom-hooks/useObjectState";
 import { initialFormState } from "../../models/constants";
@@ -30,7 +29,7 @@ export const ContactForm = () => {
   const groupInputs = contactInputs.slice(0, contactInputs.length - 1);
   const message = contactInputs[contactInputs.length - 1];
 
-  const { handleFormValidate, handleOnFocusEvent, updateData } = useAuth();
+  const { handleFormValidate, handleOnFocusEvent } = useAuth();
   const {
     obj: contactState,
     get: getContactState,
