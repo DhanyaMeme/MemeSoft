@@ -1,4 +1,3 @@
-import React from "react";
 import { LoginPage, useAuth } from "../../../../context/AuthContext";
 import useObjectState from "../../../../custom-hooks/useObjectState";
 import { initialFormState } from "../../../../models/constants";
@@ -11,15 +10,12 @@ import {
 import { authService } from "../../../../services/axiosServices";
 import {
   Form,
-  FormAlert,
   FormElement,
   FormPasswordInput,
   FormSubmit,
 } from "../../../../ui-kits/Form";
 import { Form__Elemen__Types } from "../../../../ui-kits/Form/FormElements/FormElement";
-import { IF } from "../../../../ui-kits/IF";
 import { safeSetTimeout } from "../../../../utils/generics";
-import { isEmpty } from "../../../../utils/script";
 import { FormError } from "../../FormError";
 import {
   initialResetPasswordState,

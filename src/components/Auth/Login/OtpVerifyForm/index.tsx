@@ -10,15 +10,12 @@ import {
 import { authService } from "../../../../services/axiosServices";
 import {
   Form,
-  FormAlert,
   FormElement,
   FormSubmit,
   FormTextInput,
 } from "../../../../ui-kits/Form";
 import { Form__Elemen__Types } from "../../../../ui-kits/Form/FormElements/FormElement";
-import { IF } from "../../../../ui-kits/IF";
 import { safeSetTimeout } from "../../../../utils/generics";
-import { isEmpty } from "../../../../utils/script";
 import { FormError } from "../../FormError";
 import { ResendOTP } from "../ResendOTP";
 import {

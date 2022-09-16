@@ -3,7 +3,7 @@ import { InputBaseProps } from "../../models/interfaces";
 import { validationRules } from "../../utils/Validation";
 
 export type IContactFormState = {
-  email: string;
+  emailid: string;
   name: string;
   message: string;
 };
@@ -11,7 +11,7 @@ export type IContactFormState = {
 export type ContactInputProps = InputBaseProps<IContactFormState>;
 
 export const initialContactState: IContactFormState = {
-  email: "",
+  emailid: "",
   name: "",
   message: "",
 };
@@ -27,7 +27,7 @@ export const contactInputs: ContactInputProps[] = [
     ],
   },
   {
-    name: "email",
+    name: "emailid",
     label: "Email",
     type: InputType.email,
     validation: [

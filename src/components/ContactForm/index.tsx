@@ -1,23 +1,28 @@
+import { Dispatch, SetStateAction } from "react";
 import { useAuth } from "../../context/AuthContext";
 import useObjectState from "../../custom-hooks/useObjectState";
 import { initialFormState } from "../../models/constants";
-import { IFormState } from "../../models/interfaces";
+import { IFormState, Messages } from "../../models/interfaces";
 import {
   InputChangeEvent,
   InputFocusEvent,
   OnSubmitEvent,
 } from "../../models/types";
+import { authService } from "../../services/axiosServices";
 import {
   Form,
   FormAlert,
   FormElement,
+  FormSubmit,
   FormTextArea,
   FormTextInput,
 } from "../../ui-kits/Form";
 import { Form__Elemen__Types } from "../../ui-kits/Form/FormElements/FormElement";
 import { IF } from "../../ui-kits/IF";
 import { TextButton } from "../../ui-kits/TextButton/TextButton.component";
+import { safeSetTimeout } from "../../utils/generics";
 import { isEmpty } from "../../utils/script";
+import { FormError } from "../Auth/FormError";
 import {
   ContactInputProps,
   contactInputs,
@@ -27,9 +32,9 @@ import {
 
 export const ContactForm = () => {
   const groupInputs = contactInputs.slice(0, contactInputs.length - 1);
-  const message = contactInputs[contactInputs.length - 1];
+  const messageInput = contactInputs[contactInputs.length - 1];
 
-  const { handleFormValidate, handleOnFocusEvent } = useAuth();
+  const { handleFormValidate, handleOnFocusEvent, updateData } = useAuth();
   const {
     obj: contactState,
     get: getContactState,
@@ -41,6 +46,16 @@ export const ContactForm = () => {
     setObj: setFormState,
   } = useObjectState(initialFormState as IFormState<IContactFormState>);
 
+  const loginParams = {
+    ...authService.AddContact,
+    params: contactState,
+  };
+
+  const message: Messages = {
+    success: "We will reply you as soon as possible!",
+    error: "Something went wrong, Try Again Later!",
+  };
+
   const handleOnsubmit = async (e: OnSubmitEvent) => {
     e.preventDefault();
     const isValid = handleFormValidate(
@@ -49,7 +64,9 @@ export const ContactForm = () => {
       updateFormState
     );
     if (isValid) {
+      await updateData(loginParams, formState, message, setFormState);
     }
+    safeSetTimeout(setFormState, 3000, initialFormState);
   };
 
   return (
@@ -57,18 +74,7 @@ export const ContactForm = () => {
       <FormElement elementType={Form__Elemen__Types.FormHeader}>
         <h2 className="Heading Text--highlight">CONTACT US</h2>
       </FormElement>
-      <IF
-        condition={!isEmpty(formState.helperText) || !isEmpty(formState.errors)}
-      >
-        <FormAlert
-          isError={!formState.submitSuccess}
-          isSuccess={formState.submitSuccess}
-          classname="u-h6"
-        >
-          {formState.helperText ||
-            (formState.errors && Object.values(formState.errors)[0])}
-        </FormAlert>
-      </IF>
+      <FormError formState={formState} />
       <FormElement elementType={Form__Elemen__Types.FormGroup}>
         {groupInputs.map(({ validation, ...item }: ContactInputProps) => {
           return (
@@ -89,18 +95,20 @@ export const ContactForm = () => {
       </FormElement>
       <FormElement>
         <FormTextArea
-          label={message.label}
-          name={message.name}
-          value={getContactState(message.name)}
+          label={messageInput.label}
+          name={messageInput.name}
+          value={getContactState(messageInput.name)}
           onFocus={(e: InputFocusEvent) =>
             handleOnFocusEvent(e, initialFormState, setFormState)
           }
           onChange={(e: InputChangeEvent) => {
-            updateContactState(message.name, e.target.value);
+            updateContactState(messageInput.name, e.target.value);
           }}
         />
       </FormElement>
-      <TextButton isFull>Send message</TextButton>
+      <FormSubmit isFull isLoading={formState.isButtonLoading}>
+        Login
+      </FormSubmit>
     </Form>
   );
 };

@@ -1,7 +1,6 @@
 import { InputType } from "../../../models/enums";
 import {
   Form,
-  FormAlert,
   FormElement,
   FormPasswordInput,
   FormSelectInput,
@@ -26,7 +25,6 @@ import {
   OnSubmitEvent,
 } from "../../../models/types";
 
-import { isEmpty } from "../../../utils/script";
 import { useAuth } from "../../../context/AuthContext";
 import { getDialCode } from "../../../mocks/Dialcodes";
 import { safeSetTimeout } from "../../../utils/generics";

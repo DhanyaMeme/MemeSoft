@@ -1,6 +1,5 @@
-import React from "react";
 import { IFormState } from "../../../models/interfaces";
-import { FormAlert, FormElement } from "../../../ui-kits/Form";
+import { FormAlert } from "../../../ui-kits/Form";
 import { IF } from "../../../ui-kits/IF";
 import { isEmpty } from "../../../utils/script";
 

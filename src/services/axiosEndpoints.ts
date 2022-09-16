@@ -5,4 +5,5 @@ export const authEndpoints = Object.freeze({
   CONFIRM__OTP: "/customer/confirm/otp/verification",
   RESET_PASSWORD: "/customer/reset/password",
   PRICING: "/get/subsubcription",
+  ADD_CONTACT: "/Contact/add/contact",
 });

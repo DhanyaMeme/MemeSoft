@@ -25,4 +25,8 @@ export const authService = {
     method: "GET",
     url: authEndpoints.PRICING,
   },
+  AddContact: {
+    method: "POST",
+    url: authEndpoints.ADD_CONTACT,
+  },
 };
