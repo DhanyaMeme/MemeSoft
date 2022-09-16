@@ -15,7 +15,7 @@ export type AuthUser = null | string;
 
 export enum LoginPage {
   Login = "login",
-  ForgotPassword = "forgot-password",
+  EmailVerify = "email-verify",
   ConfirmOtp = "confirm-otp",
   ResetPassword = "reset-password",
 }
