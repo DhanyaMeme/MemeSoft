@@ -1,4 +1,3 @@
-import { Dispatch, SetStateAction } from "react";
 import { useAuth } from "../../context/AuthContext";
 import useObjectState from "../../custom-hooks/useObjectState";
 import { initialFormState } from "../../models/constants";
@@ -11,17 +10,13 @@ import {
 import { authService } from "../../services/axiosServices";
 import {
   Form,
-  FormAlert,
   FormElement,
   FormSubmit,
   FormTextArea,
   FormTextInput,
 } from "../../ui-kits/Form";
 import { Form__Elemen__Types } from "../../ui-kits/Form/FormElements/FormElement";
-import { IF } from "../../ui-kits/IF";
-import { TextButton } from "../../ui-kits/TextButton/TextButton.component";
 import { safeSetTimeout } from "../../utils/generics";
-import { isEmpty } from "../../utils/script";
 import { FormError } from "../Auth/FormError";
 import {
   ContactInputProps,

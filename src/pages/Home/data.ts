@@ -43,7 +43,7 @@ export const homeFeatureData: IFeatureProps = {
   pillars: [
     {
       name: "Breaking the myth",
-      url: "images/home/Pillar1.png",
+      url: "images/home/Pillar1.jpg",
       features:
         "Our customer base is globally distributed. Our focus is to offer the best value for money in the world fashion clothing and accessories.",
     },
@@ -51,13 +51,13 @@ export const homeFeatureData: IFeatureProps = {
       name: "Breaking the myth",
       features:
         "The company is led by a leading entrepreneur with vast experience to provide a competitive, value-driven retail strategy with high quality fashion and accessories.",
-      url: "images/home/Pillar2.png",
+      url: "images/home/Pillar1.jpg",
     },
     {
       name: "Breaking the myth",
       features:
         "We are committed to continuously innovate, capture new market opportunities and establish new business models to ensure our position as one of the world's leading fashion and accessory brands.",
-      url: "https://cdn.shopify.com/shopifycloud/brochure/assets/home/market-small-084eab2d72b510555838c446501d27dd7380585450efcaaa97453289b2b69c79.jpg",
+      url: "images/home/Pillar1.jpg",
     },
   ],
 };

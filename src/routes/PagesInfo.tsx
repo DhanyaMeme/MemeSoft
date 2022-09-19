@@ -7,6 +7,9 @@ import BaseLayout from "../layout/BaseLayout";
 import { Ecommerce } from "../pages/Ecommerce";
 import { Login } from "../pages/Auth/Login";
 import { Register } from "../pages/Auth/Register";
+import { MobileApps } from "../pages/MobileApps";
+import { POS } from "../pages/POS";
+import { Solution } from "../pages/Solution";
 
 const PagesInfo = {
   path: "/",
@@ -26,7 +29,7 @@ const PagesInfo = {
     },
     {
       path: "mobile-apps",
-      element: <Home />,
+      element: <MobileApps />,
     },
     {
       path: "erp",
@@ -34,11 +37,11 @@ const PagesInfo = {
     },
     {
       path: "pos",
-      element: <Home />,
+      element: <POS />,
     },
     {
       path: "solution",
-      element: <Home />,
+      element: <Solution />,
     },
     {
       path: "security",
