@@ -1,3 +1,5 @@
+@import "./assets/font/font.scss";
+
 /**
  * Base
  */
@@ -355,8 +357,8 @@ html {
 }
 
 body {
-  // font-family: "Open Sans Regular";
-  font-weight: 400;
+  font-family: "JosefinSansRegular";
+  // font-weight: 500;
   font-style: normal;
   color: #1c1b1b;
   background: white;
@@ -407,8 +409,9 @@ body {
 }
 
 .Heading {
+  font-family: "JosefinSansSemiBold";
   font-style: normal;
-  font-weight: 500;
+  // font-weight: 400;
   color: #212326;
   transition: color 0.2s ease-in-out;
   letter-spacing: 0.1em;
