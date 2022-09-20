@@ -1,6 +1,6 @@
 import { StripeCard } from "../../components/StripeCard";
-import { selectedPricing } from "../../redux/slices/nav/nav.selector";
-import { IPricingData } from "../../redux/slices/nav/nav.type";
+import { customer, selectedPricing } from "../../redux/slices/nav/nav.selector";
+import { ICustomer, IPricingData } from "../../redux/slices/nav/nav.type";
 import { useAppSelector } from "../../redux/store";
 import { Container } from "../../ui-kits/Container";
 import { IF } from "../../ui-kits/IF";
@@ -9,12 +9,16 @@ import { isEmpty } from "../../utils/script";
 
 export const Subscription = () => {
   const selectedPricingData = useAppSelector(selectedPricing);
+  const { data: customerData } = useAppSelector(customer);
 
   return (
     <Container>
       <PageContentFitScreen isExtraNarrow>
         <IF condition={!isEmpty(selectedPricingData)}>
-          <StripeCard selectedPricing={selectedPricingData as IPricingData} />
+          <StripeCard
+            selectedPricing={selectedPricingData as IPricingData}
+            customer={customerData as ICustomer}
+          />
         </IF>
       </PageContentFitScreen>
     </Container>

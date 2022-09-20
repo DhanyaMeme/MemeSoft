@@ -16,3 +16,8 @@ export const selectedPricing = createSelector(
   navSelf,
   (state) => state && state.selectedPricing
 );
+
+export const customer = createSelector(
+  navSelf,
+  (state) => state && state.customer
+);

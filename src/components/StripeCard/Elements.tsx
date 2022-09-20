@@ -4,17 +4,18 @@ export const CARD_OPTIONS = {
   iconStyle: "solid",
   style: {
     base: {
-      iconColor: "#c4f0ff",
+      iconColor: "#55c57a",
       color: "#939393",
       fontWeight: 500,
-      fontFamily: "Roboto, Open Sans, Segoe UI, sans-serif",
-      fontSize: "16px",
+      padding: "20px",
+      fontFamily: " sans-serif,Roboto, Open Sans, Segoe UI",
+      fontSize: "14px",
       fontSmoothing: "antialiased",
       ":-webkit-autofill": {
         color: "#fce883",
       },
       "::placeholder": {
-        color: "#87bbfd",
+        color: "#55c57a",
       },
     },
     invalid: {

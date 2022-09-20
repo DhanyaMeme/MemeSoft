@@ -5,7 +5,10 @@ import LazyLoad from "../../ui-kits/LazyComponent";
 import { PageWidth } from "../../ui-kits/PageWidth";
 import { PricingCard } from "../../components/Pricing/PricingCard";
 import { useAppDispatch, useAppSelector } from "../../redux/store";
-import { fetchSubcription } from "../../redux/slices/nav/nav.reducer";
+import {
+  fetchCustomer,
+  fetchSubcription,
+} from "../../redux/slices/nav/nav.reducer";
 import { SectionHeader } from "../../ui-kits/Sections/SectionHeader/SectionHeader";
 import { SectionWrapper } from "../../ui-kits/Sections/SectionWrapper/SectionWrapper";
 import {
@@ -14,11 +17,13 @@ import {
 } from "../../redux/slices/nav/nav.slice";
 import { pricingData } from "../../redux/slices/nav/nav.selector";
 import { PricingKey, IPricingData } from "../../redux/slices/nav/nav.type";
+import { useAuth } from "../../context/AuthContext";
 
 export const Pricing = () => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const { data } = useAppSelector(pricingData);
+  const { user } = useAuth();
 
   const {
     params: { id },
@@ -27,8 +32,13 @@ export const Pricing = () => {
   const pricingList = data?.[pathId];
 
   const handleSubscribe = (pricingData: IPricingData) => {
-    dispatch(setSelectedPricing(pricingData));
-    navigate("/subscribe");
+    if (user) {
+      dispatch(setSelectedPricing(pricingData));
+      dispatch(fetchCustomer(user));
+      navigate("/subscribe");
+    } else {
+      navigate("/login");
+    }
   };
 
   useEffect(() => {
