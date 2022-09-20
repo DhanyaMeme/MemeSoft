@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+import { useNavigate } from "react-router";
 import { StripeCard } from "../../components/StripeCard";
 import { customer, selectedPricing } from "../../redux/slices/nav/nav.selector";
 import { ICustomer, IPricingData } from "../../redux/slices/nav/nav.type";
@@ -10,6 +12,13 @@ import { isEmpty } from "../../utils/script";
 export const Subscription = () => {
   const selectedPricingData = useAppSelector(selectedPricing);
   const { data: customerData } = useAppSelector(customer);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!selectedPricingData) {
+      navigate("/pricing/erp");
+    }
+  }, []);
 
   return (
     <Container>

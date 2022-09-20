@@ -1,5 +1,4 @@
-import { FC, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { FC } from "react";
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { fetchData } from "../../services/axios";
 import { paymentService } from "../../services/axiosServices";
@@ -9,7 +8,7 @@ import {
   FormSubmit,
   FormTextInput,
 } from "../../ui-kits/Form";
-import { CARD_OPTIONS, ErrorMessage } from "./Elements";
+import { CARD_OPTIONS } from "./Elements";
 import { ICustomer, IPricingData } from "../../redux/slices/nav/nav.type";
 import "./Style.scss";
 import { Form__Elemen__Types } from "../../ui-kits/Form/FormElements/FormElement";
@@ -28,7 +27,6 @@ export const StripeCard: FC<IProps> = (props: IProps) => {
 
   const stripe = useStripe();
   const elements = useElements() as any;
-  const [clientSecret, setClientSecret] = useState<string | null>(null);
   const currency = selectedPricing.fee.replace(/[^a-zA-Z]+/g, "");
   const amount = parseInt(selectedPricing.fee);
   const {
@@ -37,18 +35,22 @@ export const StripeCard: FC<IProps> = (props: IProps) => {
     setObj: setFormState,
   } = useObjectState(initialFormState as IFormState<string>);
 
-  const fetchClientSecret = async () => {
+  const updateTransaction = async (id: string) => {
+    const data = {
+      ...selectedPricing,
+      customerid: customer.customerid,
+      paymentmode: "card",
+      paymentstatus: "success",
+      status: "active ",
+      tnxid: id,
+    };
     try {
-      const response = (await fetchData({
-        ...paymentService.stripePay,
-        params: {
-          amnt: amount,
-          currency: currency,
-          method: "card",
-        },
-      })) as any;
-      const responseData = await response.data;
-      setClientSecret(responseData.client_secret);
+      const response = await fetchData({
+        ...paymentService.updateTransaction,
+        params: data,
+      });
+
+      console.log(response);
     } catch (error) {
       console.log(error);
     }
@@ -61,10 +63,29 @@ export const StripeCard: FC<IProps> = (props: IProps) => {
       return;
     }
 
-    if (clientSecret) {
-      setFormState({ ...formState, isButtonLoading: true });
+    // Creating Payment Intent
 
-      const paymentResult = await stripe.confirmCardPayment(clientSecret, {
+    setFormState({
+      ...formState,
+      helperText: "Creating payment intent...",
+      submitSuccess: true,
+    });
+
+    const { client_secret } = await fetchData({
+      ...paymentService.stripePay,
+      params: {
+        amnt: amount,
+        currency: currency,
+        method: "card",
+      },
+    }).then((res: any) => {
+      return res.data;
+    });
+
+    // Confirm the payment on client
+
+    if (client_secret) {
+      const paymentResult = await stripe.confirmCardPayment(client_secret, {
         payment_method: {
           card: elements.getElement(CardElement),
           billing_details: {
@@ -73,37 +94,28 @@ export const StripeCard: FC<IProps> = (props: IProps) => {
         },
       });
 
-      console.log(paymentResult);
-
-      setFormState({ ...formState, isButtonLoading: false, errors: "" });
-
       if (paymentResult.error) {
-        alert(paymentResult.error.message);
         setFormState({
           ...formState,
           helperText: paymentResult.error.message || " Payment Failed",
           submitSuccess: false,
           isButtonLoading: false,
         });
-      } else {
-        if (paymentResult.paymentIntent.status === "succeeded") {
-          setFormState({
-            ...formState,
-            helperText: "Payment successful",
-            submitSuccess: true,
-            isButtonLoading: false,
-          });
-
-          // onSuccess(paymentResult.paymentIntent.id);
-          // navigate("/orderconfirm");
-        }
+      }
+      if (paymentResult?.paymentIntent?.status === "succeeded") {
+        setFormState({
+          ...formState,
+          helperText: "Payment successful",
+          submitSuccess: true,
+          isButtonLoading: false,
+        });
       }
     }
   };
 
-  useEffect(() => {
-    fetchClientSecret();
-  }, []);
+  const handleOnchange = () => {
+    setFormState(initialFormState as IFormState<string>);
+  };
 
   return (
     <Form onSubmit={handleSubmit}>
@@ -139,12 +151,12 @@ export const StripeCard: FC<IProps> = (props: IProps) => {
         <fieldset className="FormGroup">
           <CardElement
             options={CARD_OPTIONS as any}
-            onChange={onchange as any}
+            onChange={handleOnchange}
           />
         </fieldset>
       </FormElement>
       <FormSubmit
-        disabled={!stripe && !clientSecret}
+        disabled={!stripe}
         isLoading={formState.isButtonLoading}
         isFull
       >

@@ -40,4 +40,8 @@ export const paymentService = {
     method: "POST",
     url: authEndpoints.STRIPE,
   },
+  updateTransaction: {
+    method: "POST",
+    url: authEndpoints.TRANSACTION,
+  },
 };
