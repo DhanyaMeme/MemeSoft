@@ -6,7 +6,7 @@ import { BrowserRouter } from "react-router-dom";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import { PersistGate } from "redux-persist/integration/react";
-import { STRIPE_KEY, STRIPE_TEST_KEY } from "./models/constants";
+import { STRIPE_KEY } from "./models/constants";
 import { AuthProvider } from "./context/AuthContext";
 import { persistor, store } from "./redux/store";
 

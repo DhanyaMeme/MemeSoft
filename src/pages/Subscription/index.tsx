@@ -18,7 +18,7 @@ export const Subscription = () => {
     if (!selectedPricingData) {
       navigate("/pricing/erp");
     }
-  }, []);
+  }, [navigate, selectedPricingData]);
 
   return (
     <Container>

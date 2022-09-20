@@ -8,14 +8,13 @@ import {
   FormSubmit,
   FormTextInput,
 } from "../../ui-kits/Form";
-import { CARD_OPTIONS } from "./Elements";
 import { ICustomer, IPricingData } from "../../redux/slices/nav/nav.type";
-import "./Style.scss";
 import { Form__Elemen__Types } from "../../ui-kits/Form/FormElements/FormElement";
 import useObjectState from "../../custom-hooks/useObjectState";
 import { initialFormState } from "../../models/constants";
 import { IFormState } from "../../models/interfaces";
 import { FormError } from "../Auth/FormError";
+import { CARD_OPTIONS } from "./data";
 
 interface IProps {
   selectedPricing: IPricingData;
@@ -29,11 +28,9 @@ export const StripeCard: FC<IProps> = (props: IProps) => {
   const elements = useElements() as any;
   const currency = selectedPricing.fee.replace(/[^a-zA-Z]+/g, "");
   const amount = parseInt(selectedPricing.fee);
-  const {
-    obj: formState,
-    update: updateFormState,
-    setObj: setFormState,
-  } = useObjectState(initialFormState as IFormState<string>);
+  const { obj: formState, setObj: setFormState } = useObjectState(
+    initialFormState as IFormState<string>
+  );
 
   const updateTransaction = async (id: string) => {
     const data = {
@@ -109,6 +106,7 @@ export const StripeCard: FC<IProps> = (props: IProps) => {
           submitSuccess: true,
           isButtonLoading: false,
         });
+        updateTransaction(paymentResult.paymentIntent.id);
       }
     }
   };
@@ -148,12 +146,7 @@ export const StripeCard: FC<IProps> = (props: IProps) => {
         />
       </FormElement>
       <FormElement>
-        <fieldset className="FormGroup">
-          <CardElement
-            options={CARD_OPTIONS as any}
-            onChange={handleOnchange}
-          />
-        </fieldset>
+        <CardElement options={CARD_OPTIONS as any} onChange={handleOnchange} />
       </FormElement>
       <FormSubmit
         disabled={!stripe}
