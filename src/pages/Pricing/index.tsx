@@ -10,6 +10,7 @@ import { fetchSubcription } from "../../redux/slices/nav/nav.reducer";
 import { setPricing } from "../../redux/slices/nav/nav.slice";
 import { pricingData } from "../../redux/slices/nav/nav.selector";
 import { PricingKey, IPricingData } from "../../redux/slices/nav/nav.type";
+import { StripeCard } from "../../components/checkout-form/StripeCard";
 
 export const Pricing = () => {
   const dispatch = useAppDispatch();
@@ -36,7 +37,6 @@ export const Pricing = () => {
           heading="Start your ecommerce website now, pick a plan later"
           subHeading="Try Meme Soft free for 14 days, no payment information required"
         />
-
         <div className="Grid">
           {pricingList?.map((item: IPricingData) => (
             <LazyLoad

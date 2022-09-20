@@ -30,3 +30,10 @@ export const authService = {
     url: authEndpoints.ADD_CONTACT,
   },
 };
+
+export const paymentService = {
+  stripePay: {
+    method: "POST",
+    url: authEndpoints.STRIPE,
+  },
+};

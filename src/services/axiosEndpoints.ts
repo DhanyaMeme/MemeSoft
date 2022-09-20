@@ -6,4 +6,5 @@ export const authEndpoints = Object.freeze({
   RESET_PASSWORD: "/customer/reset/password",
   PRICING: "/get/subsubcription",
   ADD_CONTACT: "/Contact/add/contact",
+  STRIPE: "/stripe/pay",
 });

@@ -10,6 +10,7 @@ import { Register } from "../pages/Auth/Register";
 import { MobileApps } from "../pages/MobileApps";
 import { POS } from "../pages/POS";
 import { Solution } from "../pages/Solution";
+import { Subscription } from "../pages/Subscription";
 
 const PagesInfo = {
   path: "/",
@@ -62,6 +63,10 @@ const PagesInfo = {
     {
       path: "contact",
       element: <Contact />,
+    },
+    {
+      path: "subscribe",
+      element: <Subscription />,
     },
   ],
 };
