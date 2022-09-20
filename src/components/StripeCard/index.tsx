@@ -160,7 +160,7 @@ export const StripeCard: FC<IProps> = (props: IProps) => {
         isLoading={formState.isButtonLoading}
         isFull
       >
-        {`PAY INR ${1000}`}
+        {`PAY ${currency} ${amount}`}
       </FormSubmit>
     </Form>
   );
