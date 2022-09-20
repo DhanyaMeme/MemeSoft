@@ -1,16 +1,25 @@
 import { FC } from "react";
+import { OnclickEvent } from "../../models/types";
 import { IPricingData } from "../../redux/slices/nav/nav.type";
-import { FormElement } from "../../ui-kits/Form";
 import { IF } from "../../ui-kits/IF";
 import { TextButton } from "../../ui-kits/TextButton/TextButton.component";
 import "./Style.scss";
 
 interface IProps {
   pricingData: IPricingData;
+  handleSubscribe: (pricingData: IPricingData) => void;
 }
 
-export const PricingCard: FC<IProps> = ({ pricingData }: IProps) => {
+export const PricingCard: FC<IProps> = ({
+  pricingData,
+  handleSubscribe,
+}: IProps) => {
   const { planename, fee, plancode, country } = pricingData;
+
+  const onClick = (e: OnclickEvent) => {
+    e.preventDefault();
+    handleSubscribe(pricingData);
+  };
 
   return (
     <div
@@ -29,10 +38,11 @@ export const PricingCard: FC<IProps> = ({ pricingData }: IProps) => {
         {country} - {plancode}
       </p>
       <div className="u-h2 Heading">
-        Rs. <strong>{fee}</strong> /mo
+        <strong>{fee}</strong> /mo
       </div>
-
-      <TextButton isSmall>SUBSCRIBE</TextButton>
+      <TextButton isSmall onClick={onClick}>
+        SUBSCRIBE
+      </TextButton>
     </div>
   );
 };

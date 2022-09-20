@@ -29,6 +29,10 @@ export const authService = {
     method: "POST",
     url: authEndpoints.ADD_CONTACT,
   },
+  GetCustomer: {
+    method: "GET",
+    url: authEndpoints.GET_CUSTOMER,
+  },
 };
 
 export const paymentService = {

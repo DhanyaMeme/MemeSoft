@@ -6,6 +6,8 @@ import { INavState } from "./nav.type";
 export const initialState: INavState = {
   pricing: undefined,
   pricingData: initialAsyncData,
+  selectedPricing: undefined,
+  customer: initialAsyncData,
 };
 
 export const navSlice = createSlice({
@@ -15,4 +17,4 @@ export const navSlice = createSlice({
   extraReducers: extraNavReducer,
 });
 
-export const { setPricing } = navSlice.actions;
+export const { setPricing, setSelectedPricing } = navSlice.actions;

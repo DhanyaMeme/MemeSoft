@@ -1,27 +1,35 @@
+import { useEffect } from "react";
+import { useNavigate } from "react-router";
 import usePath from "../../custom-hooks/usePath";
 import LazyLoad from "../../ui-kits/LazyComponent";
 import { PageWidth } from "../../ui-kits/PageWidth";
 import { PricingCard } from "../../components/Pricing/PricingCard";
-import { SectionHeader } from "../../ui-kits/Sections/SectionHeader/SectionHeader";
-import { SectionWrapper } from "../../ui-kits/Sections/SectionWrapper/SectionWrapper";
-import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../redux/store";
 import { fetchSubcription } from "../../redux/slices/nav/nav.reducer";
-import { setPricing } from "../../redux/slices/nav/nav.slice";
+import { SectionHeader } from "../../ui-kits/Sections/SectionHeader/SectionHeader";
+import { SectionWrapper } from "../../ui-kits/Sections/SectionWrapper/SectionWrapper";
+import {
+  setPricing,
+  setSelectedPricing,
+} from "../../redux/slices/nav/nav.slice";
 import { pricingData } from "../../redux/slices/nav/nav.selector";
 import { PricingKey, IPricingData } from "../../redux/slices/nav/nav.type";
-import { StripeCard } from "../../components/checkout-form/StripeCard";
 
 export const Pricing = () => {
+  const navigate = useNavigate();
   const dispatch = useAppDispatch();
+  const { data } = useAppSelector(pricingData);
+
   const {
     params: { id },
   } = usePath();
-
   const pathId = id as PricingKey;
-  const { data } = useAppSelector(pricingData);
-
   const pricingList = data?.[pathId];
+
+  const handleSubscribe = (pricingData: IPricingData) => {
+    dispatch(setSelectedPricing(pricingData));
+    navigate("/subscribe");
+  };
 
   useEffect(() => {
     dispatch(setPricing(pathId));
@@ -44,7 +52,10 @@ export const Pricing = () => {
               key={item.sid}
               className="Grid__Cell 1/3--lap-and-up"
             >
-              <PricingCard pricingData={item} />
+              <PricingCard
+                pricingData={item}
+                handleSubscribe={handleSubscribe}
+              />
             </LazyLoad>
           ))}
         </div>

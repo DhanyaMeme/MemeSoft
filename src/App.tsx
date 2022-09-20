@@ -1,4 +1,4 @@
-import { Fragment, useEffect } from "react";
+import { useEffect } from "react";
 import Routes from "./routes";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -7,6 +7,7 @@ import { StateAndRouterProvider } from "./StateAndRouterProvider";
 import { store } from "./redux/store";
 
 function App() {
+  
   useEffect(() => {
     AOS.init();
     AOS.refresh();

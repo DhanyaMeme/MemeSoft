@@ -1,6 +1,6 @@
 import { CardElement } from "@stripe/react-stripe-js";
 
-const CARD_OPTIONS = {
+export const CARD_OPTIONS = {
   iconStyle: "solid",
   style: {
     base: {
