@@ -26,14 +26,11 @@ interface IProps {
 export const StripeCard: FC<IProps> = (props: IProps) => {
   const { selectedPricing, customer } = props;
 
-  const currency = selectedPricing.fee.replace(/[^a-zA-Z]+/g, "");
-  const amount = parseInt(selectedPricing.fee);
-
   const stripe = useStripe();
   const elements = useElements() as any;
-
   const [clientSecret, setClientSecret] = useState<string | null>(null);
-
+  const currency = selectedPricing.fee.replace(/[^a-zA-Z]+/g, "");
+  const amount = parseInt(selectedPricing.fee);
   const {
     obj: formState,
     update: updateFormState,
