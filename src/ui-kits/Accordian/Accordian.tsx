@@ -9,15 +9,17 @@ import "./Accordian.scss";
 
 interface IProps {
   title: string;
-  child?: ReactNode;
+  path: string;
+  onHandleClose: () => void;
+  child: ReactNode | undefined;
   isPadded?: boolean;
   isAutoExpand?: boolean;
   isLarge?: boolean;
-  to?: string;
 }
 
 export const Accordian: FC<IProps> = (props: IProps) => {
-  const { child, title, isPadded, isAutoExpand, isLarge, to = "" } = props;
+  const { child, title, isPadded, isAutoExpand, isLarge, path, onHandleClose } =
+    props;
 
   const [squareRef, { height }] = useElementSize();
   const [isExpand, setIsExpand] = useState(false);
@@ -25,8 +27,6 @@ export const Accordian: FC<IProps> = (props: IProps) => {
   const handleClick = () => {
     setIsExpand(!isExpand);
   };
-
-  console.log(title, child);
 
   return (
     <div
@@ -41,9 +41,10 @@ export const Accordian: FC<IProps> = (props: IProps) => {
           type="button"
           className="Collapsible__Button u-h5 Heading"
           aria-expanded={isExpand}
+          onClick={handleClick}
         >
           {title}
-          <span className="Collapsible__Plus" onClick={handleClick}></span>
+          <span className="Collapsible__Plus"></span>
         </button>
         <div
           className="Collapsible__Inner"
@@ -59,8 +60,9 @@ export const Accordian: FC<IProps> = (props: IProps) => {
 
       <IF condition={isEmpty(child)}>
         <NavLink
-          to={to}
-          className="Collapsible__Button Heading Link Link--primary u-h5"
+          to={path}
+          className="Collapsible__Button Heading u-h5 Link Link--primary"
+          onClick={onHandleClose}
         >
           {title}
         </NavLink>

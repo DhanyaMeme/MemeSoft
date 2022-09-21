@@ -13,7 +13,7 @@ export const MenuDrawer: FC<IProps> = (props: IProps) => {
 
   return (
     <Drawer
-      body={<MenuBody handleClick={handleClose} />}
+      body={<MenuBody handleClose={handleClose} />}
       position="left"
       title="Menu"
       isHidden={visibleMenu}

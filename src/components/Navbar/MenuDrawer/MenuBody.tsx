@@ -4,11 +4,11 @@ import { Accordian } from "../../../ui-kits/Accordian/Accordian";
 import { INavData, ISubMenu, navData } from "../../../mocks/navData";
 
 interface IProps {
-  handleClick: () => void;
+  handleClose: () => void;
 }
 
 export const MenuBody: FC<IProps> = (props: IProps) => {
-  const { handleClick } = props;
+  const { handleClose } = props;
 
   return (
     <nav className="SidebarMenu__Nav SidebarMenu__Nav--primary">
@@ -17,7 +17,8 @@ export const MenuBody: FC<IProps> = (props: IProps) => {
           <Accordian
             title={item.title.toUpperCase()}
             key={item.id}
-            to={`/${item.path}`}
+            path={`/${item.path}`}
+            onHandleClose={handleClose}
             child={
               item.dropDown
                 ? item.dropDown?.map((submenu: ISubMenu) => (
@@ -25,7 +26,7 @@ export const MenuBody: FC<IProps> = (props: IProps) => {
                       <NavLink
                         to={`/${submenu.path}`}
                         className="Collapsible__Button Heading Text--subdued Link Link--primary u-h7"
-                        onClick={handleClick}
+                        onClick={handleClose}
                       >
                         {submenu.title.toUpperCase()}
                       </NavLink>

@@ -63,10 +63,6 @@ export const navData: INavData[] = [
         title: "Ecommerce",
         path: "pricing/ecommerce",
       },
-      {
-        title: "POS",
-        path: "pricing/pos",
-      },
     ],
   },
   {
