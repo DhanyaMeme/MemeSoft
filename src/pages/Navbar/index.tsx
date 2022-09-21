@@ -3,10 +3,9 @@ import { forwardRef, useState } from "react";
 import usePath from "../../custom-hooks/usePath";
 import { OnclickEvent } from "../../models/types";
 import LogoWrapper from "../../components/Navbar/LogoWrapper";
-import { Drawer } from "../../ui-kits/Drawer/Drawer.compenent";
-import { NavDrawMenu } from "../../components/Navbar/NavDrawMenu";
 import useScrollPosition from "../../custom-hooks/useScrollPosition";
 import { NavMenuWrapper } from "../../components/Navbar/NavMenuWrapper";
+import { MenuDrawer } from "../../components/Navbar/MenuDrawer/MenuDrawer";
 import "./Style.scss";
 
 export const NavBar = forwardRef<HTMLDivElement>((_, ref) => {
@@ -43,14 +42,7 @@ export const NavBar = forwardRef<HTMLDivElement>((_, ref) => {
           <LogoWrapper />
           <NavMenuWrapper handleOnNavCLick={handleOnNavCLick} />
         </nav>
-        <Drawer
-          title="Nav"
-          body={<NavDrawMenu handleOnNavCLick={handleOnNavCLick} />}
-          isHidden={isNavhidden}
-          handleClose={handleOnNavCLick}
-          spacingTight={true}
-          classes="SidebarMenu"
-        />
+        <MenuDrawer visibleMenu={isNavhidden} handleClose={handleOnNavCLick} />
       </header>
     </section>
   );
