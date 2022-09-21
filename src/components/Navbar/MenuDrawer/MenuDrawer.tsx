@@ -1,5 +1,6 @@
 import { FC } from "react";
 import { Drawer } from "../../../ui-kits/Drawer/Drawer.compenent";
+import { AuthButton } from "../AuthButton";
 import { MenuBody } from "./MenuBody";
 import "./MenuDrawer.scss";
 
@@ -13,7 +14,14 @@ export const MenuDrawer: FC<IProps> = (props: IProps) => {
 
   return (
     <Drawer
-      body={<MenuBody handleClose={handleClose} />}
+      body={
+        <>
+          <MenuBody handleClose={handleClose} />
+          <div className="SidebarMenu__Nav--secondary" onClick={handleClose}>
+            <AuthButton />
+          </div>
+        </>
+      }
       position="left"
       title="Menu"
       isHidden={visibleMenu}
