@@ -1,4 +1,5 @@
-import { Banner } from "../../components/Banner";
+
+import { SplitBanner } from "../../components/Banner/SplitBanner";
 import { SiteFeatures } from "../../components/SiteFeatures";
 import { SiteInfo } from "../../components/SiteInfo";
 import { ecommerceFeatureData, ecommerceInfoData } from "./data";
@@ -6,7 +7,7 @@ import { ecommerceFeatureData, ecommerceInfoData } from "./data";
 export const Ecommerce = () => {
   return (
     <>
-      <Banner
+      <SplitBanner
         url={"images/homeBanner.png"}
         title="YOUR ONE ECOMMERCE SHOP"
         subTitle={[

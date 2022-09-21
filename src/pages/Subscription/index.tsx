@@ -5,9 +5,9 @@ import { customer, selectedPricing } from "../../redux/slices/nav/nav.selector";
 import { ICustomer, IPricingData } from "../../redux/slices/nav/nav.type";
 import { useAppSelector } from "../../redux/store";
 import { Container } from "../../ui-kits/Container";
-import { IF } from "../../ui-kits/IF";
 import { PageContentFitScreen } from "../../ui-kits/Wrappers/PageContent.styles";
 import { isEmpty } from "../../utils/script";
+import { IF } from "../../ui-kits/IF";
 
 export const Subscription = () => {
   const selectedPricingData = useAppSelector(selectedPricing);

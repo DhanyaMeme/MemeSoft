@@ -1,4 +1,4 @@
-import { Banner } from "../../components/Banner";
+import { SplitBanner } from "../../components/Banner/SplitBanner";
 import { SiteFeatures } from "../../components/SiteFeatures";
 import { SiteInfo } from "../../components/SiteInfo";
 import { ecommerceFeatureData, ecommerceInfoData } from "./data";
@@ -6,7 +6,7 @@ import { ecommerceFeatureData, ecommerceInfoData } from "./data";
 export const MobileApps = () => {
   return (
     <>
-      <Banner
+      <SplitBanner
         url={"images/homeBanner.png"}
         title="MOBILE APPS"
         subTitle={[

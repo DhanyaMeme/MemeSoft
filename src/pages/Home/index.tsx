@@ -1,4 +1,4 @@
-import { Banner } from "../../components/Banner";
+import { SplitBanner } from "../../components/Banner/SplitBanner";
 import { SiteFeatures } from "../../components/SiteFeatures";
 import { SiteInfo } from "../../components/SiteInfo";
 import { homeFeatureData, homeInfoData } from "./data";
@@ -6,7 +6,7 @@ import { homeFeatureData, homeInfoData } from "./data";
 export const Home = () => {
   return (
     <>
-      <Banner
+      <SplitBanner
         url={"images/homeBanner.png"}
         title="The easiest way to sell online in Global"
         subTitle={[

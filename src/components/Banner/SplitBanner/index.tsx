@@ -7,14 +7,14 @@ interface IProps {
   subTitle: string[];
 }
 
-export const Banner: FC<IProps> = (props: IProps) => {
+export const SplitBanner: FC<IProps> = (props: IProps) => {
   const { url, title, subTitle } = props;
 
   return (
-    <section className="section homepage-hero" data-aos="zoom-in-up">
+    <section className="HomeHero" data-aos="zoom-in-up">
       <div className="Grid">
         <div className="Grid__Cell 1/2--desk">
-          <div className="homepage-hero-content">
+          <div className="HomeHero__Content">
             <div>
               <h1 className="Heading Text--highlight">{title}</h1>
               {subTitle.map((item: string, index: number) => (
@@ -26,7 +26,7 @@ export const Banner: FC<IProps> = (props: IProps) => {
           </div>
         </div>
       </div>
-      <div className="homepage-hero-image">
+      <div className="HomeHero__Image">
         <img
           className="image"
           sizes="100vw"
