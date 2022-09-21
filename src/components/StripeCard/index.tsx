@@ -42,12 +42,12 @@ export const StripeCard: FC<IProps> = (props: IProps) => {
       tnxid: id,
     };
     try {
-      const response = await fetchData({
+      await fetchData({
         ...paymentService.updateTransaction,
         params: data,
       });
 
-      console.log(response);
+      window.location.reload();
     } catch (error) {
       console.log(error);
     }
