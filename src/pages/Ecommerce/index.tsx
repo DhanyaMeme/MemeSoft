@@ -7,15 +7,15 @@ import { ecommerceFeatureData, ecommerceInfoData } from "./data";
 export const Ecommerce = () => {
   return (
     <>
-      {/* <SplitBanner
+      <SplitBanner
         url={"images/homeBanner.png"}
         title="YOUR ONE ECOMMERCE SHOP"
         subTitle={[
           "Try one of the most powerful platforms on the market for free.",
           "No technical knowledge needed.",
         ]}
-      /> */}
-      <Banner />
+      />
+      {/* <Banner /> */}
       <SiteInfo data={ecommerceInfoData} />
       <SiteFeatures data={ecommerceFeatureData} />
     </>
