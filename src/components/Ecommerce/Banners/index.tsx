@@ -5,7 +5,7 @@ import "./Style.scss";
 
 export const Banners = () => {
   return (
-    <div className="Ecom_Container">
+    <div className="Ecom_Container"  >
       <div className="containerproblem">
         <HeroMobileBanner />
         <HeroDeskBanner />

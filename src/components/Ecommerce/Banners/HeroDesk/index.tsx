@@ -4,7 +4,13 @@ export const HeroDeskBanner = () => {
   return (
     <div className="Ecom_Section">
       <div className="Ecom_Section--row Desk_Hero--row">
-        <div className="Ecom_TextColumn">
+        <div
+          className="Ecom_TextColumn"
+          data-aos="zoom-in-right"
+          data-aos-easing="linear"
+          data-aos-duration="1500"
+          data-aos-once="true"
+        >
           <h1 className="Heading">
             Email and SMS are great but what about your anonymous shoppers?
           </h1>
@@ -14,7 +20,13 @@ export const HeroDeskBanner = () => {
             their device screen, and nurturing them into buyers.
           </p>
         </div>
-        <div className="Ecom_ImageColumn Desk_Hero">
+        <div
+          className="Ecom_ImageColumn Desk_Hero"
+          data-aos="zoom-in-left"
+          data-aos-easing="linear"
+          data-aos-duration="1500"
+          data-aos-once="true"
+        >
           <div className="Image_Wrapper Desk_ImgWrapper">
             <img
               src="https://assets.website-files.com/5acb2a61e4871db7dc6617c0/5c20676435af3a30d1d603df_laptop-new.gif"
