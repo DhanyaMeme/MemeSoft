@@ -7,9 +7,9 @@ export const Banner = () => {
   return (
     <div className="page">
       <div className="containerproblem">
-        {/* <HeroBanner />
-        <InfoBanner /> */}
-        {/* <Features /> */}
+        <HeroBanner />
+        <InfoBanner />
+        <Features />
       </div>
     </div>
   );

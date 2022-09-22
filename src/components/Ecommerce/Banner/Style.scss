@@ -210,12 +210,47 @@
     text-align: center;
   }
 
+  .section-bg.hero-bg {
+    top: -500px;
+  }
+
   .text-column {
     width: 90%;
   }
 
-  .section-bg.hero-bg {
-    top: -500px;
+  .image-column.laptop-mockup {
+    width: 100%;
+    margin-bottom: 50px;
+  }
+
+  .image-wrapper.laptop-wrapper {
+    left: 0%;
+  }
+
+  .laptop-maockup-video {
+    left: 10%;
+    top: 8%;
+    width: 80%;
+  }
+
+  .macbook-image {
+    left: -10%;
+    width: 120%;
+    max-width: 120%;
+  }
+
+  .macbook-image-blur {
+    left: -10%;
+    width: 120%;
+    max-width: 120%;
+  }
+
+  .section-bg.second-section-bg {
+    left: -20%;
+    bottom: 2%;
+    width: 140%;
+    max-width: 140%;
+    transform: translate(0%, 0px);
   }
 }
 
@@ -229,5 +264,26 @@
   }
   .text-column {
     width: 100%;
+  }
+
+  .laptop-maockup-video {
+    left: 7%;
+    width: 88%;
+  }
+
+  .macbook-image {
+    left: -15%;
+    width: 130%;
+    max-width: 130%;
+  }
+
+  .macbook-image-blur {
+    left: -15%;
+    width: 130%;
+    max-width: 130%;
+  }
+
+  .section-bg.second-section-bg {
+    bottom: 8%;
   }
 }

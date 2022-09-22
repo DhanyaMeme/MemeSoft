@@ -51,7 +51,7 @@ export const SiteInfo: FC<IProps> = (props: IProps) => {
               <LazyLoad
                 tag="div"
                 key={index}
-                className="Grid__Cell 1/2--phone 1/2--tablet-and-up 1/4--lap-and-up"
+                className="Grid__Cell  1/2--tablet-and-up 1/4--lap-and-up"
               >
                 <div
                   className="CollectionItem__Wrapper"
