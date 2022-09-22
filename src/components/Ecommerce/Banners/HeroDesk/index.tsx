@@ -1,10 +1,10 @@
-import React from "react";
+import "./Style.scss";
 
-export const InfoBanner = () => {
+export const HeroDeskBanner = () => {
   return (
-    <div className="section wf-section">
-      <div className="section-row reverse-wrap">
-        <div className="text-column">
+    <div className="Ecom_Section">
+      <div className="Ecom_Section--row Desk_Hero--row">
+        <div className="Ecom_TextColumn">
           <h1 className="Heading">
             Email and SMS are great but what about your anonymous shoppers?
           </h1>
@@ -14,25 +14,25 @@ export const InfoBanner = () => {
             their device screen, and nurturing them into buyers.
           </p>
         </div>
-        <div className="image-column laptop-mockup">
-          <div className="image-wrapper laptop-wrapper">
+        <div className="Ecom_ImageColumn Desk_Hero">
+          <div className="Image_Wrapper Desk_ImgWrapper">
             <img
               src="https://assets.website-files.com/5acb2a61e4871db7dc6617c0/5c20676435af3a30d1d603df_laptop-new.gif"
               alt="aa"
-              className="laptop-maockup-video"
+              className="Desk_Gif"
             />
             <img
               src="https://assets.website-files.com/5acb2a61e4871db7dc6617c0/5c21c3289a1575eff28230fe_macbook_mockup_c.png"
-              className="macbook-image"
+              className="Desk_Image"
             />
             <img
               src="https://assets.website-files.com/5acb2a61e4871db7dc6617c0/5c21c3289a1575eff28230fe_macbook_mockup_c.png"
-              className="macbook-image-blur"
+              className="Desk_BlurImg"
             />
           </div>
         </div>
       </div>
-      <div className="section-bg second-section-bg">
+      <div className="Ecom_Section--bg Desk_Hero--bg">
         <img
           src="https://assets.website-files.com/5acb2a61e4871db7dc6617c0/5acb4e383bf54b719742150f_intro-section-2-background.svg"
           alt=""

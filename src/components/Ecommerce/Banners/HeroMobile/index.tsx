@@ -1,10 +1,10 @@
-import React from "react";
+import "./Style.scss";
 
-export const HeroBanner = () => {
+export const HeroMobileBanner = () => {
   return (
-    <div className="section wf-section">
-      <div className="section-row hero-section-row">
-        <div className="text-column">
+    <div className="Ecom_Section">
+      <div className="Ecom_Section--row Mobile_Hero--row">
+        <div className="Ecom_TextColumn">
           <h1 className="Heading">
             Email and SMS are great but what about your anonymous shoppers?
           </h1>
@@ -14,26 +14,25 @@ export const HeroBanner = () => {
             their device screen, and nurturing them into buyers.
           </p>
         </div>
-        <div className="image-column hero-mobile">
-          <div className="image-wrapper">
+        <div className="Ecom_ImageColumn Mobile_Hero">
+          <div className="Image_Wrapper">
             <img
               src="https://assets.website-files.com/5acb2a61e4871db7dc6617c0/5acb4f25501121696ccd9c90_video-gif.gif"
               alt="aa"
-              className="phone-video-block"
+              className="Mobile_Gif"
             />
             <img
               src="https://assets.website-files.com/5acb2a61e4871db7dc6617c0/5acb468b3bf54b6767420ea9_phone_mockup.png"
-              className="image"
+              className="Mobile_Image"
             />
             <img
               src="https://assets.website-files.com/5acb2a61e4871db7dc6617c0/5acb468b3bf54b6767420ea9_phone_mockup.png"
-              className="image-blur"
+              className="Mobile_BlurImg"
             />
           </div>
         </div>
       </div>
-
-      <div className="section-bg hero-bg">
+      <div className="Ecom_Section--bg Mobile_Hero--bg">
         <img
           src="https://assets.website-files.com/5acb2a61e4871db7dc6617c0/5acb3d9ef15a7710436519c0_intro-section-1-background.svg"
           alt="bg"

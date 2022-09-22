@@ -1,7 +1,6 @@
-import { SplitBanner } from "../../components/Banner/SplitBanner";
-import { Banner } from "../../components/Ecommerce/Banner";
-import { SiteFeatures } from "../../components/SiteFeatures";
 import { SiteInfo } from "../../components/SiteInfo";
+import { Banners } from "../../components/Ecommerce/Banners";
+import { SiteFeatures } from "../../components/SiteFeatures";
 import { ecommerceFeatureData, ecommerceInfoData } from "./data";
 
 export const Ecommerce = () => {
@@ -15,7 +14,7 @@ export const Ecommerce = () => {
           "No technical knowledge needed.",
         ]}
       /> */}
-      <Banner />
+      <Banners />
       <SiteInfo data={ecommerceInfoData} />
       <SiteFeatures data={ecommerceFeatureData} />
     </>
