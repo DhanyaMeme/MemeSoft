@@ -44,7 +44,7 @@ export const ERPAbout = () => {
               <ul className="Text--subdued Linklist">
                 {erpHelpsData.map((item: string, i: number) => (
                   <li className="Linklist__Item" key={i}>
-                    {item}
+                    ★ &nbsp; {item}
                   </li>
                 ))}
               </ul>

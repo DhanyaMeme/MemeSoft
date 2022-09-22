@@ -27,7 +27,7 @@ export const ERPInfo = () => {
                   Share real-time insights through a centralized data repository
                 </h2>
                 <p>
-                  When people talk and write about ERP, the centralization of
+                  ➳ When people talk and write about ERP, the centralization of
                   data and real-time information is one of the most prominently
                   mentioned benefits. Because an ERP system contains data from
                   across a business in one location, users can easily access
@@ -36,7 +36,7 @@ export const ERPInfo = () => {
                   insights and can lead to improved workflows.
                 </p>
                 <p>
-                  For example, if the financial team has data insights on how
+                  ➳ For example, if the financial team has data insights on how
                   many projects run over budget as segmented by department, this
                   information could be easily accessed by the departments
                   themselves without the need for the financial team to compile

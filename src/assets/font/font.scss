@@ -1,31 +1,33 @@
 @font-face {
-  font-family: "JosefinSansBold";
-  src: local("JosefinSansBold"),
-    url("./JospinSans/JosefinSans-Bold.ttf") format("truetype");
+  font-family: "SourceSansBold";
+  src: local("SourceSansBold"),
+    url("./SourceSans/SourceSansPro-Bold.ttf") format("truetype");
 }
 @font-face {
-  font-family: "JosefinSansLight";
-  src: local("JosefinSansLight"),
-    url("./JospinSans/JosefinSans-Light.ttf") format("truetype");
+  font-family: "SourceSansBlack";
+  src: local("SourceSansBlack"),
+    url("./SourceSans/SourceSansPro-Black.ttf") format("truetype");
 }
 @font-face {
-  font-family: "JosefinSansMedium";
-  src: local("JosefinSansMedium"),
-    url("./JospinSans/JosefinSans-Bold.ttf") format("truetype");
+  font-family: "SourceSansSemiBold";
+  src: local("SourceSansSemiBold"),
+    url("./SourceSans/SourceSansPro-SemiBold.ttf") format("truetype");
 }
 
 @font-face {
-  font-family: "JosefinSansRegular";
-  src: local("JosefinSansRegular"),
-    url("./JospinSans/JosefinSans-Regular.ttf") format("truetype");
+  font-family: "SourceSansRegular";
+  src: local("SourceSansRegular"),
+    url("./SourceSans/SourceSansPro-Regular.ttf") format("truetype");
 }
+
 @font-face {
-  font-family: "JosefinSansSemiBold";
-  src: local("JosefinSansBold"),
-    url("./JospinSans/JosefinSans-SemiBold.ttf") format("truetype");
+  font-family: "SourceSansItalic";
+  src: local("SourceSansItalic"),
+    url("./SourceSans/SourceSansPro-Italic.ttf") format("truetype");
 }
+
 @font-face {
-  font-family: "JosefinSansThin";
-  src: local("JosefinSansBold"),
-    url("./JospinSans/JosefinSans-Thin.ttf") format("truetype");
+  font-family: "SourceSansBoldItalic";
+  src: local("SourceSansBoldItalic"),
+    url("./SourceSans/SourceSansPro-BoldItalic.ttf") format("truetype");
 }
