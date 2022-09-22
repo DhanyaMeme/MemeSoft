@@ -18,18 +18,19 @@ export const NavBar = forwardRef<HTMLDivElement>((_, ref) => {
     setNavHidden((prev) => !prev);
   };
 
-  const nonStickyPath = [
-    "pricing",
-    "contact",
-    "register",
-    "login",
-    "subscribe",
+  const stickyPath = [
+    "home",
+    "mobile-apps",
+    "erp",
+    "pos",
+    "solution",
+    "security",
   ];
 
   return (
     <section
       className={classNames("HeaderSection", {
-        sticky: !nonStickyPath.includes(path),
+        sticky: stickyPath.includes(path),
       })}
       ref={ref}
     >
