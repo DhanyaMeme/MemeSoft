@@ -1,6 +1,6 @@
 import { FC, ReactNode, useEffect } from "react";
 import { Outlet } from "react-router-dom";
-import { Newsletter } from "../components/Newsletter";
+import { Footer } from "../components/Footer";
 import useElementSize from "../custom-hooks/useElementSize";
 import useWindowSize from "../custom-hooks/useWindowSize";
 import { NavBar } from "../pages/Navbar";
@@ -28,7 +28,7 @@ const BaseLayout: FC<BaseLayoutProps> = ({ children }) => {
     <>
       <NavBar ref={headerRef} />
       {children || <Outlet />}
-      <Newsletter />
+      <Footer />
     </>
   );
 };
