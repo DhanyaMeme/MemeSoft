@@ -62,6 +62,8 @@ export const Newsletter = () => {
     }
   };
 
+  console.log("formState", formState);
+
   return (
     <div className="Newsletter">
       <Container>
@@ -70,17 +72,20 @@ export const Newsletter = () => {
             <h1 className="Heading">Sign Up for Newsletter</h1>
           </FormElement>
           <FormError formState={formState} />
-          <FormTextInput
-            type="email"
-            name="email"
-            placeholder="Email"
-            className="Newsletter__Input"
-            onChange={handleOnchange}
-            onFocus={handleOnFocusEvent}
-            value={email || ""}
-          />
+          <FormElement>
+            <FormTextInput
+              type="email"
+              name="email"
+              value={email || ""}
+              placeholder="Email"
+              className="Newsletter__Input"
+              onChange={handleOnchange}
+              onFocus={handleOnFocusEvent}
+            />
+          </FormElement>
           <TextButton
             className="Newsletter__Submit"
+            isLoading={formState.isButtonLoading}
             buttonType={BUTTON_TYPE_CLASSES.transparent}
             isFull
           >

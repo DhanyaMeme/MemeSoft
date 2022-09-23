@@ -7,8 +7,15 @@ interface IProps<T> {
   formState: IFormState<T>;
 }
 
-export const FormError = <T extends Object>(props: IProps<T>) => {
+export const FormError = <T,>(props: IProps<T>) => {
   const { formState } = props;
+
+  const getErrorText = (errors: string | object) => {
+    if (typeof errors === "string") {
+      return errors;
+    }
+    return Object.values(errors)[0];
+  };
 
   return (
     <IF
@@ -20,7 +27,7 @@ export const FormError = <T extends Object>(props: IProps<T>) => {
         classname="u-h6 Heading"
       >
         {formState.helperText ||
-          (formState.errors && Object.values(formState.errors)[0])}
+          (formState.errors && getErrorText(formState.errors))}
       </FormAlert>
     </IF>
   );
