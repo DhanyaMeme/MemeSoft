@@ -39,8 +39,8 @@ const Button = styled.button<IButtonStyleProps>`
   border: 1px solid transparent;
   border-radius: 0;
   font-size: 14px;
-  font-weight: 500;
   text-align: center;
+  font-family: "SourceSansSemiBold";
   letter-spacing: 0.2em;
   font-style: normal;
   background-color: transparent;

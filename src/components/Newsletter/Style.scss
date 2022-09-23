@@ -1,0 +1,35 @@
+.Newsletter {
+  text-align: center;
+  padding: 50px 0;
+  background: #ced3ca;
+  background-image: linear-gradient(
+      to right bottom,
+      rgba(126, 213, 111, 0.8),
+      rgba(40, 180, 133, 0.8)
+    ),
+    url(https://images.squarespace-cdn.com/content/v1/57d8a8fce58c6231819aac1c/1610374059494-S9EBRIGPBTFU9TPLANLF/Untitled+design+%2830%29.png?format=2500w);
+  background-size: cover;
+  background-position: top;
+  position: relative;
+
+  &__Form {
+    max-width: 400px;
+    margin: auto;
+
+    .Heading {
+      color: white;
+    }
+
+    .Form__Input,
+    .Newsletter__Submit {
+      border-radius: 50px;
+      border: 1px solid #cbcbcb;
+      background: white;
+      color: #3c3c3c;
+    }
+
+    .Newsletter__Submit {
+      margin: 20px auto;
+    }
+  }
+}

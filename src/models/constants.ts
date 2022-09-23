@@ -1,5 +1,5 @@
 export const initialFormState = {
-  errors: {},
+  errors: null,
   helperText: "",
   submitSuccess: false,
   isButtonLoading: false,
