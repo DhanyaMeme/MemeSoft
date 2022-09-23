@@ -36,10 +36,12 @@ export const HeroDeskBanner = () => {
             <img
               src="https://assets.website-files.com/5acb2a61e4871db7dc6617c0/5c21c3289a1575eff28230fe_macbook_mockup_c.png"
               className="Desk_Image"
+              alt="aa"
             />
             <img
               src="https://assets.website-files.com/5acb2a61e4871db7dc6617c0/5c21c3289a1575eff28230fe_macbook_mockup_c.png"
               className="Desk_BlurImg"
+              alt="aa"
             />
           </div>
         </div>

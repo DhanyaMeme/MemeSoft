@@ -1,9 +1,10 @@
 import classNames from "classnames";
 import { FC, ReactNode, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import useElementSize from "../../custom-hooks/useElementSize";
 import { isEmpty } from "../../utils/script";
 import { IF } from "../IF";
+import { Button } from "../TextButton/TextButton.styles";
 
 import "./Accordian.scss";
 
@@ -23,6 +24,8 @@ export const Accordian: FC<IProps> = (props: IProps) => {
 
   const [squareRef, { height }] = useElementSize();
   const [isExpand, setIsExpand] = useState(false);
+
+  const navigate = useNavigate();
 
   const handleClick = () => {
     setIsExpand(!isExpand);
@@ -57,15 +60,17 @@ export const Accordian: FC<IProps> = (props: IProps) => {
           </div>
         </div>
       </IF>
-
       <IF condition={isEmpty(child)}>
-        <NavLink
-          to={path}
+        <button
           className="Collapsible__Button Heading u-h5 Link Link--primary"
-          onClick={onHandleClose}
+          onClick={(e) => {
+            e.preventDefault();
+            onHandleClose();
+            navigate(path);
+          }}
         >
           {title}
-        </NavLink>
+        </button>
       </IF>
     </div>
   );

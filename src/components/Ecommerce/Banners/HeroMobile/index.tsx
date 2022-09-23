@@ -36,10 +36,12 @@ export const HeroMobileBanner = () => {
             <img
               src="https://assets.website-files.com/5acb2a61e4871db7dc6617c0/5acb468b3bf54b6767420ea9_phone_mockup.png"
               className="Mobile_Image"
+              alt="aa"
             />
             <img
               src="https://assets.website-files.com/5acb2a61e4871db7dc6617c0/5acb468b3bf54b6767420ea9_phone_mockup.png"
               className="Mobile_BlurImg"
+              alt="aa"
             />
           </div>
         </div>

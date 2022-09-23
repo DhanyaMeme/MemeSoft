@@ -22,11 +22,14 @@ export const MenuBody: FC<IProps> = (props: IProps) => {
             child={
               item.dropDown
                 ? item.dropDown?.map((submenu: ISubMenu) => (
-                    <div className="Collapsible" key={submenu.title}>
+                    <div
+                      className="Collapsible"
+                      key={submenu.title}
+                      onClick={handleClose}
+                    >
                       <NavLink
                         to={`/${submenu.path}`}
                         className="Collapsible__Button Heading Text--subdued Link Link--primary u-h7"
-                        onClick={handleClose}
                       >
                         {submenu.title.toUpperCase()}
                       </NavLink>
