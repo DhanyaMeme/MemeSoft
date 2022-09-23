@@ -31,6 +31,11 @@ export const Accordian: FC<IProps> = (props: IProps) => {
     setIsExpand(!isExpand);
   };
 
+  const onNav = () => {
+    onHandleClose();
+    navigate(path);
+  };
+
   return (
     <div
       className={classNames("Collapsible", {
@@ -65,8 +70,7 @@ export const Accordian: FC<IProps> = (props: IProps) => {
           className="Collapsible__Button Heading u-h5 Link Link--primary"
           onClick={(e) => {
             e.preventDefault();
-            onHandleClose();
-            navigate(path);
+            onNav();
           }}
         >
           {title}
