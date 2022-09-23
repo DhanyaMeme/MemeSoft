@@ -1,8 +1,8 @@
-import { Services } from "./Services";
-import { NewsLetter } from "./NewsLetter";
-import { FooterAboutUs } from "./FooterAboutUs";
 import { Container } from "../../ui-kits/Container";
 import { footerLinks, IFooterLinks } from "./data/data";
+import { FooterContactInfo } from "./FooterContactInfo";
+import { FooterNewsLetter } from "./FooterNewsLetter";
+import { FooterServices } from "./FooterServices";
 import "./Style.scss";
 
 export const Footer = () => {
@@ -10,11 +10,11 @@ export const Footer = () => {
     <footer className="Footer ">
       <Container>
         <div className="Footer__Inner u-h5">
-          <FooterAboutUs />
+          <FooterContactInfo />
           {footerLinks.map((item: IFooterLinks) => (
-            <Services links={item} key={item.title} />
+            <FooterServices links={item} key={item.title} />
           ))}
-          <NewsLetter />
+          <FooterNewsLetter />
         </div>
         <div className="Footer__Aside">
           <div className="Footer__Copyright">

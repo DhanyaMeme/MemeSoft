@@ -10,7 +10,7 @@ import {
 import { IValidation, validationRules } from "../../utils/Validation";
 import { InputChangeEvent, InputFocusEvent } from "../../models/types";
 
-export const NewsLetter = () => {
+export const FooterNewsLetter = () => {
   const [email, setEmail] = useState<string | null>(null);
   const {
     obj: formState,

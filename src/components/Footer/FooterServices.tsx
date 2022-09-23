@@ -6,7 +6,7 @@ interface IProps {
   links: IFooterLinks;
 }
 
-export const Services: FC<IProps> = (props: IProps) => {
+export const FooterServices: FC<IProps> = (props: IProps) => {
   const { links } = props;
   const [collapsed, setCollapsed] = useState(false);
 

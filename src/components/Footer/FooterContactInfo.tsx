@@ -1,6 +1,6 @@
 import { SocialIcons } from "../../assets/icons/Social.icon";
 
-export const FooterAboutUs = () => {
+export const FooterContactInfo = () => {
   return (
     <div className="Footer__Block Footer__Block--text u-h5">
       <h4 className="Footer__Title Heading">STAY CONNECTED</h4>
