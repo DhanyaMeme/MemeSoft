@@ -91,7 +91,7 @@ export const FooterNewsLetter = () => {
           <FormTextInput
             type="email"
             name="email"
-            value={email}
+            value={email || ""}
             placeholder="Email"
             onChange={handleOnchange}
             onFocus={handleOnFocusEvent}

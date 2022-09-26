@@ -5,6 +5,7 @@
   color: #ffffff;
   background-size: cover;
   background-position: top;
+  margin-top: 60px;
 
   .Heading {
     color: #ffffff;
@@ -44,6 +45,7 @@
 
   @media screen and (min-width: 641px) {
     padding: 75px 0 42px 0;
+    margin-top: 80px;
 
     .Footer__Inner {
       display: flex;
@@ -88,6 +90,10 @@
     .Footer__Aside {
       margin-top: 80px;
     }
+  }
+
+  @media screen and (min-width: 1240px) {
+    margin-top: 120px;
   }
 
   @media screen and (max-width: 640px) {

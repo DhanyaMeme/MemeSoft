@@ -1567,3 +1567,136 @@ h6 {
     right: 0;
   }
 }
+
+/**
+ * ----------------------------------------------------------------------------
+ * Segment
+ * ----------------------------------------------------------------------------
+ */
+.Segment + .Segment {
+  margin-top: 50px;
+}
+
+.Segment__Title {
+  margin-bottom: 24px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e7e7e7;
+  color: #939393;
+}
+
+.Segment__Title--flexed {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.Segment__ActionList {
+  margin-top: 16px;
+}
+
+.Segment__ActionItem {
+  line-height: 1.4;
+}
+
+.Segment__ActionItem + .Segment__ActionItem {
+  margin-left: 20px;
+}
+
+.Segment__ButtonWrapper {
+  margin-top: 32px;
+}
+
+@media screen and (min-width: 641px) {
+  .Segment__Title {
+    margin-bottom: 34px;
+  }
+
+  .Segment__ActionList {
+    margin-top: 24px;
+  }
+}
+@media screen and (min-width: 1240px) {
+  .Segment + .Segment {
+    margin-top: 65px;
+  }
+}
+
+/**
+ * ----------------------------------------------------------------------------
+ * Page layout (to create two columns) and content
+ * ----------------------------------------------------------------------------
+ */
+
+.PageLayout {
+  .PageLayout__Section {
+    &:first-child {
+      margin-bottom: 60px;
+    }
+  }
+
+  .PageLayout__Section--sticky {
+    position: sticky;
+    top: 75px;
+    align-self: flex-start;
+
+    @supports (--css: variables) {
+      top: calc(var(--header-height) + 20px);
+    }
+  }
+
+  @media screen and (min-width: 641px) {
+    display: flex;
+    flex-wrap: nowrap;
+
+    .PageLayout__Section {
+      flex: 1 0 0;
+
+      &:first-child {
+        margin-bottom: 0;
+      }
+    }
+
+    .PageLayout__Section + .PageLayout__Section {
+      margin-left: 50px;
+    }
+
+    .PageLayout__Section--secondary {
+      flex: 1 1 200px;
+      max-width: 200px;
+    }
+  }
+
+  @media screen and (min-width: 641px) and (max-width: 1007px) {
+    &.PageLayout--breakLap {
+      display: block;
+
+      .PageLayout__Section {
+        &:first-child {
+          margin-bottom: 60px;
+        }
+      }
+      .PageLayout__Section + .PageLayout__Section {
+        margin-left: 0;
+        width: 100%;
+      }
+    }
+  }
+
+  @media screen and (min-width: 1008px) {
+    .PageLayout__Section--secondary {
+      flex-basis: 235px;
+      max-width: 235px;
+    }
+  }
+
+  @media screen and (min-width: 1240px) {
+    .PageLayout__Section + .PageLayout__Section {
+      margin-left: 80px;
+    }
+
+    .PageLayout__Section--secondary {
+      flex-basis: 290px;
+      max-width: 290px;
+    }
+  }
+}
