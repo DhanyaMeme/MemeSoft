@@ -2,7 +2,8 @@ import { AxiosResponse } from "axios";
 import { createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import { ICustomer, INavState, IPricingData, Pricing } from "./nav.type";
 import { fetchData } from "../../../services/axios";
-import { authService } from "../../../services/axiosServices";
+import { authService, paymentService } from "../../../services/axiosServices";
+import { GroupByPropValue } from "../../../utils/generics";
 
 export const fetchCustomer = createAsyncThunk<ICustomer, string>(
   "nav/getCustomer",
@@ -21,16 +22,13 @@ export const fetchCustomer = createAsyncThunk<ICustomer, string>(
   }
 );
 
-export const fetchSubcription = createAsyncThunk<IPricingData[], string>(
+export const fetchSubcription = createAsyncThunk(
   "nav/getSubcription",
-  async (platform, { rejectWithValue }) => {
+  async (_args, { rejectWithValue }) => {
     try {
-      const response = (await fetchData({
-        ...authService.Pricing,
-        params: {
-          platform,
-        },
-      })) as AxiosResponse;
+      const response = (await fetchData(
+        paymentService.getAllSubcription
+      )) as AxiosResponse;
       return response.data;
     } catch (err) {
       return rejectWithValue(err);
@@ -61,10 +59,9 @@ export const extraNavReducer = {
     state: INavState,
     { payload }: PayloadAction<Array<IPricingData>>
   ) => {
-    const data = state.pricingData.data || ({} as Pricing);
-    const key = state.pricing as string;
+    const data = GroupByPropValue(payload, "platform");
     state.pricingData.loading = false;
-    state.pricingData.data = { ...data, [key]: payload };
+    state.pricingData.data = data;
   },
   [fetchSubcription.rejected.type]: (state: INavState) => {
     state.pricingData.loading = false;

@@ -16,7 +16,7 @@ import {
   setSelectedPricing,
 } from "../../redux/slices/nav/nav.slice";
 import { pricingData } from "../../redux/slices/nav/nav.selector";
-import { PricingKey, IPricingData } from "../../redux/slices/nav/nav.type";
+import { IPricingData } from "../../redux/slices/nav/nav.type";
 import { useAuth } from "../../context/AuthContext";
 
 export const Pricing = () => {
@@ -28,8 +28,10 @@ export const Pricing = () => {
   const {
     params: { id },
   } = usePath();
-  const pathId = id as PricingKey;
-  const pricingList = data?.[pathId];
+
+  const pathId = id?.toUpperCase() as string;
+
+  const pricingList = data?.get(pathId);
 
   const handleSubscribe = (pricingData: IPricingData) => {
     if (user) {
@@ -43,9 +45,6 @@ export const Pricing = () => {
 
   useEffect(() => {
     dispatch(setPricing(pathId));
-    if (!pricingList || !pricingList.length) {
-      dispatch(fetchSubcription(pathId));
-    }
   }, [dispatch, pathId, pricingList]);
 
   return (

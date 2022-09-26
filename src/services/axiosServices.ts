@@ -21,10 +21,6 @@ export const authService = {
     method: "POST",
     url: authEndpoints.RESET_PASSWORD,
   },
-  Pricing: {
-    method: "GET",
-    url: authEndpoints.PRICING,
-  },
   AddContact: {
     method: "POST",
     url: authEndpoints.ADD_CONTACT,
@@ -40,6 +36,10 @@ export const authService = {
 };
 
 export const paymentService = {
+  getAllSubcription: {
+    method: "GET",
+    url: authEndpoints.SUBSCRIPTION_PLANS,
+  },
   stripePay: {
     method: "POST",
     url: authEndpoints.STRIPE,

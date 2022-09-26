@@ -1,14 +1,5 @@
 import { AsyncData } from "../../../models/types";
 
-export interface IPricingData {
-  country: string;
-  fee: string;
-  plancode: string;
-  planename: string;
-  platform: string;
-  sid: number;
-}
-
 export interface ICustomer {
   city: string;
   companyname: string;
@@ -34,8 +25,16 @@ export interface ICustomer {
   zip: string;
 }
 
-export type PricingKey = "erp" | "ecommerce";
-export type Pricing = Record<PricingKey, IPricingData[]>;
+export interface IPricingData {
+  country: string;
+  fee: string;
+  plancode: string;
+  planename: string;
+  platform: string;
+  sid: number;
+}
+
+export type Pricing = Map<string, IPricingData[]>;
 
 export interface INavState {
   customer: AsyncData<ICustomer>;

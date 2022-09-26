@@ -4,10 +4,13 @@ export const authEndpoints = Object.freeze({
   EMAIL_VERIFY: "/customer/forget/password",
   CONFIRM__OTP: "/customer/confirm/otp/verification",
   RESET_PASSWORD: "/customer/reset/password",
-  PRICING: "/get/subsubcription",
-  ADD_CONTACT: "/Contact/add/contact",
-  STRIPE: "/stripe/pay",
   GET_CUSTOMER: "/get/customer/email",
-  TRANSACTION: "/add/transaction",
+
   ADD_NEWSLETTER: "/newsletter/add/email",
+  ADD_CONTACT: "/Contact/add/contact",
+
+  // Plans
+  SUBSCRIPTION_PLANS: "/get/all/subcription",
+  STRIPE: "/stripe/pay",
+  TRANSACTION: "/add/transaction",
 });

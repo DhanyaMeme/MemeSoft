@@ -7,7 +7,6 @@ import { StateAndRouterProvider } from "./StateAndRouterProvider";
 import { store } from "./redux/store";
 
 function App() {
-  
   useEffect(() => {
     AOS.init();
     AOS.refresh();

@@ -57,3 +57,22 @@ export function filterFalsyObject<T extends object, K extends keyof T>(obj: T) {
   });
   return newObj;
 }
+
+/**
+ * Groups all items in an array of objects `T` where the value of property `K` is the same
+ * @param array Items to group
+ * @param key Key of `T` to group by
+ */
+export function GroupByPropValue<T, K extends keyof T>(array: T[], key: K) {
+  let map = new Map<T[K], T[]>();
+  array.forEach((item) => {
+    let itemKey = item[key];
+    if (!map.has(itemKey)) {
+      map.set(
+        itemKey,
+        array.filter((i) => i[key] === item[key])
+      );
+    }
+  });
+  return map;
+}
