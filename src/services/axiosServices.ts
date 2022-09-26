@@ -21,13 +21,17 @@ export const authService = {
     method: "POST",
     url: authEndpoints.RESET_PASSWORD,
   },
-  AddContact: {
-    method: "POST",
-    url: authEndpoints.ADD_CONTACT,
-  },
   GetCustomer: {
     method: "GET",
     url: authEndpoints.GET_CUSTOMER,
+  },
+  GetCustomertTrascations: {
+    method: "GET",
+    url: authEndpoints.CUSTOMER_TRANSACTIONS,
+  },
+  AddContact: {
+    method: "POST",
+    url: authEndpoints.ADD_CONTACT,
   },
   AddNewsletter: {
     method: "POST",

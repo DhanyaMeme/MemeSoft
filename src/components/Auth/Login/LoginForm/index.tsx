@@ -73,7 +73,7 @@ export const LoginForm = () => {
         setFormState
       );
       if (data) {
-        safeSetTimeout(setFormState, 1000, initialFormState);
+        safeSetTimeout(navigateToHome, 1000, loginState.email);
       }
     }
   };

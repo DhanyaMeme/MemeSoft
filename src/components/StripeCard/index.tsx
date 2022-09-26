@@ -8,13 +8,14 @@ import {
   FormSubmit,
   FormTextInput,
 } from "../../ui-kits/Form";
-import { ICustomer, IPricingData } from "../../redux/slices/nav/nav.type";
+import { IPricingData } from "../../redux/slices/nav/nav.type";
 import { Form__Elemen__Types } from "../../ui-kits/Form/FormElements/FormElement";
 import useObjectState from "../../custom-hooks/useObjectState";
 import { initialFormState } from "../../models/constants";
 import { IFormState } from "../../models/interfaces";
 import { FormError } from "../Auth/FormError";
 import { CARD_OPTIONS } from "./data";
+import { ICustomer } from "../../redux/slices/customer/customer.type";
 
 interface IProps {
   selectedPricing: IPricingData;

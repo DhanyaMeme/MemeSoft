@@ -1,13 +1,15 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router";
 import { StripeCard } from "../../components/StripeCard";
-import { customer, selectedPricing } from "../../redux/slices/nav/nav.selector";
-import { ICustomer, IPricingData } from "../../redux/slices/nav/nav.type";
+import { selectedPricing } from "../../redux/slices/nav/nav.selector";
+import { IPricingData } from "../../redux/slices/nav/nav.type";
 import { useAppSelector } from "../../redux/store";
 import { Container } from "../../ui-kits/Container";
 import { PageContentFitScreen } from "../../ui-kits/Wrappers/PageContent.styles";
 import { isEmpty } from "../../utils/script";
 import { IF } from "../../ui-kits/IF";
+import { customer } from "../../redux/slices/customer/customer.selector";
+import { ICustomer } from "../../redux/slices/customer/customer.type";
 
 export const Subscription = () => {
   const selectedPricingData = useAppSelector(selectedPricing);

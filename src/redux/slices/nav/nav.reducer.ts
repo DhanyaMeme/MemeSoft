@@ -1,26 +1,9 @@
 import { AxiosResponse } from "axios";
 import { createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
-import { ICustomer, INavState, IPricingData, Pricing } from "./nav.type";
+import { INavState, IPricingData } from "./nav.type";
 import { fetchData } from "../../../services/axios";
-import { authService, paymentService } from "../../../services/axiosServices";
+import { paymentService } from "../../../services/axiosServices";
 import { GroupByPropValue } from "../../../utils/generics";
-
-export const fetchCustomer = createAsyncThunk<ICustomer, string>(
-  "nav/getCustomer",
-  async (email, { rejectWithValue }) => {
-    try {
-      const response = (await fetchData({
-        ...authService.GetCustomer,
-        params: {
-          email,
-        },
-      })) as AxiosResponse;
-      return response.data;
-    } catch (err) {
-      return rejectWithValue(err);
-    }
-  }
-);
 
 export const fetchSubcription = createAsyncThunk(
   "nav/getSubcription",
@@ -66,19 +49,5 @@ export const extraNavReducer = {
   [fetchSubcription.rejected.type]: (state: INavState) => {
     state.pricingData.loading = false;
     state.pricingData.error = "Error while fetching all categories";
-  },
-  [fetchCustomer.pending.type]: (state: INavState) => {
-    state.customer.loading = true;
-  },
-  [fetchCustomer.fulfilled.type]: (
-    state: INavState,
-    { payload }: PayloadAction<ICustomer>
-  ) => {
-    state.customer.loading = false;
-    state.customer.data = payload;
-  },
-  [fetchCustomer.rejected.type]: (state: INavState) => {
-    state.customer.loading = false;
-    state.customer.error = "Error while fetching all customers";
   },
 };

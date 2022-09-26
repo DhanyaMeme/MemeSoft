@@ -4,7 +4,9 @@ export const authEndpoints = Object.freeze({
   EMAIL_VERIFY: "/customer/forget/password",
   CONFIRM__OTP: "/customer/confirm/otp/verification",
   RESET_PASSWORD: "/customer/reset/password",
+
   GET_CUSTOMER: "/get/customer/email",
+  CUSTOMER_TRANSACTIONS: "/get/transaction/userid",
 
   ADD_NEWSLETTER: "/newsletter/add/email",
   ADD_CONTACT: "/Contact/add/contact",

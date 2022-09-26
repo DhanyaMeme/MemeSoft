@@ -7,8 +7,9 @@ import useWindowSize from "../custom-hooks/useWindowSize";
 import { NavBar } from "../pages/Navbar";
 import {
   fetchCustomer,
-  fetchSubcription,
-} from "../redux/slices/nav/nav.reducer";
+  fetchCustomerTransactions,
+} from "../redux/slices/customer/customer.reducer";
+import { fetchSubcription } from "../redux/slices/nav/nav.reducer";
 import { useAppDispatch } from "../redux/store";
 
 interface BaseLayoutProps {
@@ -24,13 +25,14 @@ const BaseLayout: FC<BaseLayoutProps> = ({ children }) => {
 
   useEffect(() => {
     dispatch(fetchSubcription());
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     if (user) {
       dispatch(fetchCustomer(user));
+      dispatch(fetchCustomerTransactions(user));
     }
-  }, [user]);
+  }, [user, dispatch]);
 
   useEffect(() => {
     const windowheight = `${height}px`;
