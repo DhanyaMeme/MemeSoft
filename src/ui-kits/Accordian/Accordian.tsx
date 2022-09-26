@@ -1,10 +1,9 @@
 import classNames from "classnames";
 import { FC, ReactNode, useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import useElementSize from "../../custom-hooks/useElementSize";
 import { isEmpty } from "../../utils/script";
 import { IF } from "../IF";
-import { Button } from "../TextButton/TextButton.styles";
 
 import "./Accordian.scss";
 

@@ -33,6 +33,10 @@ export const authService = {
     method: "GET",
     url: authEndpoints.GET_CUSTOMER,
   },
+  AddNewsletter: {
+    method: "POST",
+    url: authEndpoints.ADD_NEWSLETTER,
+  },
 };
 
 export const paymentService = {

@@ -42,7 +42,7 @@ interface IAuthContext {
     formValues: IFormState<T>,
     sanitizeFn: (value: IFormState<T>) => void
   ) => void;
-  updateData: <T extends object>(
+  updateData: <T>(
     params: AxiosRequestConfig,
     formValues: IFormState<T>,
     messages: Messages,

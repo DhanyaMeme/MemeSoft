@@ -9,4 +9,5 @@ export const authEndpoints = Object.freeze({
   STRIPE: "/stripe/pay",
   GET_CUSTOMER: "/get/customer/email",
   TRANSACTION: "/add/transaction",
+  ADD_NEWSLETTER: "/newsletter/add/email",
 });

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { IFormState } from "../../models/interfaces";
+import { IFormState, Messages } from "../../models/interfaces";
 import { initialFormState } from "../../models/constants";
 import useObjectState from "../../custom-hooks/useObjectState";
 import { Form, FormElement, FormTextInput } from "../../ui-kits/Form";
@@ -9,9 +9,14 @@ import {
 } from "../../ui-kits/TextButton/TextButton.component";
 import { IValidation, validationRules } from "../../utils/Validation";
 import { InputChangeEvent, InputFocusEvent } from "../../models/types";
+import { useAuth } from "../../context/AuthContext";
+import { authService } from "../../services/axiosServices";
+import { safeSetTimeout } from "../../utils/generics";
+import { FormError } from "../Auth/FormError";
 
 export const FooterNewsLetter = () => {
   const [email, setEmail] = useState<string | null>(null);
+
   const {
     obj: formState,
     update: updateFormState,
@@ -22,6 +27,8 @@ export const FooterNewsLetter = () => {
     { rule: validationRules.email },
     { rule: validationRules.required },
   ];
+
+  const { updateData } = useAuth();
 
   const handleOnchange = (e: InputChangeEvent) => {
     setEmail(e.target.value);
@@ -49,22 +56,42 @@ export const FooterNewsLetter = () => {
     return isValid;
   };
 
-  const handleSubmit = (event: SubmitEvent) => {
+  const params = {
+    ...authService.AddNewsletter,
+    params: { email },
+  };
+
+  const message: Messages = {
+    success: "Subscribed successfully!",
+    error: "Something went wronng, Try again later!",
+  };
+
+  const handleSubmit = async (event: SubmitEvent) => {
     event.preventDefault();
     const isValid = handleValidate();
     if (isValid) {
+      const data = await updateData(
+        params,
+        formState as IFormState<string>,
+        message,
+        setFormState
+      );
+      if (data) {
+        safeSetTimeout(setFormState, 2000, initialFormState);
+      }
     }
   };
 
   return (
     <div className="Footer__Block Footer__Block--connected u-h5">
       <h4 className="Footer__Title Heading">Sign Up for Newsletter</h4>
+      <FormError formState={formState} />
       <Form onSubmit={handleSubmit}>
         <FormElement>
           <FormTextInput
             type="email"
             name="email"
-            value={""}
+            value={email}
             placeholder="Email"
             onChange={handleOnchange}
             onFocus={handleOnFocusEvent}
