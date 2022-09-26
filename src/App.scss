@@ -18,6 +18,11 @@ body {
   margin: 0;
 }
 
+main {
+  display: block;
+  min-height: 50vh;
+}
+
 [hidden] {
   display: none;
 }

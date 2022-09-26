@@ -35,7 +35,7 @@ export const StripeCard: FC<IProps> = (props: IProps) => {
   const updateTransaction = async (id: string) => {
     const data = {
       ...selectedPricing,
-      customerid: customer.customerid,
+      customerid: customer.email,
       paymentmode: "card",
       paymentstatus: "success",
       status: "active ",

@@ -1,10 +1,14 @@
 import { FC, ReactNode, useEffect } from "react";
 import { Outlet } from "react-router-dom";
 import { Footer } from "../components/Footer";
+import { useAuth } from "../context/AuthContext";
 import useElementSize from "../custom-hooks/useElementSize";
 import useWindowSize from "../custom-hooks/useWindowSize";
 import { NavBar } from "../pages/Navbar";
-import { fetchSubcription } from "../redux/slices/nav/nav.reducer";
+import {
+  fetchCustomer,
+  fetchSubcription,
+} from "../redux/slices/nav/nav.reducer";
 import { useAppDispatch } from "../redux/store";
 
 interface BaseLayoutProps {
@@ -16,9 +20,17 @@ const BaseLayout: FC<BaseLayoutProps> = ({ children }) => {
   const { width, height } = useWindowSize();
   const [headerRef, { height: headerHeight }] = useElementSize();
 
+  const { user } = useAuth();
+
   useEffect(() => {
     dispatch(fetchSubcription());
-  }, [dispatch]);
+  }, []);
+
+  useEffect(() => {
+    if (user) {
+      dispatch(fetchCustomer(user));
+    }
+  }, [user]);
 
   useEffect(() => {
     const windowheight = `${height}px`;
@@ -33,7 +45,7 @@ const BaseLayout: FC<BaseLayoutProps> = ({ children }) => {
   return (
     <>
       <NavBar ref={headerRef} />
-      {children || <Outlet />}
+      <main>{children || <Outlet />}</main>
       <Footer />
     </>
   );

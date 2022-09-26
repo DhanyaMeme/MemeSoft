@@ -28,13 +28,13 @@ export const NavBar = forwardRef<HTMLDivElement>((_, ref) => {
   ];
 
   return (
-    <section
+    <header
       className={classNames("HeaderSection", {
         sticky: stickyPath.includes(path),
       })}
       ref={ref}
     >
-      <header
+      <div
         className={classNames("Header", {
           "Header--transparent": !scrollPosition,
         })}
@@ -44,7 +44,7 @@ export const NavBar = forwardRef<HTMLDivElement>((_, ref) => {
           <NavMenuWrapper handleOnNavCLick={handleOnNavCLick} />
         </nav>
         <MenuDrawer visibleMenu={isNavhidden} handleClose={handleOnNavCLick} />
-      </header>
-    </section>
+      </div>
+    </header>
   );
 });

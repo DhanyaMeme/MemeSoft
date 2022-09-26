@@ -1,15 +1,16 @@
 import { Navigate } from "react-router";
+import { POS } from "../pages/POS";
 import { ERP } from "../pages/ERP";
 import { Home } from "../pages/Home";
+import { Profile } from "../pages/Profile";
 import { Pricing } from "../pages/Pricing";
 import { Contact } from "../pages/Contact";
+import { Login } from "../pages/Auth/Login";
+import { Solution } from "../pages/Solution";
 import BaseLayout from "../layout/BaseLayout";
 import { Ecommerce } from "../pages/Ecommerce";
-import { Login } from "../pages/Auth/Login";
-import { Register } from "../pages/Auth/Register";
 import { MobileApps } from "../pages/MobileApps";
-import { POS } from "../pages/POS";
-import { Solution } from "../pages/Solution";
+import { Register } from "../pages/Auth/Register";
 import { Subscription } from "../pages/Subscription";
 
 const PagesInfo = {
@@ -67,6 +68,10 @@ const PagesInfo = {
     {
       path: "subscribe",
       element: <Subscription />,
+    },
+    {
+      path: "profile",
+      element: <Profile />,
     },
   ],
 };

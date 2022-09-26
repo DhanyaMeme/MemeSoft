@@ -5,10 +5,6 @@ import LazyLoad from "../../ui-kits/LazyComponent";
 import { PageWidth } from "../../ui-kits/PageWidth";
 import { PricingCard } from "../../components/Pricing/PricingCard";
 import { useAppDispatch, useAppSelector } from "../../redux/store";
-import {
-  fetchCustomer,
-  fetchSubcription,
-} from "../../redux/slices/nav/nav.reducer";
 import { SectionHeader } from "../../ui-kits/Sections/SectionHeader/SectionHeader";
 import { SectionWrapper } from "../../ui-kits/Sections/SectionWrapper/SectionWrapper";
 import {
@@ -36,7 +32,6 @@ export const Pricing = () => {
   const handleSubscribe = (pricingData: IPricingData) => {
     if (user) {
       dispatch(setSelectedPricing(pricingData));
-      dispatch(fetchCustomer(user));
       navigate("/subscribe");
     } else {
       navigate("/login");
