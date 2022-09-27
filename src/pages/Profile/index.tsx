@@ -24,12 +24,9 @@ export const Profile = () => {
   return (
     <Container isNarrow>
       <PageHeader>
-        <SectionHeader
-          heading="My account"
-          subHeading={`Welcome back, Dhanya`}
-        />
+        <SectionHeader heading={`Welcome back, ${customerData?.companyname}`} />
       </PageHeader>
-      <div className="PageLayout PageLayout PageLayout--breakLap">
+      <div className="mb-6 PageLayout PageLayout PageLayout--breakLap">
         <div className="PageLayout__Section">
           <IF condition={!isEmpty(customerTransactionsData)}>
             <PlanTransaction

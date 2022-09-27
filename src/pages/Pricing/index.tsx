@@ -13,13 +13,11 @@ import {
 } from "../../redux/slices/nav/nav.slice";
 import { pricingData } from "../../redux/slices/nav/nav.selector";
 import { IPricingData } from "../../redux/slices/nav/nav.type";
-import { useAuth } from "../../context/AuthContext";
 
 export const Pricing = () => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const { data } = useAppSelector(pricingData);
-  const { user } = useAuth();
 
   const {
     params: { id },
@@ -30,12 +28,8 @@ export const Pricing = () => {
   const pricingList = data?.get(pathId);
 
   const handleSubscribe = (pricingData: IPricingData) => {
-    if (user) {
-      dispatch(setSelectedPricing(pricingData));
-      navigate("/subscribe");
-    } else {
-      navigate("/login");
-    }
+    dispatch(setSelectedPricing(pricingData));
+    navigate("/subscribe");
   };
 
   useEffect(() => {

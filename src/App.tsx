@@ -1,10 +1,11 @@
 import { useEffect } from "react";
 import Routes from "./routes";
 import AOS from "aos";
+import { store } from "./redux/store";
+import LayoutWrapper from "./layout/LayoutWrapper";
+import { StateAndRouterProvider } from "./StateAndRouterProvider";
 import "aos/dist/aos.css";
 import "./App.scss";
-import { StateAndRouterProvider } from "./StateAndRouterProvider";
-import { store } from "./redux/store";
 
 function App() {
   useEffect(() => {
@@ -14,7 +15,9 @@ function App() {
 
   return (
     <StateAndRouterProvider store={store}>
-      <Routes />
+      <LayoutWrapper>
+        <Routes />
+      </LayoutWrapper>
     </StateAndRouterProvider>
   );
 }

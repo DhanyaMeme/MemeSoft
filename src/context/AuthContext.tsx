@@ -6,6 +6,7 @@ import { fetchData } from "../services/axios";
 import { InputFocusEvent } from "../models/types";
 import { useLocalStorage } from "../custom-hooks/useLocalStorage";
 import { IFormState, InputBaseProps, Messages } from "../models/interfaces";
+import usePath from "../custom-hooks/usePath";
 
 type AuthProviderProps = {
   children: ReactNode;
@@ -58,13 +59,16 @@ export const AuthContext = createContext({} as IAuthContext);
 export const AuthProvider = ({ children }: AuthProviderProps) => {
   const navigate = useNavigate();
 
+  const [user, setUser] = useLocalStorage<AuthUser>("user", null);
+  const [loginPage, setLoginPage] = useState<LoginPage>(LoginPage.Login);
   const [verificationEmail, setVerificationEmail] = useLocalStorage<AuthUser>(
     "verify-email",
     null
   );
-  const [user, setUser] = useLocalStorage<AuthUser>("user", null);
 
-  const [loginPage, setLoginPage] = useState<LoginPage>(LoginPage.Login);
+  const { path } = usePath();
+
+  const authPath = ["register", "login"];
 
   const handleFormValidate = <T extends object>(
     InputsArray: Array<InputBaseProps<T>>,
@@ -138,7 +142,10 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
       setUser(authUser);
     }
     setVerificationEmail(null);
-    navigate("/");
+
+    if (authPath.includes(path)) {
+      navigate("/");
+    }
   };
 
   const handleLoginPage = (page: LoginPage, email?: AuthUser) => {

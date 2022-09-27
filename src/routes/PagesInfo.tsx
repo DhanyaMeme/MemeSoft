@@ -2,7 +2,6 @@ import { Navigate } from "react-router";
 import { POS } from "../pages/POS";
 import { ERP } from "../pages/ERP";
 import { Home } from "../pages/Home";
-import { Profile } from "../pages/Profile";
 import { Pricing } from "../pages/Pricing";
 import { Contact } from "../pages/Contact";
 import { Login } from "../pages/Auth/Login";
@@ -11,7 +10,6 @@ import BaseLayout from "../layout/BaseLayout";
 import { Ecommerce } from "../pages/Ecommerce";
 import { MobileApps } from "../pages/MobileApps";
 import { Register } from "../pages/Auth/Register";
-import { Subscription } from "../pages/Subscription";
 
 const PagesInfo = {
   path: "/",
@@ -64,14 +62,6 @@ const PagesInfo = {
     {
       path: "contact",
       element: <Contact />,
-    },
-    {
-      path: "subscribe",
-      element: <Subscription />,
-    },
-    {
-      path: "profile",
-      element: <Profile />,
     },
   ],
 };
