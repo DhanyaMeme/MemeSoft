@@ -124,7 +124,7 @@ export const ContactForm = () => {
         />
       </FormElement>
       <FormSubmit isFull isLoading={formState.isButtonLoading}>
-        Login
+        CONTACT US
       </FormSubmit>
     </Form>
   );
