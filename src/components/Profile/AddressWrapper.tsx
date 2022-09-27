@@ -14,6 +14,8 @@ export const AddressWrapper: FC<IProps> = (props: IProps) => {
       <h5 className="Segment__Title Heading">Company address</h5>
       <div className="Segment__Content">
         <p>
+          {customer.companyname}
+          <br />
           {customer.street1} &nbsp;{customer.street2}
           <br />
           {customer.city}, {customer.state}, {customer.zip}
