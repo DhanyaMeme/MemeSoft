@@ -20,10 +20,10 @@ export const ERPBanner = () => {
         </p>
         <ButtonGroup className="ERP__Hero--btns">
           <TextButton isSmall buttonType={BUTTON_TYPE_CLASSES.overlay}>
-            Register
+            REGISTER
           </TextButton>
           <TextButton isSmall buttonType={BUTTON_TYPE_CLASSES.overlay}>
-            Login
+            LOGIN
           </TextButton>
         </ButtonGroup>
       </div>

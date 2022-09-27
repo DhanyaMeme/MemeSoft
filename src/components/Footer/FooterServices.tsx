@@ -1,6 +1,6 @@
 import { FC, useState } from "react";
 import classNames from "classnames";
-import { IFooterLinks } from "./data/data";
+import { IFooterLinks } from "../../mocks/FooterData";
 
 interface IProps {
   links: IFooterLinks;
@@ -25,7 +25,7 @@ export const FooterServices: FC<IProps> = (props: IProps) => {
       <ul className="Linklist u-h5">
         {links.items.map((submenu) => (
           <li className="Linklist__Item" key={submenu.head}>
-            <a href={`/page/${submenu.url}`} className="Link Link--secondary">
+            <a href={`/${submenu.url}`} className="Link Link--secondary">
               {submenu.head}
             </a>
           </li>

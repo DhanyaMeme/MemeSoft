@@ -1,5 +1,5 @@
+import { footerLinks, IFooterLinks } from "../../mocks/FooterData";
 import { Container } from "../../ui-kits/Container";
-import { footerLinks, IFooterLinks } from "./data/data";
 import { FooterContactInfo } from "./FooterContactInfo";
 import { FooterNewsLetter } from "./FooterNewsLetter";
 import { FooterServices } from "./FooterServices";

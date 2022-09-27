@@ -1,5 +1,6 @@
 import { useAuth } from "../../context/AuthContext";
 import useObjectState from "../../custom-hooks/useObjectState";
+import usePath from "../../custom-hooks/usePath";
 import { initialFormState } from "../../models/constants";
 import { IFormState, Messages } from "../../models/interfaces";
 import {
@@ -16,7 +17,9 @@ import {
   FormTextInput,
 } from "../../ui-kits/Form";
 import { Form__Elemen__Types } from "../../ui-kits/Form/FormElements/FormElement";
+import { IF } from "../../ui-kits/IF";
 import { safeSetTimeout } from "../../utils/generics";
+import { isEmpty } from "../../utils/script";
 import { FormError } from "../Auth/FormError";
 import {
   ContactInputProps,
@@ -28,6 +31,9 @@ import {
 export const ContactForm = () => {
   const groupInputs = contactInputs.slice(0, contactInputs.length - 1);
   const messageInput = contactInputs[contactInputs.length - 1];
+
+  const { getSearchParams } = usePath();
+  const searchParams = getSearchParams("rc");
 
   const { handleFormValidate, handleOnFocusEvent, updateData } = useAuth();
   const {
@@ -69,6 +75,22 @@ export const ContactForm = () => {
       <FormElement elementType={Form__Elemen__Types.FormHeader}>
         <h2 className="Heading Text--highlight">CONTACT US</h2>
       </FormElement>
+
+      <IF condition={!isEmpty(searchParams)}>
+        <FormElement>
+          <p>
+            We offer innovative investment products, advanced solutions and
+            outstanding leading experts. Our products are designed with one
+            purpose, to protect and grow the capital of investors and to ensure
+            the safety of companies and individual investors. Our cultural team
+            of experienced financial advisors speak more than 20 international
+            languages, and we reach out to our clients across our borders in
+            their own language, reflecting globalization and enhanced
+            connectivity.
+          </p>
+        </FormElement>
+      </IF>
+
       <FormError formState={formState} />
       <FormElement elementType={Form__Elemen__Types.FormGroup}>
         {groupInputs.map(({ validation, ...item }: ContactInputProps) => {

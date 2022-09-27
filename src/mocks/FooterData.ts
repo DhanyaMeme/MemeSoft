@@ -37,7 +37,7 @@ export const footerLinks: IFooterLinks[] = [
     items: [
       {
         head: "Reach Us",
-        url: "reach-us",
+        url: "contact?rc=investor",
       },
     ],
   },
