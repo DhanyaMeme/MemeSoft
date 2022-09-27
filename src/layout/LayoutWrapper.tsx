@@ -10,6 +10,7 @@ import {
 } from "../redux/slices/customer/customer.reducer";
 import { fetchSubcription } from "../redux/slices/nav/nav.reducer";
 import { useAppDispatch } from "../redux/store";
+import { ScrollTop } from "../ui-kits/ScrollTop/ScrollTop";
 
 interface LayoutProps {
   children: ReactNode;
@@ -45,6 +46,7 @@ const LayoutWrapper: FC<LayoutProps> = ({ children }) => {
 
   return (
     <>
+      <ScrollTop />
       <NavBar ref={headerRef} />
       <main>{children}</main>
       <Footer />

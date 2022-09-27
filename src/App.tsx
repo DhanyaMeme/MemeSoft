@@ -1,9 +1,10 @@
+import AOS from "aos";
 import { useEffect } from "react";
 import Routes from "./routes";
-import AOS from "aos";
 import { store } from "./redux/store";
 import LayoutWrapper from "./layout/LayoutWrapper";
 import { StateAndRouterProvider } from "./StateAndRouterProvider";
+import NavigationScroll from "./ui-kits/NavigationScroll/NavigationScroll";
 import "aos/dist/aos.css";
 import "./App.scss";
 
@@ -16,7 +17,9 @@ function App() {
   return (
     <StateAndRouterProvider store={store}>
       <LayoutWrapper>
-        <Routes />
+        <NavigationScroll>
+          <Routes />
+        </NavigationScroll>
       </LayoutWrapper>
     </StateAndRouterProvider>
   );

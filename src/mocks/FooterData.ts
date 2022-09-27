@@ -15,8 +15,8 @@ export const footerLinks: IFooterLinks[] = [
         url: "about",
       },
       {
-        head: "Contact",
-        url: "contact",
+        head: "Terms Of Condition",
+        url: "Terms",
       },
       {
         head: "Shipping Policy",
