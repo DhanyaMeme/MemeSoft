@@ -14,7 +14,7 @@ export const HeroDeskBanner = () => {
           <h1 className="Heading">
             Email and SMS are great but what about your anonymous shoppers?
           </h1>
-          <p className="Text--subdued u-h2">
+          <p className="Text--subdued u-h4">
             Web push notifications let you capture these shoppers as subscribers
             without asking for personal details, sending them notifications on
             their device screen, and nurturing them into buyers.

@@ -15,7 +15,7 @@ export const AddressWrapper: FC<IProps> = (props: IProps) => {
   return (
     <div className="Segment">
       <h5 className="Segment__Title Heading">Company Address</h5>
-      <div className="Segment__Content">
+      <div className="Segment__Content ">
         <p>
           {customer.companyname}
           <br />
@@ -23,9 +23,9 @@ export const AddressWrapper: FC<IProps> = (props: IProps) => {
           <br />
           {customer.city}, {customer.state}, {customer.zip}
           <br />
-          <span className="mobile">☎ : {customer.email}</span>
+          <span className="mobile">E : {customer.email}</span>
           <br />
-          <span className="mobile">✉ : {customer.phone}</span>
+          <span className="mobile">T : {customer.phone}</span>
           <br />
           {customer.country}
         </p>
