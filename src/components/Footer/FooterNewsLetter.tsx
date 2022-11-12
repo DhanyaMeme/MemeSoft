@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { IFormState, Messages } from "../../models/interfaces";
 import { initialFormState } from "../../models/constants";
-import useObjectState from "../../custom-hooks/useObjectState";
 import { Form, FormElement, FormTextInput } from "../../ui-kits/Form";
 import {
   BUTTON_TYPE_CLASSES,
@@ -9,11 +8,11 @@ import {
 } from "../../ui-kits/TextButton/TextButton.component";
 import { IValidation, validationRules } from "../../utils/Validation";
 import { InputChangeEvent, InputFocusEvent } from "../../models/types";
-import { useAuth } from "../../context/AuthContext";
-import { authService } from "../../services/axiosServices";
 import { safeSetTimeout } from "../../utils/generics";
 import { FormError } from "../FormError";
-
+import useObjectState from "../../custom-hooks/useObjectState";
+import { useAuth } from "../../context/AuthContext";
+import { authService } from "../../services/axiosServices";
 
 export const FooterNewsLetter = () => {
   const [email, setEmail] = useState<string | null>(null);
@@ -71,15 +70,15 @@ export const FooterNewsLetter = () => {
     event.preventDefault();
     const isValid = handleValidate();
     if (isValid) {
-      const data = await updateData(
-        params,
-        formState as IFormState<string>,
-        message,
-        setFormState
-      );
-      if (data) {
-        safeSetTimeout(setFormState, 2000, initialFormState);
-      }
+      // const data = await updateData(
+      //   params,
+      //   formState as IFormState<string>,
+      //   message,
+      //   setFormState
+      // );
+      // if (data) {
+      //   safeSetTimeout(setFormState, 2000, initialFormState);
+      // }
     }
   };
 

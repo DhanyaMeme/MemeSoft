@@ -1,5 +1,4 @@
 import { ReactElement, FC, useState } from "react";
-import EyeIcon from "../../../assets/icons/Eye.icon";
 import { InputType } from "../../../models/enums";
 import { IFromInputProps } from "./IFormProps";
 
@@ -25,7 +24,7 @@ export const FormPasswordInput: FC<IFromInputProps> = ({
         className="Form__Input"
       />
       <span className="Form__InputIcon" onClick={handleTogglePassword}>
-        <EyeIcon />
+        👁
       </span>
       <label className="Form__FloatingLabel">{label}</label>
     </>
