@@ -1,17 +1,36 @@
+import { useMemo } from "react";
+import {
+  EUBanner,
+  JAPANBanner,
+  LATINBanner,
+  UKBanner,
+  USABanner,
+} from "../../assets/images";
 import { SplitBanner } from "../../components/Banner/SplitBanner";
 import { SiteInfo } from "../../components/SiteInfo";
+import { CountryEnum } from "../../models/enums";
+import { country } from "../../redux/slices/nav/nav.selector";
+import { useAppSelector } from "../../redux/store";
 
 export const Home = () => {
+  const countryName = useAppSelector(country);
+
+  const getLogo = (name = CountryEnum.USA) =>
+    ({
+      [CountryEnum.UK]: UKBanner,
+      [CountryEnum.USA]: USABanner,
+      [CountryEnum.EUROPE]: EUBanner,
+      [CountryEnum.Latin]: LATINBanner,
+      [CountryEnum.JAPAN]: JAPANBanner,
+    }[name]);
+
+  const computedBanner = useMemo(() => {
+    return getLogo(countryName);
+  }, [countryName]);
+
   return (
     <div>
-      <SplitBanner
-        url={"images/homeBanner.png"}
-        title="The easiest way to sell online in Global"
-        subTitle={[
-          "Try one of the most powerful platforms on the market for free.",
-          "No technical knowledge needed.",
-        ]}
-      />
+      <SplitBanner url={computedBanner} title={countryName} />
       <SiteInfo />
     </div>
   );
