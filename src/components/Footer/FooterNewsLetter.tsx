@@ -12,7 +12,8 @@ import { InputChangeEvent, InputFocusEvent } from "../../models/types";
 import { useAuth } from "../../context/AuthContext";
 import { authService } from "../../services/axiosServices";
 import { safeSetTimeout } from "../../utils/generics";
-import { FormError } from "../Auth/FormError";
+import { FormError } from "../FormError";
+
 
 export const FooterNewsLetter = () => {
   const [email, setEmail] = useState<string | null>(null);

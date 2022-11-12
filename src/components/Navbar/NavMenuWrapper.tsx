@@ -2,7 +2,7 @@ import { FC, ReactElement } from "react";
 import { MenuIcon } from "../../assets/icons/Menu.icon";
 import { INavData, navData } from "../../mocks/navData";
 import { OnclickEvent } from "../../models/types";
-import { AuthButton } from "./AuthButton";
+import { CountrySelect } from "./AuthButton";
 import { NavMenuItem } from "./NavMenuItem";
 
 interface IProps {
@@ -25,8 +25,9 @@ export const NavMenuWrapper: FC<IProps> = (props: IProps): ReactElement => {
           {navData.map((item: INavData) => (
             <NavMenuItem item={item} key={item.title} />
           ))}
+          &nbsp;&nbsp;
           <li className="HorizontalList__Item">
-            <AuthButton />
+            <CountrySelect />
           </li>
         </ul>
       </div>

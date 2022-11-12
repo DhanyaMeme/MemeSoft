@@ -1,73 +1,39 @@
-import { FC } from "react";
-import LazyLoad from "../../ui-kits/LazyComponent";
-import { PageWidth } from "../../ui-kits/PageWidth";
-import { UserIcon } from "../../assets/icons/User.icon";
-import { ImageWrapper } from "../../ui-kits/ImageWrapper";
-import { IFeature, IInfoProps } from "../../models/interfaces";
-import { SectionHeader } from "../../ui-kits/Sections/SectionHeader/SectionHeader";
-import { SectionWrapper } from "../../ui-kits/Sections/SectionWrapper/SectionWrapper";
-import "./Style.scss";
+import { useMemo } from "react";
+import { infoData } from "../../mocks/infoData";
+import { country } from "../../redux/slices/nav/nav.selector";
+import { useAppSelector } from "../../redux/store";
+import { Container } from "../../ui-kits/Container";
+import {
+  PageContent,
+  PageHeader,
+} from "../../ui-kits/Wrappers/PageContent.styles";
 
-interface IProps {
-  data: IInfoProps;
-}
+export const SiteInfo = () => {
+  const countryName = useAppSelector(country);
 
-export const SiteInfo: FC<IProps> = (props: IProps) => {
-  const { banner, feature } = props.data;
+  const computedData = useMemo(() => {
+    return infoData[countryName];
+  }, [countryName]);
 
   return (
-    <div className="SiteInfo">
-      <SectionWrapper isbordered>
-        <PageWidth isNarrow>
-          <SectionHeader heading={banner.title} subHeading={banner.subTitle} />
-          <div className="CollectionList Grid">
-            {banner.images.map((item: string, index: number) => (
-              <LazyLoad
-                tag="div"
-                key={index}
-                className="Grid__Cell 1/2--phone 1/2--tablet-and-up 1/4--lap-and-up"
-              >
-                <div
-                  className="CollectionItem__Wrapper"
-                  data-aos="flip-left"
-                  data-aos-easing="linear"
-                  data-aos-duration="2000"
-                  data-aos-once="true"
-                >
-                  <div className="CollectionItem__ImageWrapper">
-                    <ImageWrapper
-                      src={item}
-                      alt="collectionImage"
-                      classes="CollectionItem__Image Image--contrast Image--zoomOut"
-                    />
-                  </div>
-                </div>
-              </LazyLoad>
-            ))}
-          </div>
-          <SectionHeader heading="Take the best path forward" />
-          <div className="CollectionList Grid">
-            {feature.map((item: IFeature, index: number) => (
-              <LazyLoad
-                tag="div"
-                key={index}
-                className="Grid__Cell  1/2--tablet-and-up 1/4--lap-and-up"
-              >
-                <div
-                  className="CollectionItem__Wrapper"
-                  data-aos="flip-left"
-                  data-aos-duration="3000"
-                  data-aos-once="true"
-                >
-                  <UserIcon />
-                  <h3 className="Heading">{item.title}</h3>
-                  <p>{item.description}</p>
-                </div>
-              </LazyLoad>
-            ))}
-          </div>
-        </PageWidth>
-      </SectionWrapper>
-    </div>
+    <Container>
+      <PageContent>
+        <PageHeader>
+          <h1 className="Heading Text--alignCenter Text--highlight">
+            {` WHY MADE IN ${countryName} MATTERS`}
+          </h1>
+        </PageHeader>
+        {computedData.map((item: string, i: number) => (
+          <p key={i}>{item}</p>
+        ))}
+        <br />
+        <h4 className="Heading">
+          <div>Pan Pan</div>
+          <div>Foundar</div>
+          <div>2504.ORG</div>
+          <div>{`Commit to Made In ${countryName}`}</div>
+        </h4>
+      </PageContent>
+    </Container>
   );
 };

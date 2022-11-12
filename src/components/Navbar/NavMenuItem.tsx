@@ -23,7 +23,7 @@ export const NavMenuItem: FC<IProps> = (props: IProps): ReactElement => {
       ref={hoverRef}
     >
       <NavLink
-        to={`/${item.path}`}
+        to={`/home`}
         className={classnames("Heading", {
           Header__LinkSpacer: !item.dropDown,
         })}
@@ -37,7 +37,7 @@ export const NavMenuItem: FC<IProps> = (props: IProps): ReactElement => {
             {item.dropDown?.map((submenu: ISubMenu, index: number) => (
               <li className="Linklist__Item" key={submenu.title + index}>
                 <NavLink
-                  to={`/${submenu.path}`}
+                  to={`/home`}
                   className="Link Text--subdued  Link--primary"
                 >
                   {submenu.title.toUpperCase()}

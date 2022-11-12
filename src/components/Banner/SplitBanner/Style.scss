@@ -1,23 +1,11 @@
 .HomeHero {
   position: relative;
-  background-color: #fbf7ed;
   overflow: hidden;
-  min-height: 500px;
-  padding: 4em 0;
-
-  &__Content {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    padding: 10% 5%;
-    p {
-      margin-bottom: 0;
-    }
-  }
 
   &__Image {
     display: block;
     width: 100%;
+    height: auto;
     position: relative;
 
     > img {
@@ -40,29 +28,5 @@
         rgba(0, 0, 0, 0) 30%
       );
     }
-  }
-
-  @media screen and (min-width: 1240px) {
-    &__Image {
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      width: 50%;
-      right: -64px;
-
-      > img {
-        object-position: right top;
-      }
-    }
-  }
-
-  @media screen and (min-width: 750px) {
-    padding-top: 6em;
-    padding-bottom: 6em;
-  }
-
-  @media screen and (max-width: 1239px) {
-    padding-bottom: 0;
   }
 }

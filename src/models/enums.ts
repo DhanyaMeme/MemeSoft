@@ -23,3 +23,11 @@ export enum InputType {
   week = "week",
   select = "select",
 }
+
+export enum CountryEnum {
+  EUROPE = "EUROPE",
+  JAPAN = "JAPAN",
+  UK = "UNITED KINGDOM",
+  USA = "U.S America",
+  Latin = "Latin America",
+}

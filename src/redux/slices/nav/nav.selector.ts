@@ -3,16 +3,5 @@ import { RootState } from "../../store";
 
 export const navSelf = (state: RootState) => state.nav;
 
-export const pricing = createSelector(
-  navSelf,
-  (state) => state && state.pricing
-);
-export const pricingData = createSelector(
-  navSelf,
-  (state) => state && state.pricingData
-);
+export const country = createSelector(navSelf, (state) => state && state.country);
 
-export const selectedPricing = createSelector(
-  navSelf,
-  (state) => state && state.selectedPricing
-);

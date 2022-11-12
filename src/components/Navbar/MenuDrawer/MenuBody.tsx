@@ -17,7 +17,7 @@ export const MenuBody: FC<IProps> = (props: IProps) => {
           <Accordian
             title={item.title.toUpperCase()}
             key={item.id}
-            path={`/${item.path}`}
+            path={`/home`}
             onHandleClose={handleClose}
             child={
               item.dropDown
@@ -28,7 +28,7 @@ export const MenuBody: FC<IProps> = (props: IProps) => {
                       onClick={handleClose}
                     >
                       <NavLink
-                        to={`/${submenu.path}`}
+                        to={`/home`}
                         className="Collapsible__Button Heading Text--subdued Link Link--primary u-h7"
                       >
                         {submenu.title.toUpperCase()}

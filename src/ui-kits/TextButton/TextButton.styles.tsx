@@ -92,22 +92,22 @@ const Button = styled.button<IButtonStyleProps>`
 
 const PrimaryButton = styled(Button)`
   color: white;
-  border-color: #55c57a;
+  border-color: #000;
 
   &::before {
-    background-color: #55c57a;
+    background-color: #000;
   }
 
   @media (-moz-touch-enabled: 0), (hover: hover) {
     &:not([disabled]):hover {
-      color: #55c57a;
+      color: #000;
       background-color: transparent;
     }
   }
 `;
 
 const OverlayButton = styled(Button)`
-  color: #55c57a;
+  color: #000;
   border-color: #ffffff;
 
   &::before {
@@ -123,11 +123,11 @@ const OverlayButton = styled(Button)`
 `;
 
 const SecondaryButton = styled(Button)`
-  color: #55c57a;
-  border: 1px solid #55c57a;
+  color: #000;
+  border: 1px solid #000;
 
   &::before {
-    background-color: #55c57a;
+    background-color: #000;
     transform-origin: right center;
     transform: scale(0, 1);
   }
@@ -135,7 +135,7 @@ const SecondaryButton = styled(Button)`
   @media (-moz-touch-enabled: 0), (hover: hover) {
     &:not([disabled]):hover {
       color: white;
-      border-color: #55c57a;
+      border-color: #000;
     }
     &:not([disabled]):hover::before {
       transform-origin: left center;
